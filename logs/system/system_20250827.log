@@ -1,0 +1,769 @@
+Register_Key.md에서 텔레그램 봇 토큰 로드 성공
+Register_Key.md에서 텔레그램 채팅 ID 로드 성공
+Register_Key.md에서 텔레그램 봇 토큰 로드 성공
+Register_Key.md에서 텔레그램 채팅 ID 로드 성공
+성능 최적화 시스템 초기화 시작
+백그라운드 수집기 준비 완료
+시스템 레벨 결정 엔진 준비 완료: 3분봉 단타 거래량·가격 결합 시스템
+통합 순환 관리자 준비 완료
+성능 최적화 시스템 초기화 완료
+시스템 레벨 결정 엔진 준비 완료 - 기존 알고리즘과 병행 사용
+통합 순환 관리 시작 (2분 간격)
+Error: Fast Token Manager 초기화 실패, 기존 방식 사용: Register_Key.md 설정 로드 실패: 환경 변수 'TIDEWISE_SECRET_KEY'가 설정되지 않았습니다. 32자리 이상의 강력한 비밀 키를 설정해주세요.
+예시: export TIDEWISE_SECRET_KEY='your-super-secret-and-long-key-here'
+단타매매 계좌 관리자 초기화: 모의투자
+백그라운드 급등종목 수집 비동기 작업 시작
+Error: Fast Token Manager 초기화 실패, 기존 방식 사용: Register_Key.md 설정 로드 실패: 환경 변수 'TIDEWISE_SECRET_KEY'가 설정되지 않았습니다. 32자리 이상의 강력한 비밀 키를 설정해주세요.
+예시: export TIDEWISE_SECRET_KEY='your-super-secret-and-long-key-here'
+Register_Key.md에서 텔레그램 봇 토큰 로드 성공
+Register_Key.md에서 텔레그램 채팅 ID 로드 성공
+텔레그램 알리미 초기화 완료
+단타매매 세션 시작 - 계좌 정보 초기화
+계좌 정보 갱신 완료: 예수금 100,000,000원, 주문가능금액 15,388,200원, 보유종목 5개
+단타매매 세션 종료 - 마지막 계좌 갱신: 00:29:53
+백그라운드 수집 작업 취소됨
+[모의투자계좌] 단타매매 완료
+Register_Key.md에서 텔레그램 봇 토큰 로드 성공
+Register_Key.md에서 텔레그램 채팅 ID 로드 성공
+성능 최적화 시스템 초기화 시작
+백그라운드 수집기 준비 완료
+시스템 레벨 결정 엔진 준비 완료: 3분봉 단타 거래량·가격 결합 시스템
+통합 순환 관리자 준비 완료
+성능 최적화 시스템 초기화 완료
+시스템 레벨 결정 엔진 준비 완료 - 기존 알고리즘과 병행 사용
+통합 순환 관리 시작 (2분 간격)
+Error: Fast Token Manager 초기화 실패, 기존 방식 사용: Register_Key.md 설정 로드 실패: 환경 변수 'TIDEWISE_SECRET_KEY'가 설정되지 않았습니다. 32자리 이상의 강력한 비밀 키를 설정해주세요.
+예시: export TIDEWISE_SECRET_KEY='your-super-secret-and-long-key-here'
+단타매매 계좌 관리자 초기화: 모의투자
+백그라운드 급등종목 수집 비동기 작업 시작
+Error: Fast Token Manager 초기화 실패, 기존 방식 사용: Register_Key.md 설정 로드 실패: 환경 변수 'TIDEWISE_SECRET_KEY'가 설정되지 않았습니다. 32자리 이상의 강력한 비밀 키를 설정해주세요.
+예시: export TIDEWISE_SECRET_KEY='your-super-secret-and-long-key-here'
+Register_Key.md에서 텔레그램 봇 토큰 로드 성공
+Register_Key.md에서 텔레그램 채팅 ID 로드 성공
+텔레그램 알리미 초기화 완료
+단타매매 세션 시작 - 계좌 정보 초기화
+계좌 정보 갱신 완료: 예수금 100,000,000원, 주문가능금액 15,388,200원, 보유종목 5개
+단타매매 세션 종료 - 마지막 계좌 갱신: 00:37:44
+백그라운드 수집 작업 취소됨
+[모의투자계좌] 단타매매 완료
+Register_Key.md에서 텔레그램 봇 토큰 로드 성공
+Register_Key.md에서 텔레그램 채팅 ID 로드 성공
+성능 최적화 시스템 초기화 시작
+백그라운드 수집기 준비 완료
+시스템 레벨 결정 엔진 준비 완료: 3분봉 단타 거래량·가격 결합 시스템
+통합 순환 관리자 준비 완료
+성능 최적화 시스템 초기화 완료
+MinimalDayTrader에 _format_account_data_for_display 메소드 추가됨
+시스템 레벨 결정 엔진 준비 완료 - 기존 알고리즘과 병행 사용
+통합 순환 관리 시작 (2분 간격)
+Error: Fast Token Manager 초기화 실패, 기존 방식 사용: Register_Key.md 설정 로드 실패: 환경 변수 'TIDEWISE_SECRET_KEY'가 설정되지 않았습니다. 32자리 이상의 강력한 비밀 키를 설정해주세요.
+예시: export TIDEWISE_SECRET_KEY='your-super-secret-and-long-key-here'
+단타매매 계좌 관리자 초기화: 모의투자
+백그라운드 급등종목 수집 비동기 작업 시작
+Error: Fast Token Manager 초기화 실패, 기존 방식 사용: Register_Key.md 설정 로드 실패: 환경 변수 'TIDEWISE_SECRET_KEY'가 설정되지 않았습니다. 32자리 이상의 강력한 비밀 키를 설정해주세요.
+예시: export TIDEWISE_SECRET_KEY='your-super-secret-and-long-key-here'
+Register_Key.md에서 텔레그램 봇 토큰 로드 성공
+Register_Key.md에서 텔레그램 채팅 ID 로드 성공
+텔레그램 알리미 초기화 완료
+단타매매 세션 시작 - 계좌 정보 초기화
+계좌 정보 갱신 완료: 예수금 100,000,000원, 주문가능금액 15,388,200원, 보유종목 5개
+Error: Fast Token Manager 초기화 실패, 기존 방식 사용: Register_Key.md 설정 로드 실패: 환경 변수 'TIDEWISE_SECRET_KEY'가 설정되지 않았습니다. 32자리 이상의 강력한 비밀 키를 설정해주세요.
+예시: export TIDEWISE_SECRET_KEY='your-super-secret-and-long-key-here'
+실시간 급등주 조회 성공: 20개
+계좌 정보 갱신 완료: 예수금 100,000,000원, 주문가능금액 15,388,200원, 보유종목 5개
+Error: Fast Token Manager 초기화 실패, 기존 방식 사용: Register_Key.md 설정 로드 실패: 환경 변수 'TIDEWISE_SECRET_KEY'가 설정되지 않았습니다. 32자리 이상의 강력한 비밀 키를 설정해주세요.
+예시: export TIDEWISE_SECRET_KEY='your-super-secret-and-long-key-here'
+실시간 급등주 조회 성공: 20개
+계좌 정보 갱신 완료: 예수금 100,000,000원, 주문가능금액 15,388,200원, 보유종목 5개
+Error: Fast Token Manager 초기화 실패, 기존 방식 사용: Register_Key.md 설정 로드 실패: 환경 변수 'TIDEWISE_SECRET_KEY'가 설정되지 않았습니다. 32자리 이상의 강력한 비밀 키를 설정해주세요.
+예시: export TIDEWISE_SECRET_KEY='your-super-secret-and-long-key-here'
+실시간 급등주 조회 성공: 20개
+계좌 정보 갱신 완료: 예수금 100,000,000원, 주문가능금액 15,388,200원, 보유종목 5개
+Register_Key.md에서 텔레그램 봇 토큰 로드 성공
+Register_Key.md에서 텔레그램 채팅 ID 로드 성공
+성능 최적화 시스템 초기화 시작
+백그라운드 수집기 준비 완료
+시스템 레벨 결정 엔진 준비 완료: 3분봉 단타 거래량·가격 결합 시스템
+통합 순환 관리자 준비 완료
+성능 최적화 시스템 초기화 완료
+MinimalDayTrader에 _format_account_data_for_display 메소드 추가됨
+시스템 레벨 결정 엔진 준비 완료 - 기존 알고리즘과 병행 사용
+통합 순환 관리 시작 (2분 간격)
+Error: Fast Token Manager 초기화 실패, 기존 방식 사용: Register_Key.md 설정 로드 실패: 환경 변수 'TIDEWISE_SECRET_KEY'가 설정되지 않았습니다. 32자리 이상의 강력한 비밀 키를 설정해주세요.
+예시: export TIDEWISE_SECRET_KEY='your-super-secret-and-long-key-here'
+단타매매 계좌 관리자 초기화: 모의투자
+백그라운드 급등종목 수집 비동기 작업 시작
+Error: Fast Token Manager 초기화 실패, 기존 방식 사용: Register_Key.md 설정 로드 실패: 환경 변수 'TIDEWISE_SECRET_KEY'가 설정되지 않았습니다. 32자리 이상의 강력한 비밀 키를 설정해주세요.
+예시: export TIDEWISE_SECRET_KEY='your-super-secret-and-long-key-here'
+Register_Key.md에서 텔레그램 봇 토큰 로드 성공
+Register_Key.md에서 텔레그램 채팅 ID 로드 성공
+텔레그램 알리미 초기화 완료
+단타매매 세션 시작 - 계좌 정보 초기화
+계좌 정보 갱신 완료: 예수금 100,000,000원, 주문가능금액 15,388,200원, 보유종목 5개
+Error: Fast Token Manager 초기화 실패, 기존 방식 사용: Register_Key.md 설정 로드 실패: 환경 변수 'TIDEWISE_SECRET_KEY'가 설정되지 않았습니다. 32자리 이상의 강력한 비밀 키를 설정해주세요.
+예시: export TIDEWISE_SECRET_KEY='your-super-secret-and-long-key-here'
+실시간 급등주 조회 성공: 20개
+계좌 정보 갱신 완료: 예수금 100,000,000원, 주문가능금액 15,388,200원, 보유종목 5개
+Error: Fast Token Manager 초기화 실패, 기존 방식 사용: Register_Key.md 설정 로드 실패: 환경 변수 'TIDEWISE_SECRET_KEY'가 설정되지 않았습니다. 32자리 이상의 강력한 비밀 키를 설정해주세요.
+예시: export TIDEWISE_SECRET_KEY='your-super-secret-and-long-key-here'
+단타매매 세션 종료 - 마지막 계좌 갱신: 00:46:45
+Error: Fast Token Manager 초기화 실패, 기존 방식 사용: Register_Key.md 설정 로드 실패: 환경 변수 'TIDEWISE_SECRET_KEY'가 설정되지 않았습니다. 32자리 이상의 강력한 비밀 키를 설정해주세요.
+예시: export TIDEWISE_SECRET_KEY='your-super-secret-and-long-key-here'
+실시간 급등주 조회 성공: 20개
+계좌 정보 갱신 완료: 예수금 100,000,000원, 주문가능금액 15,388,200원, 보유종목 5개
+Error: Fast Token Manager 초기화 실패, 기존 방식 사용: Register_Key.md 설정 로드 실패: 환경 변수 'TIDEWISE_SECRET_KEY'가 설정되지 않았습니다. 32자리 이상의 강력한 비밀 키를 설정해주세요.
+예시: export TIDEWISE_SECRET_KEY='your-super-secret-and-long-key-here'
+실시간 급등주 조회 성공: 20개
+계좌 정보 갱신 완료: 예수금 100,000,000원, 주문가능금액 15,388,200원, 보유종목 5개
+Error: Fast Token Manager 초기화 실패, 기존 방식 사용: Register_Key.md 설정 로드 실패: 환경 변수 'TIDEWISE_SECRET_KEY'가 설정되지 않았습니다. 32자리 이상의 강력한 비밀 키를 설정해주세요.
+예시: export TIDEWISE_SECRET_KEY='your-super-secret-and-long-key-here'
+실시간 급등주 조회 성공: 20개
+계좌 정보 갱신 완료: 예수금 100,000,000원, 주문가능금액 15,388,200원, 보유종목 5개
+Error: Fast Token Manager 초기화 실패, 기존 방식 사용: Register_Key.md 설정 로드 실패: 환경 변수 'TIDEWISE_SECRET_KEY'가 설정되지 않았습니다. 32자리 이상의 강력한 비밀 키를 설정해주세요.
+예시: export TIDEWISE_SECRET_KEY='your-super-secret-and-long-key-here'
+실시간 급등주 조회 성공: 20개
+계좌 정보 갱신 완료: 예수금 100,000,000원, 주문가능금액 15,388,200원, 보유종목 5개
+Error: Register_Key.md 로드 실패: Error loading from Register_Key.md: Register_Key.md 파일의 형식이 올바르지 않습니다.
+단타매매 세션 종료 - 마지막 계좌 갱신: 00:55:54
+백그라운드 수집 작업 취소됨
+[모의투자계좌] 단타매매 완료
+Error: 텔레그램 연동을 위한 정보가 없어 텔레그램은 작동하지 않습니다.
+성능 최적화 시스템 초기화 시작
+백그라운드 수집기 준비 완료
+시스템 레벨 결정 엔진 준비 완료: 3분봉 단타 거래량·가격 결합 시스템
+통합 순환 관리자 준비 완료
+성능 최적화 시스템 초기화 완료
+MinimalDayTrader에 _format_account_data_for_display 메소드 추가됨
+시스템 레벨 결정 엔진 준비 완료 - 기존 알고리즘과 병행 사용
+통합 순환 관리 시작 (2분 간격)
+Error: Register_Key.md 로드 실패: Error loading from Register_Key.md: Register_Key.md 파일의 형식이 올바르지 않습니다.
+백그라운드 수집 작업 정리 완료
+[모의투자계좌] 단타매매 완료
+Error: 텔레그램 연동을 위한 정보가 없어 텔레그램은 작동하지 않습니다.
+성능 최적화 시스템 초기화 시작
+백그라운드 수집기 준비 완료
+시스템 레벨 결정 엔진 준비 완료: 3분봉 단타 거래량·가격 결합 시스템
+통합 순환 관리자 준비 완료
+성능 최적화 시스템 초기화 완료
+MinimalDayTrader에 _format_account_data_for_display 메소드 추가됨
+시스템 레벨 결정 엔진 준비 완료 - 기존 알고리즘과 병행 사용
+통합 순환 관리 시작 (2분 간격)
+Fast Token Manager 초기화 완료: MOCK
+단타매매 계좌 관리자 초기화: 모의투자
+Error: Fast Token Manager에서 토큰 획득 실패, 기존 방식으로 재시도
+Error: 토큰 데이터 오류 (MOCK)
+Error: 계좌 조회 일반 오류, 3초 후 재시도... (시도 1/5): 토큰 데이터 처리 중 오류가 발생했습니다
+백그라운드 급등종목 수집 비동기 작업 시작
+Error: Register_Key.md 로드 실패: Error loading from Register_Key.md: Register_Key.md 파일의 형식이 올바르지 않습니다.
+Error: Fast Token Manager에서 토큰 획득 실패, 기존 방식으로 재시도
+Error: 토큰 데이터 오류 (MOCK)
+Error: 계좌 조회 일반 오류, 6초 후 재시도... (시도 2/5): 토큰 데이터 처리 중 오류가 발생했습니다
+Error: Fast Token Manager에서 토큰 획득 실패, 기존 방식으로 재시도
+Error: 토큰 데이터 오류 (MOCK)
+Error: 계좌 조회 일반 오류, 9초 후 재시도... (시도 3/5): 토큰 데이터 처리 중 오류가 발생했습니다
+Error: Fast Token Manager에서 토큰 획득 실패, 기존 방식으로 재시도
+Error: 토큰 데이터 오류 (MOCK)
+Error: 계좌 조회 일반 오류, 12초 후 재시도... (시도 4/5): 토큰 데이터 처리 중 오류가 발생했습니다
+Error: Fast Token Manager에서 토큰 획득 실패, 기존 방식으로 재시도
+Error: 토큰 데이터 오류 (MOCK)
+Error: 계좌 조회 최종 실패: 토큰 데이터 처리 중 오류가 발생했습니다
+단타매매 세션 시작 - 계좌 정보 초기화
+Error: Fast Token Manager에서 토큰 획득 실패, 기존 방식으로 재시도
+Error: 토큰 데이터 오류 (MOCK)
+Error: Fast Token Manager에서 토큰 획득 실패, 기존 방식으로 재시도
+Error: 토큰 데이터 오류 (MOCK)
+Error: Fast Token Manager에서 토큰 획득 실패, 기존 방식으로 재시도
+Error: 토큰 데이터 오류 (MOCK)
+단타매매 세션 종료 - 마지막 계좌 갱신: 없음
+[모의투자계좌] 단타매매 완료
+Error: 텔레그램 연동을 위한 정보가 없어 텔레그램은 작동하지 않습니다.
+성능 최적화 시스템 초기화 시작
+백그라운드 수집기 준비 완료
+시스템 레벨 결정 엔진 준비 완료: 3분봉 단타 거래량·가격 결합 시스템
+통합 순환 관리자 준비 완료
+성능 최적화 시스템 초기화 완료
+MinimalDayTrader에 _format_account_data_for_display 메소드 추가됨
+시스템 레벨 결정 엔진 준비 완료 - 기존 알고리즘과 병행 사용
+통합 순환 관리 시작 (2분 간격)
+Error: Register_Key.md 로드 실패: Error loading from Register_Key.md: Register_Key.md 파일의 형식이 올바르지 않습니다.
+백그라운드 수집 작업 정리 완료
+[모의투자계좌] 단타매매 완료
+Error: 텔레그램 연동을 위한 정보가 없어 텔레그램은 작동하지 않습니다.
+성능 최적화 시스템 초기화 시작
+백그라운드 수집기 준비 완료
+시스템 레벨 결정 엔진 준비 완료: 3분봉 단타 거래량·가격 결합 시스템
+통합 순환 관리자 준비 완료
+성능 최적화 시스템 초기화 완료
+MinimalDayTrader에 _format_account_data_for_display 메소드 추가됨
+시스템 레벨 결정 엔진 준비 완료 - 기존 알고리즘과 병행 사용
+통합 순환 관리 시작 (2분 간격)
+Error: Register_Key.md 로드 실패: Error loading from Register_Key.md: Register_Key.md 파일의 형식이 올바르지 않습니다.
+백그라운드 수집 작업 정리 완료
+[모의투자계좌] 단타매매 완료
+Error: 텔레그램 연동을 위한 정보가 없어 텔레그램은 작동하지 않습니다.
+성능 최적화 시스템 초기화 시작
+백그라운드 수집기 준비 완료
+시스템 레벨 결정 엔진 준비 완료: 3분봉 단타 거래량·가격 결합 시스템
+통합 순환 관리자 준비 완료
+성능 최적화 시스템 초기화 완료
+MinimalDayTrader에 _format_account_data_for_display 메소드 추가됨
+시스템 레벨 결정 엔진 준비 완료 - 기존 알고리즘과 병행 사용
+통합 순환 관리 시작 (2분 간격)
+Error: Register_Key.md 로드 실패: Error loading from Register_Key.md: Register_Key.md 파일의 형식이 올바르지 않습니다.
+백그라운드 수집 작업 정리 완료
+[모의투자계좌] 단타매매 완료
+Error: 텔레그램 연동을 위한 정보가 없어 텔레그램은 작동하지 않습니다.
+성능 최적화 시스템 초기화 시작
+백그라운드 수집기 준비 완료
+시스템 레벨 결정 엔진 준비 완료: 3분봉 단타 거래량·가격 결합 시스템
+통합 순환 관리자 준비 완료
+성능 최적화 시스템 초기화 완료
+MinimalDayTrader에 _format_account_data_for_display 메소드 추가됨
+시스템 레벨 결정 엔진 준비 완료 - 기존 알고리즘과 병행 사용
+통합 순환 관리 시작 (2분 간격)
+Error: Register_Key.md 로드 실패: Error loading from Register_Key.md: Register_Key.md 파일의 형식이 올바르지 않습니다.
+백그라운드 수집 작업 정리 완료
+[모의투자계좌] 단타매매 완료
+Error: 텔레그램 연동을 위한 정보가 없어 텔레그램은 작동하지 않습니다.
+성능 최적화 시스템 초기화 시작
+백그라운드 수집기 준비 완료
+시스템 레벨 결정 엔진 준비 완료: 3분봉 단타 거래량·가격 결합 시스템
+통합 순환 관리자 준비 완료
+성능 최적화 시스템 초기화 완료
+MinimalDayTrader에 _format_account_data_for_display 메소드 추가됨
+시스템 레벨 결정 엔진 준비 완료 - 기존 알고리즘과 병행 사용
+통합 순환 관리 시작 (2분 간격)
+Fast Token Manager 초기화 완료: MOCK
+단타매매 계좌 관리자 초기화: 모의투자
+Error: Fast Token Manager에서 토큰 획득 실패, 기존 방식으로 재시도
+Error: 토큰 데이터 오류 (MOCK)
+Error: 계좌 조회 일반 오류, 3초 후 재시도... (시도 1/5): 토큰 데이터 처리 중 오류가 발생했습니다
+백그라운드 급등종목 수집 비동기 작업 시작
+Fast Token Manager 초기화 완료: MOCK
+Error: 텔레그램 연동을 위한 정보가 없어 텔레그램은 작동하지 않습니다.
+텔레그램 연동을 위한 정보가 없어 텔레그램은 작동하지 않습니다.
+Error: Fast Token Manager에서 토큰 획득 실패, 기존 방식으로 재시도
+Error: 토큰 데이터 오류 (MOCK)
+Error: 계좌 조회 일반 오류, 6초 후 재시도... (시도 2/5): 토큰 데이터 처리 중 오류가 발생했습니다
+Error: Fast Token Manager에서 토큰 획득 실패, 기존 방식으로 재시도
+Error: 토큰 데이터 오류 (MOCK)
+Error: 계좌 조회 일반 오류, 9초 후 재시도... (시도 3/5): 토큰 데이터 처리 중 오류가 발생했습니다
+Error: Fast Token Manager에서 토큰 획득 실패, 기존 방식으로 재시도
+Error: 토큰 데이터 오류 (MOCK)
+Error: 계좌 조회 일반 오류, 12초 후 재시도... (시도 4/5): 토큰 데이터 처리 중 오류가 발생했습니다
+Error: Fast Token Manager에서 토큰 획득 실패, 기존 방식으로 재시도
+Error: 토큰 데이터 오류 (MOCK)
+Error: 계좌 조회 최종 실패: 토큰 데이터 처리 중 오류가 발생했습니다
+단타매매 세션 시작 - 계좌 정보 초기화
+Error: Fast Token Manager에서 토큰 획득 실패, 기존 방식으로 재시도
+Error: 토큰 데이터 오류 (MOCK)
+Error: Fast Token Manager에서 토큰 획득 실패, 기존 방식으로 재시도
+Error: 토큰 데이터 오류 (MOCK)
+Error: Fast Token Manager에서 토큰 획득 실패, 기존 방식으로 재시도
+Error: 토큰 데이터 오류 (MOCK)
+단타매매 세션 종료 - 마지막 계좌 갱신: 없음
+백그라운드 수집 작업 취소됨
+[모의투자계좌] 단타매매 완료
+Error: 텔레그램 연동을 위한 정보가 없어 텔레그램은 작동하지 않습니다.
+성능 최적화 시스템 초기화 시작
+백그라운드 수집기 준비 완료
+시스템 레벨 결정 엔진 준비 완료: 3분봉 단타 거래량·가격 결합 시스템
+통합 순환 관리자 준비 완료
+성능 최적화 시스템 초기화 완료
+MinimalDayTrader에 _format_account_data_for_display 메소드 추가됨
+시스템 레벨 결정 엔진 준비 완료 - 기존 알고리즘과 병행 사용
+통합 순환 관리 시작 (2분 간격)
+Fast Token Manager 초기화 완료: MOCK
+단타매매 계좌 관리자 초기화: 모의투자
+Error: Fast Token Manager에서 토큰 획득 실패, 기존 방식으로 재시도
+Error: 토큰 데이터 오류 (MOCK)
+Error: 계좌 조회 일반 오류, 3초 후 재시도... (시도 1/5): 토큰 데이터 처리 중 오류가 발생했습니다
+백그라운드 급등종목 수집 비동기 작업 시작
+Fast Token Manager 초기화 완료: MOCK
+Error: 텔레그램 연동을 위한 정보가 없어 텔레그램은 작동하지 않습니다.
+텔레그램 연동을 위한 정보가 없어 텔레그램은 작동하지 않습니다.
+Error: Fast Token Manager에서 토큰 획득 실패, 기존 방식으로 재시도
+Error: 토큰 데이터 오류 (MOCK)
+Error: 계좌 조회 일반 오류, 6초 후 재시도... (시도 2/5): 토큰 데이터 처리 중 오류가 발생했습니다
+Error: Fast Token Manager에서 토큰 획득 실패, 기존 방식으로 재시도
+Error: 토큰 데이터 오류 (MOCK)
+Error: 계좌 조회 일반 오류, 9초 후 재시도... (시도 3/5): 토큰 데이터 처리 중 오류가 발생했습니다
+Error: Fast Token Manager에서 토큰 획득 실패, 기존 방식으로 재시도
+Error: 토큰 데이터 오류 (MOCK)
+Error: 계좌 조회 일반 오류, 12초 후 재시도... (시도 4/5): 토큰 데이터 처리 중 오류가 발생했습니다
+Error: Fast Token Manager에서 토큰 획득 실패, 기존 방식으로 재시도
+Error: 토큰 데이터 오류 (MOCK)
+Error: 계좌 조회 최종 실패: 토큰 데이터 처리 중 오류가 발생했습니다
+단타매매 세션 시작 - 계좌 정보 초기화
+Error: Fast Token Manager에서 토큰 획득 실패, 기존 방식으로 재시도
+Error: 토큰 데이터 오류 (MOCK)
+Error: Fast Token Manager에서 토큰 획득 실패, 기존 방식으로 재시도
+Error: 토큰 데이터 오류 (MOCK)
+Error: Fast Token Manager에서 토큰 획득 실패, 기존 방식으로 재시도
+Error: 토큰 데이터 오류 (MOCK)
+단타매매 세션 종료 - 마지막 계좌 갱신: 없음
+백그라운드 수집 작업 취소됨
+[모의투자계좌] 단타매매 완료
+Error: 텔레그램 연동을 위한 정보가 없어 텔레그램은 작동하지 않습니다.
+성능 최적화 시스템 초기화 시작
+백그라운드 수집기 준비 완료
+시스템 레벨 결정 엔진 준비 완료: 3분봉 단타 거래량·가격 결합 시스템
+통합 순환 관리자 준비 완료
+성능 최적화 시스템 초기화 완료
+MinimalDayTrader에 _format_account_data_for_display 메소드 추가됨
+시스템 레벨 결정 엔진 준비 완료 - 기존 알고리즘과 병행 사용
+통합 순환 관리 시작 (2분 간격)
+Fast Token Manager 초기화 완료: MOCK
+단타매매 계좌 관리자 초기화: 모의투자
+Error: Fast Token Manager에서 토큰 획득 실패, 기존 방식으로 재시도
+Error: 토큰 데이터 오류 (MOCK)
+Error: 계좌 조회 일반 오류, 3초 후 재시도... (시도 1/5): 토큰 데이터 처리 중 오류가 발생했습니다
+백그라운드 급등종목 수집 비동기 작업 시작
+Fast Token Manager 초기화 완료: MOCK
+Error: 텔레그램 연동을 위한 정보가 없어 텔레그램은 작동하지 않습니다.
+텔레그램 연동을 위한 정보가 없어 텔레그램은 작동하지 않습니다.
+Error: Fast Token Manager에서 토큰 획득 실패, 기존 방식으로 재시도
+Error: 토큰 데이터 오류 (MOCK)
+Error: 계좌 조회 일반 오류, 6초 후 재시도... (시도 2/5): 토큰 데이터 처리 중 오류가 발생했습니다
+Error: Fast Token Manager에서 토큰 획득 실패, 기존 방식으로 재시도
+Error: 토큰 데이터 오류 (MOCK)
+Error: 계좌 조회 일반 오류, 9초 후 재시도... (시도 3/5): 토큰 데이터 처리 중 오류가 발생했습니다
+Error: Fast Token Manager에서 토큰 획득 실패, 기존 방식으로 재시도
+Error: 토큰 데이터 오류 (MOCK)
+Error: 계좌 조회 일반 오류, 12초 후 재시도... (시도 4/5): 토큰 데이터 처리 중 오류가 발생했습니다
+Error: 텔레그램 연동을 위한 정보가 없어 텔레그램은 작동하지 않습니다.
+성능 최적화 시스템 초기화 시작
+백그라운드 수집기 준비 완료
+시스템 레벨 결정 엔진 준비 완료: 3분봉 단타 거래량·가격 결합 시스템
+통합 순환 관리자 준비 완료
+성능 최적화 시스템 초기화 완료
+MinimalDayTrader에 _format_account_data_for_display 메소드 추가됨
+시스템 레벨 결정 엔진 준비 완료 - 기존 알고리즘과 병행 사용
+통합 순환 관리 시작 (2분 간격)
+Fast Token Manager 초기화 완료: MOCK
+단타매매 계좌 관리자 초기화: 모의투자
+Error: Fast Token Manager에서 토큰 획득 실패, 기존 방식으로 재시도
+Error: 토큰 데이터 오류 (MOCK)
+Error: 계좌 조회 일반 오류, 3초 후 재시도... (시도 1/5): 토큰 데이터 처리 중 오류가 발생했습니다
+백그라운드 급등종목 수집 비동기 작업 시작
+Fast Token Manager 초기화 완료: MOCK
+Error: 텔레그램 연동을 위한 정보가 없어 텔레그램은 작동하지 않습니다.
+텔레그램 연동을 위한 정보가 없어 텔레그램은 작동하지 않습니다.
+Error: Fast Token Manager에서 토큰 획득 실패, 기존 방식으로 재시도
+Error: 토큰 데이터 오류 (MOCK)
+Error: 계좌 조회 일반 오류, 6초 후 재시도... (시도 2/5): 토큰 데이터 처리 중 오류가 발생했습니다
+Error: Fast Token Manager에서 토큰 획득 실패, 기존 방식으로 재시도
+Error: 토큰 데이터 오류 (MOCK)
+Error: 계좌 조회 일반 오류, 9초 후 재시도... (시도 3/5): 토큰 데이터 처리 중 오류가 발생했습니다
+Register_Key.md에서 텔레그램 봇 토큰 로드 성공
+Register_Key.md에서 텔레그램 채팅 ID 로드 성공
+성능 최적화 시스템 초기화 시작
+백그라운드 수집기 준비 완료
+시스템 레벨 결정 엔진 준비 완료: 3분봉 단타 거래량·가격 결합 시스템
+통합 순환 관리자 준비 완료
+성능 최적화 시스템 초기화 완료
+MinimalDayTrader에 _format_account_data_for_display 메소드 추가됨
+시스템 레벨 결정 엔진 준비 완료 - 기존 알고리즘과 병행 사용
+통합 순환 관리 시작 (2분 간격)
+Fast Token Manager 초기화 완료: MOCK
+단타매매 계좌 관리자 초기화: 모의투자
+백그라운드 급등종목 수집 비동기 작업 시작
+Fast Token Manager 초기화 완료: MOCK
+Register_Key.md에서 텔레그램 봇 토큰 로드 성공
+Register_Key.md에서 텔레그램 채팅 ID 로드 성공
+텔레그램 알리미 초기화 완료
+단타매매 세션 시작 - 계좌 정보 초기화
+계좌 정보 갱신 완료: 예수금 100,000,000원, 주문가능금액 15,388,200원, 보유종목 5개
+Register_Key.md에서 텔레그램 봇 토큰 로드 성공
+Register_Key.md에서 텔레그램 채팅 ID 로드 성공
+성능 최적화 시스템 초기화 시작
+백그라운드 수집기 준비 완료
+시스템 레벨 결정 엔진 준비 완료: 3분봉 단타 거래량·가격 결합 시스템
+통합 순환 관리자 준비 완료
+성능 최적화 시스템 초기화 완료
+MinimalDayTrader에 _format_account_data_for_display 메소드 추가됨
+시스템 레벨 결정 엔진 준비 완료 - 기존 알고리즘과 병행 사용
+통합 순환 관리 시작 (2분 간격)
+Error: Fast Token Manager 초기화 실패, 기존 방식 사용: Register_Key.md 설정 로드 실패: No module named 'support.simple_register_key_handler'
+단타매매 계좌 관리자 초기화: 모의투자
+백그라운드 급등종목 수집 비동기 작업 시작
+Error: Fast Token Manager 초기화 실패, 기존 방식 사용: Register_Key.md 설정 로드 실패: No module named 'support.simple_register_key_handler'
+Register_Key.md에서 텔레그램 봇 토큰 로드 성공
+Register_Key.md에서 텔레그램 채팅 ID 로드 성공
+텔레그램 알리미 초기화 완료
+단타매매 세션 시작 - 계좌 정보 초기화
+계좌 정보 갱신 완료: 예수금 100,000,000원, 주문가능금액 15,388,200원, 보유종목 5개
+Error: Fast Token Manager 초기화 실패, 기존 방식 사용: Register_Key.md 설정 로드 실패: No module named 'support.simple_register_key_handler'
+실시간 급등주 조회 성공: 20개
+계좌 정보 갱신 완료: 예수금 100,000,000원, 주문가능금액 15,388,200원, 보유종목 5개
+Error: Fast Token Manager 초기화 실패, 기존 방식 사용: Register_Key.md 설정 로드 실패: No module named 'support.simple_register_key_handler'
+실시간 급등주 조회 성공: 20개
+계좌 정보 갱신 완료: 예수금 100,000,000원, 주문가능금액 15,388,200원, 보유종목 5개
+Register_Key.md에서 텔레그램 봇 토큰 로드 성공
+Register_Key.md에서 텔레그램 채팅 ID 로드 성공
+성능 최적화 시스템 초기화 시작
+백그라운드 수집기 준비 완료
+시스템 레벨 결정 엔진 준비 완료: 3분봉 단타 거래량·가격 결합 시스템
+통합 순환 관리자 준비 완료
+성능 최적화 시스템 초기화 완료
+MinimalDayTrader에 _format_account_data_for_display 메소드 추가됨
+시스템 레벨 결정 엔진 준비 완료 - 기존 알고리즘과 병행 사용
+통합 순환 관리 시작 (2분 간격)
+Fast Token Manager 초기화 완료: MOCK
+단타매매 계좌 관리자 초기화: 모의투자
+백그라운드 급등종목 수집 비동기 작업 시작
+Fast Token Manager 초기화 완료: MOCK
+Register_Key.md에서 텔레그램 봇 토큰 로드 성공
+Register_Key.md에서 텔레그램 채팅 ID 로드 성공
+텔레그램 알리미 초기화 완료
+단타매매 세션 시작 - 계좌 정보 초기화
+계좌 정보 갱신 완료: 예수금 100,000,000원, 주문가능금액 15,388,200원, 보유종목 5개
+Error: Fast Token Manager 초기화 실패, 기존 방식 사용: Register_Key.md 설정 로드 실패: No module named 'support.simple_register_key_handler'
+실시간 급등주 조회 성공: 20개
+계좌 정보 갱신 완료: 예수금 100,000,000원, 주문가능금액 15,388,200원, 보유종목 5개
+Fast Token Manager 초기화 완료: REAL
+실시간 급등주 조회 성공: 20개
+Error: Fast Token Manager 초기화 실패, 기존 방식 사용: Register_Key.md 설정 로드 실패: No module named 'support.simple_register_key_handler'
+Register_Key.md에서 텔레그램 봇 토큰 로드 성공
+Register_Key.md에서 텔레그램 채팅 ID 로드 성공
+성능 최적화 시스템 초기화 시작
+백그라운드 수집기 준비 완료
+시스템 레벨 결정 엔진 준비 완료: 3분봉 단타 거래량·가격 결합 시스템
+통합 순환 관리자 준비 완료
+성능 최적화 시스템 초기화 완료
+MinimalDayTrader에 _format_account_data_for_display 메소드 추가됨
+시스템 레벨 결정 엔진 준비 완료 - 기존 알고리즘과 병행 사용
+통합 순환 관리 시작 (2분 간격)
+Fast Token Manager 초기화 완료: MOCK
+단타매매 계좌 관리자 초기화: 모의투자
+백그라운드 급등종목 수집 비동기 작업 시작
+Fast Token Manager 초기화 완료: MOCK
+Register_Key.md에서 텔레그램 봇 토큰 로드 성공
+Register_Key.md에서 텔레그램 채팅 ID 로드 성공
+텔레그램 알리미 초기화 완료
+단타매매 세션 시작 - 계좌 정보 초기화
+계좌 정보 갱신 완료: 예수금 100,000,000원, 주문가능금액 15,388,200원, 보유종목 5개
+Fast Token Manager 초기화 완료: REAL
+실시간 급등주 조회 성공: 20개
+계좌 정보 갱신 완료: 예수금 100,000,000원, 주문가능금액 15,388,200원, 보유종목 5개
+Fast Token Manager 초기화 완료: REAL
+실시간 급등주 조회 성공: 20개
+계좌 정보 갱신 완료: 예수금 100,000,000원, 주문가능금액 15,388,200원, 보유종목 5개
+Register_Key.md에서 텔레그램 봇 토큰 로드 성공
+Register_Key.md에서 텔레그램 채팅 ID 로드 성공
+성능 최적화 시스템 초기화 시작
+백그라운드 수집기 준비 완료
+시스템 레벨 결정 엔진 준비 완료: 3분봉 단타 거래량·가격 결합 시스템
+통합 순환 관리자 준비 완료
+성능 최적화 시스템 초기화 완료
+MinimalDayTrader에 _format_account_data_for_display 메소드 추가됨
+시스템 레벨 결정 엔진 준비 완료 - 기존 알고리즘과 병행 사용
+통합 순환 관리 시작 (2분 간격)
+Fast Token Manager 초기화 완료: MOCK
+단타매매 계좌 관리자 초기화: 모의투자
+백그라운드 급등종목 수집 비동기 작업 시작
+Fast Token Manager 초기화 완료: MOCK
+Register_Key.md에서 텔레그램 봇 토큰 로드 성공
+Register_Key.md에서 텔레그램 채팅 ID 로드 성공
+텔레그램 알리미 초기화 완료
+단타매매 세션 시작 - 계좌 정보 초기화
+계좌 정보 갱신 완료: 예수금 100,000,000원, 주문가능금액 15,388,200원, 보유종목 5개
+Fast Token Manager 초기화 완료: REAL
+실시간 급등주 조회 성공: 20개
+계좌 정보 갱신 완료: 예수금 100,000,000원, 주문가능금액 15,388,200원, 보유종목 5개
+Fast Token Manager 초기화 완료: REAL
+실시간 급등주 조회 성공: 20개
+계좌 정보 갱신 완료: 예수금 100,000,000원, 주문가능금액 15,388,200원, 보유종목 5개
+Register_Key.md에서 텔레그램 봇 토큰 로드 성공
+Register_Key.md에서 텔레그램 채팅 ID 로드 성공
+Register_Key.md에서 텔레그램 봇 토큰 로드 성공
+Register_Key.md에서 텔레그램 채팅 ID 로드 성공
+성능 최적화 시스템 초기화 시작
+백그라운드 수집기 준비 완료
+시스템 레벨 결정 엔진 준비 완료: 3분봉 단타 거래량·가격 결합 시스템
+통합 순환 관리자 준비 완료
+성능 최적화 시스템 초기화 완료
+MinimalDayTrader에 _format_account_data_for_display 메소드 추가됨
+시스템 레벨 결정 엔진 준비 완료 - 기존 알고리즘과 병행 사용
+통합 순환 관리 시작 (2분 간격)
+Fast Token Manager 초기화 완료: MOCK
+단타매매 계좌 관리자 초기화: 모의투자
+Error: Fast Token Manager에서 토큰 획득 실패, 기존 방식으로 재시도
+Error: 토큰 데이터 오류 (MOCK)
+Error: 계좌 조회 일반 오류, 3초 후 재시도... (시도 1/5): 토큰 데이터 처리 중 오류가 발생했습니다
+백그라운드 급등종목 수집 비동기 작업 시작
+Fast Token Manager 초기화 완료: MOCK
+Register_Key.md에서 텔레그램 봇 토큰 로드 성공
+Register_Key.md에서 텔레그램 채팅 ID 로드 성공
+텔레그램 알리미 초기화 완료
+Error: Fast Token Manager에서 토큰 획득 실패, 기존 방식으로 재시도
+Error: 토큰 데이터 오류 (MOCK)
+Error: 계좌 조회 일반 오류, 6초 후 재시도... (시도 2/5): 토큰 데이터 처리 중 오류가 발생했습니다
+Error: Fast Token Manager에서 토큰 획득 실패, 기존 방식으로 재시도
+Error: 토큰 데이터 오류 (MOCK)
+Error: 계좌 조회 일반 오류, 9초 후 재시도... (시도 3/5): 토큰 데이터 처리 중 오류가 발생했습니다
+Error: Fast Token Manager에서 토큰 획득 실패, 기존 방식으로 재시도
+Error: 토큰 데이터 오류 (MOCK)
+Error: 계좌 조회 일반 오류, 12초 후 재시도... (시도 4/5): 토큰 데이터 처리 중 오류가 발생했습니다
+Register_Key.md에서 텔레그램 봇 토큰 로드 성공
+Register_Key.md에서 텔레그램 채팅 ID 로드 성공
+성능 최적화 시스템 초기화 시작
+백그라운드 수집기 준비 완료
+시스템 레벨 결정 엔진 준비 완료: 3분봉 단타 거래량·가격 결합 시스템
+통합 순환 관리자 준비 완료
+성능 최적화 시스템 초기화 완료
+MinimalDayTrader에 _format_account_data_for_display 메소드 추가됨
+시스템 레벨 결정 엔진 준비 완료 - 기존 알고리즘과 병행 사용
+통합 순환 관리 시작 (2분 간격)
+Fast Token Manager 초기화 완료: MOCK
+단타매매 계좌 관리자 초기화: 모의투자
+백그라운드 급등종목 수집 비동기 작업 시작
+Fast Token Manager 초기화 완료: MOCK
+Register_Key.md에서 텔레그램 봇 토큰 로드 성공
+Register_Key.md에서 텔레그램 채팅 ID 로드 성공
+텔레그램 알리미 초기화 완료
+단타매매 세션 시작 - 계좌 정보 초기화
+계좌 정보 갱신 완료: 예수금 100,000,000원, 주문가능금액 15,388,200원, 보유종목 5개
+Fast Token Manager 초기화 완료: REAL
+실시간 급등주 조회 성공: 20개
+계좌 정보 갱신 완료: 예수금 100,000,000원, 주문가능금액 15,388,200원, 보유종목 5개
+Fast Token Manager 초기화 완료: REAL
+실시간 급등주 조회 성공: 20개
+계좌 정보 갱신 완료: 예수금 100,000,000원, 주문가능금액 15,388,200원, 보유종목 5개
+Register_Key.md에서 텔레그램 봇 토큰 로드 성공
+Register_Key.md에서 텔레그램 채팅 ID 로드 성공
+성능 최적화 시스템 초기화 시작
+백그라운드 수집기 준비 완료
+시스템 레벨 결정 엔진 준비 완료: 3분봉 단타 거래량·가격 결합 시스템
+통합 순환 관리자 준비 완료
+성능 최적화 시스템 초기화 완료
+MinimalDayTrader에 _format_account_data_for_display 메소드 추가됨
+시스템 레벨 결정 엔진 준비 완료 - 기존 알고리즘과 병행 사용
+통합 순환 관리 시작 (2분 간격)
+Fast Token Manager 초기화 완료: MOCK
+단타매매 계좌 관리자 초기화: 모의투자
+백그라운드 급등종목 수집 비동기 작업 시작
+Fast Token Manager 초기화 완료: MOCK
+Register_Key.md에서 텔레그램 봇 토큰 로드 성공
+Register_Key.md에서 텔레그램 채팅 ID 로드 성공
+텔레그램 알리미 초기화 완료
+단타매매 세션 시작 - 계좌 정보 초기화
+계좌 정보 갱신 완료: 예수금 100,000,000원, 주문가능금액 15,388,200원, 보유종목 5개
+Fast Token Manager 초기화 완료: REAL
+실시간 급등주 조회 성공: 20개
+계좌 정보 갱신 완료: 예수금 100,000,000원, 주문가능금액 15,388,200원, 보유종목 5개
+Fast Token Manager 초기화 완료: REAL
+실시간 급등주 조회 성공: 20개
+계좌 정보 갱신 완료: 예수금 100,000,000원, 주문가능금액 15,388,200원, 보유종목 5개
+프로그램 종료 시 자동 정리 핸들러 등록됨
+Register_Key.md에서 텔레그램 봇 토큰 로드 성공
+Register_Key.md에서 텔레그램 채팅 ID 로드 성공
+성능 최적화 시스템 초기화 시작
+백그라운드 수집기 준비 완료
+시스템 레벨 결정 엔진 준비 완료: 3분봉 단타 거래량·가격 결합 시스템
+통합 순환 관리자 준비 완료
+성능 최적화 시스템 초기화 완료
+MinimalDayTrader에 _format_account_data_for_display 메소드 추가됨
+시스템 레벨 결정 엔진 준비 완료 - 기존 알고리즘과 병행 사용
+통합 순환 관리 시작 (2분 간격)
+Fast Token Manager 초기화 완료: MOCK
+단타매매 계좌 관리자 초기화: 모의투자
+백그라운드 급등종목 수집 비동기 작업 시작
+Fast Token Manager 초기화 완료: MOCK
+Register_Key.md에서 텔레그램 봇 토큰 로드 성공
+Register_Key.md에서 텔레그램 채팅 ID 로드 성공
+텔레그램 알리미 초기화 완료
+KOSPI 급등종목 1개 발견
+KOSDAQ 급등종목 1개 발견
+급등종목 캐시 업데이트: 2개
+필터링된 급등종목: 2개
+단타매매 세션 시작 - 계좌 정보 초기화
+보유종목 분석 캐시 업데이트: 1개
+보유종목 분석 완료: 1개
+계좌 정보 갱신 완료: 예수금 100,000,000원, 주문가능금액 15,388,200원, 보유종목 5개
+시장 개황 업데이트 완료
+프로그램 종료 감지 - 백그라운드 프로세스 정리 시작
+Fast Token Manager 초기화 완료: MOCK
+단타매매 계좌 관리자 초기화: 모의투자
+Register_Key.md에서 텔레그램 봇 토큰 로드 성공
+Register_Key.md에서 텔레그램 채팅 ID 로드 성공
+Fast Token Manager 초기화 완료: MOCK
+Fast Token Manager 초기화 완료: MOCK
+Fast Token Manager 초기화 완료: MOCK
+Fast Token Manager 초기화 완료: MOCK
+단타매매 계좌 관리자 초기화: 모의투자
+Register_Key.md에서 텔레그램 봇 토큰 로드 성공
+Register_Key.md에서 텔레그램 채팅 ID 로드 성공
+Fast Token Manager 초기화 완료: MOCK
+Fast Token Manager 초기화 완료: MOCK
+단타매매 계좌 관리자 초기화: 모의투자
+Register_Key.md에서 텔레그램 봇 토큰 로드 성공
+Register_Key.md에서 텔레그램 채팅 ID 로드 성공
+Fast Token Manager 초기화 완료: MOCK
+프로그램 종료 시 자동 정리 핸들러 등록됨
+Register_Key.md에서 텔레그램 봇 토큰 로드 성공
+Register_Key.md에서 텔레그램 채팅 ID 로드 성공
+성능 최적화 시스템 초기화 시작
+백그라운드 수집기 준비 완료
+시스템 레벨 결정 엔진 준비 완료: 3분봉 단타 거래량·가격 결합 시스템
+통합 순환 관리자 준비 완료
+성능 최적화 시스템 초기화 완료
+MinimalDayTrader에 _format_account_data_for_display 메소드 추가됨
+시스템 레벨 결정 엔진 준비 완료 - 기존 알고리즘과 병행 사용
+통합 순환 관리 시작 (2분 간격)
+Fast Token Manager 초기화 완료: MOCK
+단타매매 계좌 관리자 초기화: 모의투자
+백그라운드 급등종목 수집 비동기 작업 시작
+Fast Token Manager 초기화 완료: MOCK
+Register_Key.md에서 텔레그램 봇 토큰 로드 성공
+Register_Key.md에서 텔레그램 채팅 ID 로드 성공
+텔레그램 알리미 초기화 완료
+단타매매 세션 시작 - 계좌 정보 초기화
+계좌 정보 갱신 완료: 예수금 100,000,000원, 주문가능금액 15,388,200원, 보유종목 5개
+Fast Token Manager 초기화 완료: REAL
+실시간 급등주 조회 성공: 20개
+계좌 정보 갱신 완료: 예수금 100,000,000원, 주문가능금액 15,388,200원, 보유종목 5개
+Fast Token Manager 초기화 완료: REAL
+실시간 급등주 조회 성공: 20개
+계좌 정보 갱신 완료: 예수금 100,000,000원, 주문가능금액 15,388,200원, 보유종목 5개
+KIS API 매도 주문 시작: 007820 4324주 (시장가 코드: 01) - 모의투자
+[모의투자] 매도 주문 실행: 007820 4324주 @ 시장가 (코드: 01)
+[모의투자] 매도 성공: 007820 4324주 (코드: 01) - 주문번호: N/A
+KIS API 매도 주문 시작: 317830 1주 (시장가 코드: 01) - 모의투자
+[모의투자] 매도 주문 실행: 317830 1주 @ 시장가 (코드: 01)
+[모의투자] 매도 성공: 317830 1주 (코드: 01) - 주문번호: N/A
+KIS API 매도 주문 시작: 388720 172주 (시장가 코드: 01) - 모의투자
+[모의투자] 매도 주문 실행: 388720 172주 @ 시장가 (코드: 01)
+[모의투자] 매도 성공: 388720 172주 (코드: 01) - 주문번호: N/A
+Fast Token Manager 초기화 완료: REAL
+실시간 급등주 조회 성공: 20개
+계좌 정보 갱신 완료: 예수금 100,000,000원, 주문가능금액 15,388,200원, 보유종목 2개
+프로그램 종료 감지 - 백그라운드 프로세스 정리 시작
+Fast Token Manager 초기화 완료: MOCK
+단타매매 계좌 관리자 초기화: 모의투자
+Register_Key.md에서 텔레그램 봇 토큰 로드 성공
+Register_Key.md에서 텔레그램 채팅 ID 로드 성공
+Fast Token Manager 초기화 완료: MOCK
+프로그램 종료 시 자동 정리 핸들러 등록됨
+Register_Key.md에서 텔레그램 봇 토큰 로드 성공
+Register_Key.md에서 텔레그램 채팅 ID 로드 성공
+성능 최적화 시스템 초기화 시작
+백그라운드 수집기 준비 완료
+시스템 레벨 결정 엔진 준비 완료: 3분봉 단타 거래량·가격 결합 시스템
+통합 순환 관리자 준비 완료
+성능 최적화 시스템 초기화 완료
+MinimalDayTrader에 _format_account_data_for_display 메소드 추가됨
+시스템 레벨 결정 엔진 준비 완료 - 기존 알고리즘과 병행 사용
+통합 순환 관리 시작 (2분 간격)
+Fast Token Manager 초기화 완료: MOCK
+단타매매 계좌 관리자 초기화: 모의투자
+백그라운드 급등종목 수집 비동기 작업 시작
+Fast Token Manager 초기화 완료: MOCK
+Register_Key.md에서 텔레그램 봇 토큰 로드 성공
+Register_Key.md에서 텔레그램 채팅 ID 로드 성공
+텔레그램 알리미 초기화 완료
+단타매매 세션 시작 - 계좌 정보 초기화
+계좌 정보 갱신 완료: 예수금 100,000,000원, 주문가능금액 15,388,200원, 보유종목 2개
+Fast Token Manager 초기화 완료: REAL
+실시간 급등주 조회 성공: 20개
+계좌 정보 갱신 완료: 예수금 100,000,000원, 주문가능금액 15,388,200원, 보유종목 2개
+Fast Token Manager 초기화 완료: REAL
+실시간 급등주 조회 성공: 20개
+계좌 정보 갱신 완료: 예수금 100,000,000원, 주문가능금액 15,388,200원, 보유종목 2개
+KIS API 매도 주문 시작: 030530 2691주 (시장가 코드: 01) - 모의투자
+[모의투자] 매도 주문 실행: 030530 2691주 @ 시장가 (코드: 01)
+[모의투자] 매도 성공: 030530 2691주 (코드: 01) - 주문번호: N/A
+KIS API 매도 주문 시작: 179530 10039주 (시장가 코드: 01) - 모의투자
+[모의투자] 매도 주문 실행: 179530 10039주 @ 시장가 (코드: 01)
+[모의투자] 매도 성공: 179530 10039주 (코드: 01) - 주문번호: N/A
+단타매매 세션 종료 - 마지막 계좌 갱신: 15:03:18
+프로그램 종료 감지 - 백그라운드 프로세스 정리 시작
+프로그램 종료 시 자동 정리 핸들러 등록됨
+프로그램 종료 감지 - 백그라운드 프로세스 정리 시작
+Fast Token Manager 초기화 완료: MOCK
+Fast Token Manager 초기화 완료: REAL
+실시간 급등주 조회 성공: 20개
+Fast Token Manager 초기화 완료: REAL
+실시간 급등주 조회 성공: 20개
+프로그램 종료 시 자동 정리 핸들러 등록됨
+Register_Key.md에서 텔레그램 봇 토큰 로드 성공
+Register_Key.md에서 텔레그램 채팅 ID 로드 성공
+성능 최적화 시스템 초기화 시작
+백그라운드 수집기 준비 완료
+시스템 레벨 결정 엔진 준비 완료: 3분봉 단타 거래량·가격 결합 시스템
+통합 순환 관리자 준비 완료
+성능 최적화 시스템 초기화 완료
+MinimalDayTrader에 _format_account_data_for_display 메소드 추가됨
+시스템 레벨 결정 엔진 준비 완료 - 기존 알고리즘과 병행 사용
+통합 순환 관리 시작 (2분 간격)
+Fast Token Manager 초기화 완료: MOCK
+단타매매 계좌 관리자 초기화: 모의투자
+백그라운드 급등종목 수집 비동기 작업 시작
+Fast Token Manager 초기화 완료: MOCK
+Register_Key.md에서 텔레그램 봇 토큰 로드 성공
+Register_Key.md에서 텔레그램 채팅 ID 로드 성공
+텔레그램 알리미 초기화 완료
+단타매매 세션 시작 - 계좌 정보 초기화
+계좌 정보 갱신 완료: 예수금 100,000,000원, 주문가능금액 15,388,200원, 보유종목 0개
+Fast Token Manager 초기화 완료: REAL
+실시간 급등주 조회 성공: 20개
+계좌 정보 갱신 완료: 예수금 100,000,000원, 주문가능금액 15,388,200원, 보유종목 0개
+Fast Token Manager 초기화 완료: REAL
+실시간 급등주 조회 성공: 20개
+계좌 정보 갱신 완료: 예수금 100,000,000원, 주문가능금액 15,388,200원, 보유종목 0개
+프로그램 종료 감지 - 백그라운드 프로세스 정리 시작
+프로그램 종료 시 자동 정리 핸들러 등록됨
+Register_Key.md에서 텔레그램 봇 토큰 로드 성공
+Register_Key.md에서 텔레그램 채팅 ID 로드 성공
+성능 최적화 시스템 초기화 시작
+백그라운드 수집기 준비 완료
+시스템 레벨 결정 엔진 준비 완료: 3분봉 단타 거래량·가격 결합 시스템
+통합 순환 관리자 준비 완료
+성능 최적화 시스템 초기화 완료
+MinimalDayTrader에 _format_account_data_for_display 메소드 추가됨
+시스템 레벨 결정 엔진 준비 완료 - 기존 알고리즘과 병행 사용
+통합 순환 관리 시작 (2분 간격)
+Fast Token Manager 초기화 완료: MOCK
+단타매매 계좌 관리자 초기화: 모의투자
+백그라운드 급등종목 수집 비동기 작업 시작
+Fast Token Manager 초기화 완료: MOCK
+Register_Key.md에서 텔레그램 봇 토큰 로드 성공
+Register_Key.md에서 텔레그램 채팅 ID 로드 성공
+텔레그램 알리미 초기화 완료
+단타매매 세션 시작 - 계좌 정보 초기화
+계좌 정보 갱신 완료: 예수금 100,000,000원, 주문가능금액 15,388,200원, 보유종목 0개
+Fast Token Manager 초기화 완료: MOCK
+KIS API 매도 주문 시작: 005930 1주 (시장가 코드: 01) - 모의투자
+[모의투자] 매도 주문 실행: 005930 1주 @ 시장가 (코드: 01)
+장이 종료되어 매도할 수 없습니다: 005930
+Fast Token Manager 초기화 완료: REAL
+실시간 급등주 조회 성공: 20개
+프로그램 종료 감지 - 백그라운드 프로세스 정리 시작
+프로그램 종료 시 자동 정리 핸들러 등록됨
+프로그램 종료 감지 - 백그라운드 프로세스 정리 시작
+프로그램 종료 시 자동 정리 핸들러 등록됨
+Register_Key.md에서 텔레그램 봇 토큰 로드 성공
+Register_Key.md에서 텔레그램 채팅 ID 로드 성공
+성능 최적화 시스템 초기화 시작
+백그라운드 수집기 준비 완료
+시스템 레벨 결정 엔진 준비 완료: 3분봉 단타 거래량·가격 결합 시스템
+통합 순환 관리자 준비 완료
+성능 최적화 시스템 초기화 완료
+MinimalDayTrader에 _format_account_data_for_display 메소드 추가됨
+시스템 레벨 결정 엔진 준비 완료 - 기존 알고리즘과 병행 사용
+통합 순환 관리 시작 (2분 간격)
+Fast Token Manager 초기화 완료: MOCK
+단타매매 계좌 관리자 초기화: 모의투자
+백그라운드 급등종목 수집 비동기 작업 시작
+Fast Token Manager 초기화 완료: MOCK
+Register_Key.md에서 텔레그램 봇 토큰 로드 성공
+Register_Key.md에서 텔레그램 채팅 ID 로드 성공
+텔레그램 알리미 초기화 완료
+단타매매 세션 시작 - 계좌 정보 초기화
+계좌 정보 갱신 완료: 예수금 15,388,200원, 주문가능금액 97,550,561원, 보유종목 0개
+Fast Token Manager 초기화 완료: REAL
+실시간 급등주 조회 성공: 20개
+계좌 정보 갱신 완료: 예수금 15,388,200원, 주문가능금액 97,550,561원, 보유종목 0개
+Fast Token Manager 초기화 완료: REAL
+실시간 급등주 조회 성공: 20개
+프로그램 종료 감지 - 백그라운드 프로세스 정리 시작

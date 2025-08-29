@@ -1,0 +1,715 @@
+/* tideWise Professional Trading Report - Yahoo Finance Style */
+
+/* 기본 설정 및 색상 변수 */
+:root {
+    /* Yahoo Finance inspired colors */
+    --primary-color: #0078ff;
+    --primary-dark: #0056cc;
+    --success-color: #00b14f;
+    --danger-color: #ff5722;
+    --warning-color: #ff9800;
+    --background-color: #f3f4f6;
+    --card-background: #ffffff;
+    --text-primary: #1a1a1a;
+    --text-secondary: #6a6a6a;
+    --text-muted: #9ca3af;
+    --border-color: #e5e7eb;
+    --border-light: #f1f3f4;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --grid-color: #f0f2f5;
+}
+
+/* 기본 스타일 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+    background: var(--background-color);
+    color: var(--text-primary);
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+/* 메인 컨테이너 */
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+    background: var(--card-background);
+    border-radius: 8px;
+    box-shadow: var(--shadow-md);
+}
+
+/* 헤더 스타일 - Yahoo Finance 스타일 */
+.header {
+    padding: 24px 32px;
+    border-bottom: 1px solid var(--border-color);
+    background: var(--card-background);
+}
+
+.header h1 {
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+    letter-spacing: -0.5px;
+}
+
+.header h2 {
+    font-size: 16px;
+    color: var(--text-secondary);
+    font-weight: 400;
+}
+
+/* 요약 메트릭스 - Yahoo Finance 스타일 */
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1px;
+    background: var(--border-color);
+    margin: 0;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.summary-card {
+    background: var(--card-background);
+    padding: 16px 20px;
+    text-align: left;
+    border: none;
+    transition: background-color 0.2s ease;
+}
+
+.summary-card:hover {
+    background: #fafafa;
+}
+
+.summary-card h3 {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+}
+
+.summary-card .value {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.2;
+}
+
+.summary-card .positive {
+    color: var(--success-color);
+}
+
+.summary-card .negative {
+    color: var(--danger-color);
+}
+
+/* 차트 컨테이너 - Professional Finance Style */
+.chart-container {
+    margin: 32px 0;
+    padding: 24px;
+    background: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+}
+
+.chart-container h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.chart-container canvas {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 400px;
+    border-radius: 4px;
+}
+
+/* 고급 차트 섹션 */
+.advanced-charts {
+    margin: 32px 0;
+    padding: 24px;
+    background: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+}
+
+.advanced-charts h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+/* 기간 선택 탭 */
+.period-tabs {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.tab-button {
+    padding: 8px 16px;
+    border: none;
+    background: transparent;
+    color: var(--text-secondary);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.tab-button:hover {
+    color: var(--primary-color);
+    background: #f8f9fa;
+}
+
+.tab-button.active {
+    color: var(--primary-color);
+    border-bottom-color: var(--primary-color);
+    background: transparent;
+}
+
+/* 차트 그리드 */
+.chart-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.chart-box {
+    background: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+    transition: box-shadow 0.2s ease;
+}
+
+.chart-box:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.chart-box h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.chart-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border-light);
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.chart-stats span {
+    font-weight: 500;
+}
+
+/* 성과 지표 테이블 */
+.performance-metrics {
+    margin-top: 32px;
+}
+
+.performance-metrics h4 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.metrics-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.metrics-table tr {
+    border-bottom: 1px solid var(--border-light);
+}
+
+.metrics-table tr:last-child {
+    border-bottom: none;
+}
+
+.metrics-table td {
+    padding: 12px 16px;
+    font-size: 14px;
+    color: var(--text-primary);
+}
+
+.metrics-table td:nth-child(odd) {
+    background: #fafafa;
+    font-weight: 500;
+    color: var(--text-secondary);
+    width: 25%;
+}
+
+.metrics-table td:nth-child(even) {
+    font-weight: 600;
+    width: 25%;
+}
+
+/* 거래 리스트 스타일 */
+.trades-section {
+    margin: 32px 0;
+    background: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+}
+
+.trades-section h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border-color);
+    background: #fafafa;
+}
+
+.trades-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.trades-table th {
+    background: #f8f9fa;
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.trades-table td {
+    padding: 12px 16px;
+    font-size: 14px;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.trades-table tr:last-child td {
+    border-bottom: none;
+}
+
+.trades-table tr:hover {
+    background: #fafafa;
+}
+
+/* 거래 상태 및 색상 */
+.trade-buy {
+    color: var(--success-color);
+    font-weight: 600;
+}
+
+.trade-sell {
+    color: var(--danger-color);
+    font-weight: 600;
+}
+
+.profit {
+    color: var(--success-color);
+    font-weight: 600;
+}
+
+.loss {
+    color: var(--danger-color);
+    font-weight: 600;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .container {
+        margin: 10px;
+        padding: 0 10px;
+    }
+    
+    .header {
+        padding: 16px 20px;
+    }
+    
+    .header h1 {
+        font-size: 24px;
+    }
+    
+    .summary-grid {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    }
+    
+    .chart-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .chart-container,
+    .advanced-charts {
+        padding: 16px;
+    }
+    
+    .trades-table {
+        font-size: 12px;
+    }
+    
+    .trades-table th,
+    .trades-table td {
+        padding: 8px 12px;
+    }
+}
+
+/* 애니메이션 */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container {
+    animation: fadeInUp 0.5s ease-out;
+}
+}
+
+.summary-card h3 {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.summary-card div {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+/* 긍정/부정 색상 */
+.positive {
+    color: var(--success-color) !important;
+}
+
+.negative {
+    color: var(--danger-color) !important;
+}
+
+/* 차트 컨테이너 */
+.chart-container {
+    background: var(--card-background);
+    border-radius: 15px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+}
+
+.chart-container h3 {
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+/* 고급 차트 섹션 */
+.advanced-charts {
+    margin: 3rem 0;
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(147, 51, 234, 0.05) 100%);
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+}
+
+.advanced-charts h3 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* 기간 선택 탭 */
+.period-tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    justify-content: center;
+}
+
+.tab-button {
+    padding: 0.75rem 2rem;
+    border: 2px solid var(--border-color);
+    background: var(--card-background);
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    color: var(--text-primary);
+}
+
+.tab-button:hover {
+    background: var(--background-color);
+    transform: translateY(-2px);
+}
+
+.tab-button.active {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-md);
+}
+
+/* 차트 그리드 */
+.chart-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.chart-box {
+    background: var(--card-background);
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.chart-box:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.chart-box h4 {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.chart-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.chart-stats span {
+    font-weight: 600;
+}
+
+/* 성과 지표 테이블 */
+.performance-metrics {
+    background: var(--card-background);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+}
+
+.performance-metrics h4 {
+    font-size: 1.25rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.metrics-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.metrics-table td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.3s ease;
+}
+
+.metrics-table tr:hover td {
+    background: var(--background-color);
+}
+
+.metrics-table td:nth-child(even) {
+    text-align: right;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.metrics-table td:nth-child(odd) {
+    color: var(--text-secondary);
+}
+
+/* 거래 테이블 */
+.trades-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 2rem;
+    background: var(--card-background);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+.trades-table thead {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+}
+
+.trades-table th {
+    padding: 1rem;
+    text-align: left;
+    color: white;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.trades-table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.trades-table tbody tr {
+    transition: background-color 0.3s ease;
+}
+
+.trades-table tbody tr:hover {
+    background: var(--background-color);
+}
+
+.trades-table tbody tr:nth-child(even) {
+    background: rgba(59, 130, 246, 0.02);
+}
+
+/* 캔버스 스타일 */
+canvas {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 10px;
+}
+
+/* 애니메이션 */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .container {
+        margin: 1rem;
+        padding: 1rem;
+    }
+    
+    .header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .summary-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1rem;
+    }
+    
+    .chart-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .period-tabs {
+        flex-wrap: wrap;
+    }
+    
+    .tab-button {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .trades-table {
+        font-size: 0.85rem;
+    }
+    
+    .trades-table th,
+    .trades-table td {
+        padding: 0.5rem;
+    }
+}
+
+/* 프린트 스타일 */
+@media print {
+    body {
+        background: white;
+    }
+    
+    .container {
+        box-shadow: none;
+        margin: 0;
+    }
+    
+    .period-tabs {
+        display: none;
+    }
+}
+
+/* 스크롤바 커스터마이징 */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-color);
+}

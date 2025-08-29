@@ -1,0 +1,188 @@
+{
+  "summary": {
+    "session_start": "2025-08-23T05:53:22.078978+09:00",
+    "session_end": "2025-08-23T05:53:22.140010+09:00",
+    "total_trades": 10,
+    "total_profit_loss": 198234.60499999954,
+    "total_commission": 68695.395,
+    "win_trades": 5,
+    "lose_trades": 0,
+    "win_rate": 50.0,
+    "largest_win": 69703.725,
+    "largest_loss": 0,
+    "account_balance_start": 500000000,
+    "account_balance_end": 500198234.605
+  },
+  "trades": [
+    {
+      "timestamp": "2025-08-23T05:53:22.104621+09:00",
+      "symbol": "005930",
+      "action": "BUY",
+      "quantity": 100,
+      "price": 71400.0,
+      "amount": 7140000.0,
+      "commission": 10710.0,
+      "profit_loss": 0,
+      "account_type": "REAL",
+      "trading_mode": "AUTO",
+      "algorithm": "Real_Market_Algorithm"
+    },
+    {
+      "timestamp": "2025-08-23T05:53:22.104658+09:00",
+      "symbol": "005930",
+      "action": "SELL",
+      "quantity": 100,
+      "price": 72114.0,
+      "amount": 7211400.0,
+      "commission": 10817.1,
+      "profit_loss": 49872.9,
+      "account_type": "REAL",
+      "trading_mode": "AUTO",
+      "algorithm": "Real_Market_Algorithm"
+    },
+    {
+      "timestamp": "2025-08-23T05:53:22.114254+09:00",
+      "symbol": "000660",
+      "action": "BUY",
+      "quantity": 30,
+      "price": 251000.0,
+      "amount": 7530000.0,
+      "commission": 11295.0,
+      "profit_loss": 0,
+      "account_type": "REAL",
+      "trading_mode": "AUTO",
+      "algorithm": "Real_Market_Algorithm"
+    },
+    {
+      "timestamp": "2025-08-23T05:53:22.114280+09:00",
+      "symbol": "000660",
+      "action": "SELL",
+      "quantity": 30,
+      "price": 254012.0,
+      "amount": 7620360.0,
+      "commission": 11430.54,
+      "profit_loss": 67634.45999999999,
+      "account_type": "REAL",
+      "trading_mode": "AUTO",
+      "algorithm": "Real_Market_Algorithm"
+    },
+    {
+      "timestamp": "2025-08-23T05:53:22.123705+09:00",
+      "symbol": "373220",
+      "action": "BUY",
+      "quantity": 10,
+      "price": 367500.0,
+      "amount": 3675000.0,
+      "commission": 5512.5,
+      "profit_loss": 0,
+      "account_type": "REAL",
+      "trading_mode": "AUTO",
+      "algorithm": "Real_Market_Algorithm"
+    },
+    {
+      "timestamp": "2025-08-23T05:53:22.123732+09:00",
+      "symbol": "373220",
+      "action": "SELL",
+      "quantity": 10,
+      "price": 375585.0,
+      "amount": 3755850.0,
+      "commission": 5633.775000000001,
+      "profit_loss": 69703.725,
+      "account_type": "REAL",
+      "trading_mode": "AUTO",
+      "algorithm": "Real_Market_Algorithm"
+    },
+    {
+      "timestamp": "2025-08-23T05:53:22.131239+09:00",
+      "symbol": "035420",
+      "action": "BUY",
+      "quantity": 10,
+      "price": 222000.0,
+      "amount": 2220000.0,
+      "commission": 3330.0,
+      "profit_loss": 0,
+      "account_type": "REAL",
+      "trading_mode": "AUTO",
+      "algorithm": "Real_Market_Algorithm"
+    },
+    {
+      "timestamp": "2025-08-23T05:53:22.131263+09:00",
+      "symbol": "035420",
+      "action": "SELL",
+      "quantity": 10,
+      "price": 223332.0,
+      "amount": 2233320.0,
+      "commission": 3349.98,
+      "profit_loss": 6640.02,
+      "account_type": "REAL",
+      "trading_mode": "AUTO",
+      "algorithm": "Real_Market_Algorithm"
+    },
+    {
+      "timestamp": "2025-08-23T05:53:22.139965+09:00",
+      "symbol": "005380",
+      "action": "BUY",
+      "quantity": 10,
+      "price": 220000.0,
+      "amount": 2200000.0,
+      "commission": 3300.0,
+      "profit_loss": 0,
+      "account_type": "REAL",
+      "trading_mode": "AUTO",
+      "algorithm": "Real_Market_Algorithm"
+    },
+    {
+      "timestamp": "2025-08-23T05:53:22.139991+09:00",
+      "symbol": "005380",
+      "action": "SELL",
+      "quantity": 10,
+      "price": 221099.99999999997,
+      "amount": 2210999.9999999995,
+      "commission": 3316.4999999999995,
+      "profit_loss": 4383.499999999534,
+      "account_type": "REAL",
+      "trading_mode": "AUTO",
+      "algorithm": "Real_Market_Algorithm"
+    }
+  ],
+  "generated_at": "2025-08-23T05:53:22.140331+09:00",
+  "real_minute_data": {
+    "005930": {
+      "data_points": 30,
+      "time_range": "15:01 ~ 15:30",
+      "price_range": "71,200 ~ 71,400원",
+      "total_volume": 1655863,
+      "avg_price": 71323.33333333333
+    },
+    "000660": {
+      "data_points": 30,
+      "time_range": "15:01 ~ 15:30",
+      "price_range": "250,000 ~ 252,000원",
+      "total_volume": 479546,
+      "avg_price": 250925.0
+    },
+    "373220": {
+      "data_points": 30,
+      "time_range": "15:01 ~ 15:30",
+      "price_range": "366,500 ~ 368,500원",
+      "total_volume": 19601,
+      "avg_price": 367508.3333333333
+    },
+    "035420": {
+      "data_points": 30,
+      "time_range": "15:01 ~ 15:30",
+      "price_range": "222,000 ~ 223,000원",
+      "total_volume": 94909,
+      "avg_price": 222375.0
+    },
+    "005380": {
+      "data_points": 30,
+      "time_range": "15:01 ~ 15:30",
+      "price_range": "220,000 ~ 221,000원",
+      "total_volume": 77351,
+      "avg_price": 220500.0
+    }
+  },
+  "data_source": "KIS_OpenAPI_Real_Data",
+  "chart_type": "Real_5min_Candlestick_Chart"
+}

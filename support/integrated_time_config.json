@@ -1,0 +1,30 @@
+{
+  "time_check_enabled": true,
+  "daytrading_stop_time": "14:00",
+  "program_shutdown_time": "14:00",
+  "market_open_time": "09:10",
+  "auto_shutdown_enabled": true,
+  "holiday_check_enabled": true,
+  "description": "통합 시간 제어 설정 - 시간 체크 ON시 09:10 시작, 14:00 종료",
+  "cycle_settings": {
+    "default_interval": 180,
+    "min_interval": 30,
+    "max_interval": 600,
+    "countdown_enabled": true,
+    "countdown_update_interval": 10
+  },
+  "auto_adjustment": {
+    "enabled": true,
+    "morning_boost": 0.8,
+    "lunch_slowdown": 1.5,
+    "closing_boost": 0.7
+  },
+  "market_times": {
+    "market_open": "09:00",
+    "market_close": "15:30",
+    "auto_stop": "15:20",
+    "pre_market_end": "09:05",
+    "lunch_start": "12:00",
+    "lunch_end": "13:00"
+  }
+}

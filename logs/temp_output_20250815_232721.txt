@@ -1,0 +1,16 @@
+Task: 백그라운드 로그 숨김
+Timestamp: 20250815_232721
+Original Length: 338 chars
+--------------------------------------------------
+
+[OK] claude_Optimaizer 백그라운드 로그 숨김 처리 완료 | [STATS] 7개 로그 메시지 백그라운드 처리, 콘솔 출력 간소화 | [WARN] Setup 메뉴 통합 작업 진행 필요
+
+백그라운드 처리 완료:
+- claude_Optimaizer.py: MCP 로드, 초기화, 연결 테스트 로그 숨김
+- claude_integration_system.py: 시스템 초기화 관련 로그 숨김  
+- 콘솔 출력 메시지 제거: SUCCESS, OK 상태 메시지들
+
+다음 작업 대기:
+- Setup 메뉴에 장마감 체크 옵션 추가
+- On/Off 토글 기능 구현
+- 자동매매/단타매매 제어 로직 연동

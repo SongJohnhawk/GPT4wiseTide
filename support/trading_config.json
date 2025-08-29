@@ -1,0 +1,44 @@
+{
+  "market_close_time": "14:55",
+  "trading_cycle_seconds": 5,
+  "countdown_seconds": 5,
+  "step_delay_seconds": 2,
+  "max_position_percent": 20,
+  "stop_loss_percent": -3,
+  "take_profit_percent": 5,
+  "default_algorithm": "default",
+  "version": "1.2.0",
+  "last_updated": "2025-01-14",
+  "enable_esc_stop": false,
+  "close_guard_minutes": 5,
+  "close_guard_enabled": true,
+  "new_entry_block_before_close": true,
+  "countdown_warning_enabled": true,
+  "termination_reason_logging": true,
+  "recovery_settings": {
+    "max_consecutive_failures": 5,
+    "critical_failure_wait_minutes": 30,
+    "api_reconnect_attempts": 3,
+    "emergency_stop_losses": true,
+    "auto_restart": true,
+    "health_check_enabled": true,
+    "memory_threshold_percent": 90,
+    "disk_threshold_percent": 95,
+    "max_emergency_recoveries": 3
+  },
+  "monitoring_settings": {
+    "enable_system_monitoring": true,
+    "health_check_interval_minutes": 5,
+    "performance_logging": true,
+    "telegram_alerts": true,
+    "log_level": "INFO"
+  },
+  "market_close_check_enabled": false,
+  "trading_execution": {
+    "enable_buy_orders": true,
+    "enable_sell_orders": true,
+    "simulation_mode": false,
+    "log_simulated_trades": false,
+    "comment": "매수/매도 활성화 - 실제 주문 실행"
+  }
+}

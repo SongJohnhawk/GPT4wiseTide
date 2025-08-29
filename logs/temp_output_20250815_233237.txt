@@ -1,0 +1,17 @@
+Task: 시스템 메시지 간소화
+Timestamp: 20250815_233237
+Original Length: 370 chars
+--------------------------------------------------
+
+[OK] 시스템 초기화 메시지 간소화 완료 | [STATS] 8개 로그 메시지 처리, 불필요한 출력 제거 | [WARN] Setup 메뉴 작업 계속 필요
+
+간소화 완료:
+- algorithm_loader.py: 총 N개 알고리즘 파일 발견 메시지만 표시
+- universal_algorithm_interface.py: Python 알고리즘 로드 성공 로그 숨김
+- cleanup_temp_files.py: 정리할 임시 파일 없음 메시지 숨김  
+- system_manager.py: 시스템 임시 파일 정리 관련 메시지 조건부 표시
+
+결과:
+- 기존: 장황한 로그 메시지들로 화면 오염
+- 개선: 필요한 정보만 간결하게 표시
+- 사용자 경험: 깔끔한 시작 화면

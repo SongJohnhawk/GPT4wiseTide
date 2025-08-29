@@ -1,0 +1,752 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+KIS OPEN API 토큰 자동 갱신 시스템
+Register_Key.md 파일 변경 감지 시 자동으로 새로운 토큰 발급
+"""
+
+import os
+import json
+import time
+import hashlib
+import asyncio
+import aiohttp
+from pathlib import Path
+from datetime import datetime, timedelta
+from typing import Dict, Optional, Any
+import threading
+import pytz
+from watchdog.observers import Observer
+from watchdog.events import FileSystemEventHandler
+
+# 깔끔한 콘솔 로거 사용
+from support.clean_console_logger import (
+    get_clean_logger, Phase, log as clean_log
+)
+
+
+class TokenAutoRefresher:
+    """KIS OPEN API 토큰 자동 갱신 관리자"""
+    
+    def __init__(self):
+        # Clean logger 초기화
+        self.logger = get_clean_logger()
+        self.project_root = Path(__file__).parent.parent
+        self.register_key_path = self.project_root / "Policy" / "Register_Key" / "Register_Key.md"
+        
+        # KST 기반 토큰 캐시 경로 설정
+        self.token_cache_path = self.project_root / "support" / "token_cache.json"
+        self._ensure_cache_directory()
+        
+        self.file_hash_cache = {}
+        self.tokens = {}
+        
+        # KST 시간대 설정
+        self.kst_timezone = pytz.timezone('Asia/Seoul')
+        
+        # API URL 설정 - Register_Key.md에서만 로드
+        self.api_urls = {}
+        
+        # 파일 감시 설정
+        self.observer = Observer()
+        self.file_handler = RegisterKeyFileHandler(self)
+    
+    def _ensure_cache_directory(self):
+        """캐시 디렉토리 존재 확인 및 생성"""
+        try:
+            cache_dir = self.token_cache_path.parent
+            cache_dir.mkdir(parents=True, exist_ok=True)
+            clean_log(f"토큰 캐시 디렉토리 확인: ...{str(cache_dir)[-20:]}", "DEBUG")
+        except Exception as e:
+            clean_log(f"CACHE_DIR_CREATE_ERROR: {e}", "ERROR")
+    
+    def _get_kst_time(self) -> datetime:
+        """현재 KST 시간 반환"""
+        return datetime.now(self.kst_timezone)
+    
+    def should_invalidate_at_2356(self) -> bool:
+        """23:56 이후 토큰 무효화 여부 확인 - 비활성화됨"""
+        # 사용자 요청에 따라 시간 기반 토큰 무효화 로직 비활성화
+        return False
+    
+    def is_post_midnight_renewal_needed(self) -> bool:
+        """자정 이후 갱신 필요 여부 확인 - 비활성화됨"""
+        # 사용자 요청에 따라 자정 이후 갱신 로직 비활성화
+        return False
+    
+    def should_reuse_token(self, token_info: Dict[str, Any]) -> bool:
+        """
+        단순한 토큰 재사용 로직:
+        - 토큰이 유효하면 재사용 (시간 제한 없음)
+        """
+        try:
+            # 토큰 만료시간 확인
+            expires_at = token_info.get("expires_at_kst")
+            if expires_at:
+                current_kst = self._get_kst_time()
+                expires_time = datetime.fromisoformat(expires_at)
+                expires_time_kst = expires_time.replace(tzinfo=self.kst_timezone)
+                
+                # 토큰이 유효하면 재사용 (시간 제한 없음)
+                return current_kst < expires_time_kst
+            
+            return False
+            
+        except Exception as e:
+            clean_log(f"TOKEN_REUSE_CHECK_ERROR: {e}", "ERROR")
+            return False
+    
+    def should_invalidate_at_2359(self) -> bool:
+        """23:59 KST에 토큰 무효화 여부 확인 - 비활성화됨"""
+        # 사용자 요청에 따라 시간 기반 토큰 무효화 로직 비활성화
+        return False
+    
+    # 오전 0시 5분 이후 로직 삭제 - 단순한 23:59 기반 토큰 관리만 사용
+        
+    def parse_register_key_file(self) -> Dict[str, Any]:
+        """Register_Key.md 파일에서 API 키 정보 추출 (보안 강화 버전)"""
+        try:
+            # AuthoritativeRegisterKeyLoader를 사용하여 암호화된 파일 처리
+            
+            config = {
+                "real": {},
+                "mock": {},
+                "telegram": {}
+            }
+            
+            # AuthoritativeRegisterKeyLoader를 사용하여 파싱 (강력한 파서 활용)
+            from support.authoritative_register_key_loader import get_authoritative_loader
+            
+            reader = get_authoritative_loader()
+            parsed_data = reader.load_register_keys()
+            
+            if parsed_data:
+                # KIS 실전투자 정보
+                kis_real = parsed_data.get('kis_real', {})
+                if kis_real:
+                    config["real"] = {
+                        "account_number": kis_real.get('account_number', ''),
+                        "account_password": kis_real.get('account_password', ''),
+                        "app_key": kis_real.get('app_key', ''),
+                        "app_secret": kis_real.get('app_secret', '')
+                    }
+                
+                # KIS 모의투자 정보
+                kis_mock = parsed_data.get('kis_mock', {})
+                if kis_mock:
+                    config["mock"] = {
+                        "account_number": kis_mock.get('account_number', ''),
+                        "account_password": kis_mock.get('account_password', ''),
+                        "app_key": kis_mock.get('app_key', ''),
+                        "app_secret": kis_mock.get('app_secret', '')
+                    }
+                
+                # 텔레그램 정보
+                telegram = parsed_data.get('telegram', {})
+                if telegram:
+                    config["telegram"] = {
+                        "bot_token": telegram.get('bot_token', ''),
+                        "chat_id": telegram.get('chat_id', '')
+                    }
+                
+                clean_log("Register_Key.md 파일 파싱 성공 (RegisterKeyReader 사용)", "INFO")
+                return config
+            
+            # AuthoritativeRegisterKeyLoader 파싱 실패 시 빈 설정 반환
+            clean_log("AuthoritativeRegisterKeyLoader 파싱 실패 - 빈 설정 반환", "WARNING")
+            return {
+                "real": {},
+                "mock": {},
+                "telegram": {}
+            }
+            
+        except Exception as e:
+            clean_log(f"Register_Key.md 파일 파싱 오류 (보안 강화 모드): {e}", "ERROR")
+            # 보안상 직접 파일 읽기는 더 이상 지원하지 않음
+            clean_log("암호화된 Register_Key.md 파일은 SecureKeyHandler를 통해서만 접근 가능합니다.", "ERROR")
+            return {
+                "real": {},
+                "mock": {},
+                "telegram": {}
+            }
+    
+    def _legacy_parse_register_key_content(self, content: str) -> Dict[str, Any]:
+        """백업용 레거시 파싱 로직"""
+        config = {
+            "real": {},
+            "mock": {},
+            "telegram": {}
+        }
+        
+        try:
+            lines = content.split('\n')
+            current_section = None
+            
+            for line in lines:
+                line = line.strip()
+                
+                # 섹션 구분
+                if "실전투자 계좌 정보" in line:
+                    current_section = "real"
+                elif "모의투자 계좌 정보" in line:
+                    current_section = "mock"
+                elif "연동 토큰" in line and "텔레그램" in content[content.find(line)-100:content.find(line)]:
+                    current_section = "telegram"
+                
+                # 정보 추출 (개선된 패턴 매칭)
+                if current_section and "[" in line and "]" in line:
+                    try:
+                        if "계좌번호:" in line:
+                            account = line.split("[")[1].split("]")[0].strip()
+                            if current_section in ["real", "mock"]:
+                                config[current_section]["account_number"] = account
+                        elif "계좌 비밀번호:" in line:
+                            password = line.split("[")[1].split("]")[0].strip()
+                            if current_section in ["real", "mock"]:
+                                config[current_section]["account_password"] = password
+                        elif "APP KEY:" in line:
+                            app_key = line.split("[")[1].split("]")[0].strip()
+                            if current_section in ["real", "mock"]:
+                                config[current_section]["app_key"] = app_key
+                        elif "APP Secret KEY:" in line:
+                            app_secret = line.split("[")[1].split("]")[0].strip()
+                            if current_section in ["real", "mock"]:
+                                config[current_section]["app_secret"] = app_secret
+                        elif "Bot Token:" in line:
+                            bot_token = line.split("[")[1].split("]")[0].strip()
+                            if "HTTP API:" in bot_token:
+                                bot_token = bot_token.replace("HTTP API:", "").strip()
+                            config["telegram"]["bot_token"] = bot_token
+                        elif "Chat ID:" in line:
+                            chat_id = line.split("[")[1].split("]")[0].strip()
+                            config["telegram"]["chat_id"] = chat_id
+                    except Exception as parse_error:
+                        clean_log(f"라인 파싱 오류 '{line}': {parse_error}", "DEBUG")
+                        continue
+            
+            return config
+            
+        except Exception as e:
+            clean_log(f"레거시 파싱 로직 오류: {e}", "ERROR")
+            return config
+    
+    async def get_access_token(self, account_type: str) -> Optional[str]:
+        """KIS OPEN API 접근 토큰 발급"""
+        try:
+            config = self.parse_register_key_file()
+            if account_type not in config or not config[account_type]:
+                clean_log(f"{account_type} 계좌 정보가 없습니다.", "ERROR")
+                return None
+            
+            account_config = config[account_type]
+            app_key = account_config.get("app_key")
+            app_secret = account_config.get("app_secret")
+            
+            if not app_key or not app_secret:
+                clean_log(f"{account_type} APP KEY 또는 APP Secret이 없습니다.", "ERROR")
+                return None
+            
+            url = f"{self.api_urls[account_type]}/oauth2/tokenP"
+            headers = {
+                'content-type': 'application/json; charset=utf-8'
+            }
+            data = {
+                "grant_type": "client_credentials",
+                "appkey": app_key,
+                "appsecret": app_secret
+            }
+            
+            async with aiohttp.ClientSession() as session:
+                async with session.post(url, headers=headers, json=data) as response:
+                    if response.status == 200:
+                        result = await response.json()
+                        access_token = result.get("access_token")
+                        
+                        if access_token:
+                            # 토큰 캐시에 저장 (KST 기준 24시간 유효)
+                            current_kst = self._get_kst_time()
+                            expires_kst = current_kst + timedelta(hours=24)
+                            
+                            token_info = {
+                                "access_token": access_token,
+                                "expires_at_kst": expires_kst.isoformat(),
+                                "account_type": account_type,
+                                "generated_at_kst": current_kst.isoformat()
+                            }
+                            
+                            self.tokens[account_type] = token_info
+                            self.save_token_cache()
+                            
+                            clean_log(f"{account_type} 토큰 발급 성공", "SUCCESS")
+                            return access_token
+                        else:
+                            clean_log(f"{account_type} 토큰 발급 실패: {result}", "ERROR")
+                            return None
+                    else:
+                        error_text = await response.text()
+                        clean_log(f"{account_type} 토큰 발급 API 오류 ({response.status}): {error_text}", "ERROR")
+                        return None
+                        
+        except Exception as e:
+            clean_log(f"{account_type} 토큰 발급 중 오류: {e}", "ERROR")
+            return None
+    
+    async def get_websocket_approval_key(self, account_type: str) -> Optional[str]:
+        """Websocket 접속키 발급"""
+        try:
+            config = self.parse_register_key_file()
+            if account_type not in config or not config[account_type]:
+                return None
+            
+            account_config = config[account_type]
+            app_key = account_config.get("app_key")
+            app_secret = account_config.get("app_secret")
+            
+            if not app_key or not app_secret:
+                return None
+            
+            url = f"{self.api_urls[account_type]}/oauth2/Approval"
+            headers = {
+                'content-type': 'application/json; charset=utf-8'
+            }
+            data = {
+                "grant_type": "client_credentials",
+                "appkey": app_key,
+                "secretkey": app_secret
+            }
+            
+            async with aiohttp.ClientSession() as session:
+                async with session.post(url, headers=headers, json=data) as response:
+                    if response.status == 200:
+                        result = await response.json()
+                        approval_key = result.get("approval_key")
+                        
+                        if approval_key:
+                            # 토큰 정보에 추가
+                            if account_type in self.tokens:
+                                self.tokens[account_type]["approval_key"] = approval_key
+                            else:
+                                self.tokens[account_type] = {
+                                    "approval_key": approval_key,
+                                    "generated_at": datetime.now().isoformat()
+                                }
+                            
+                            self.save_token_cache()
+                            clean_log(f"{account_type} Websocket 접속키 발급 성공", "ERROR")
+                            return approval_key
+                        else:
+                            clean_log(f"{account_type} Websocket 접속키 발급 실패: {result}", "ERROR")
+                            return None
+                    else:
+                        error_text = await response.text()
+                        clean_log(f"{account_type} Websocket 접속키 발급 API 오류 ({response.status}): {error_text}", "ERROR")
+                        return None
+                        
+        except Exception as e:
+            clean_log(f"{account_type} Websocket 접속키 발급 중 오류: {e}", "ERROR")
+            return None
+    
+    def save_token_cache(self):
+        """토큰 캐시 원자적 저장"""
+        try:
+            # 임시 파일에 먼저 저장
+            temp_path = self.token_cache_path.with_suffix('.tmp')
+            
+            with open(temp_path, 'w', encoding='utf-8') as f:
+                json.dump(self.tokens, f, ensure_ascii=False, indent=2)
+                f.flush()  # 버퍼 플러시
+                os.fsync(f.fileno())  # 디스크 동기화
+            
+            # 원자적 이동 (Windows에서는 기존 파일 제거 필요)
+            if self.token_cache_path.exists():
+                self.token_cache_path.unlink()
+            temp_path.rename(self.token_cache_path)
+            
+            # 보안 권한 설정 (읽기 전용)
+            os.chmod(self.token_cache_path, 0o600)
+            
+            clean_log("TOKEN_CACHE_SAVED", "INFO")
+        except Exception as e:
+            clean_log(f"TOKEN_CACHE_SAVE_ERROR: {e}", "ERROR")
+            # 임시 파일 정리
+            try:
+                if temp_path.exists():
+                    temp_path.unlink()
+            except:
+                pass
+    
+    def load_token_cache(self):
+        """토큰 캐시 로드"""
+        try:
+            if self.token_cache_path.exists():
+                with open(self.token_cache_path, 'r', encoding='utf-8') as f:
+                    self.tokens = json.load(f)
+                clean_log("토큰 캐시 로드 완료", "SUCCESS", "INFO")
+                return True
+        except Exception as e:
+            clean_log(f"토큰 캐시 로드 오류: {e}", "ERROR")
+        return False
+    
+    def get_file_hash(self, file_path: Path) -> str:
+        """파일 해시 계산"""
+        try:
+            with open(file_path, 'rb') as f:
+                return hashlib.md5(f.read()).hexdigest()
+        except:
+            return ""
+    
+    def is_file_changed(self) -> bool:
+        """Register_Key.md 파일 변경 여부 확인"""
+        current_hash = self.get_file_hash(self.register_key_path)
+        cached_hash = self.file_hash_cache.get(str(self.register_key_path), "")
+        
+        if current_hash != cached_hash:
+            self.file_hash_cache[str(self.register_key_path)] = current_hash
+            return True
+        return False
+    
+    async def refresh_all_tokens(self, force_refresh: bool = False):
+        """Daily Token Manager 연동"""
+        try:
+            from support.daily_token_manager import get_daily_token_manager
+            manager = get_daily_token_manager()
+            clean_log("Daily Token Manager와 연동됨 - 백그라운드에서 자동 관리", "INFO")
+            return True
+        except Exception as e:
+            clean_log(f"Daily Token Manager 연동 실패: {e}", "WARNING")
+            return False
+        real_token = await self.get_access_token("real")
+        real_approval = await self.get_websocket_approval_key("real")
+        
+        # 모의투자 토큰 갱신
+        clean_log("모의투자 토큰 갱신 시작", "INFO")
+        mock_token = await self.get_access_token("mock")
+        mock_approval = await self.get_websocket_approval_key("mock")
+        
+        # 결과 검증 및 로깅 (이모지 제거, 구조화된 로깅)
+        success_count = 0
+        total_count = 4
+        
+        if real_token:
+            clean_log("TOKEN_REFRESH_SUCCESS: real access_token", "INFO")
+            success_count += 1
+        else:
+            clean_log("TOKEN_REFRESH_FAILED: real access_token", "INFO")
+            
+        if real_approval:
+            clean_log("TOKEN_REFRESH_SUCCESS: real approval_key", "INFO")
+            success_count += 1
+        else:
+            clean_log("TOKEN_REFRESH_FAILED: real approval_key", "INFO")
+            
+        if mock_token:
+            clean_log("TOKEN_REFRESH_SUCCESS: mock access_token", "INFO")
+            success_count += 1
+        else:
+            clean_log("TOKEN_REFRESH_FAILED: mock access_token", "INFO")
+            
+        if mock_approval:
+            clean_log("TOKEN_REFRESH_SUCCESS: mock approval_key", "INFO")
+            success_count += 1
+        else:
+            clean_log("TOKEN_REFRESH_FAILED: mock approval_key", "INFO")
+        
+        # 최종 결과 (성공 상태 게이팅)
+        if success_count == total_count:
+            clean_log(f"ALL_TOKENS_REFRESHED: {success_count}/{total_count}", "ERROR")
+            return True
+        elif success_count > 0:
+            clean_log(f"PARTIAL_TOKEN_REFRESH: {success_count}/{total_count}", "ERROR")
+            return False  # 부분 실패도 실패로 간주
+        else:
+            clean_log(f"ALL_TOKENS_FAILED: {success_count}/{total_count}", "ERROR")
+            return False
+    
+    async def force_refresh_tokens(self):
+        """강제 토큰 갱신 - 비활성화됨"""
+        clean_log("강제 토큰 갱신 비활성화됨 - 기존 토큰을 재사용합니다", "INFO")
+        return False
+    
+    def invalidate_token_cache(self):
+        """토큰 캐시 무효화"""
+        clean_log("토큰 캐시 무효화 실행", "INFO")
+        self.tokens.clear()
+        
+        # 캐시 파일도 삭제
+        try:
+            if self.token_cache_path.exists():
+                self.token_cache_path.unlink()
+                clean_log("토큰 캐시 파일 삭제 완료", "INFO")
+        except Exception as e:
+            clean_log(f"토큰 캐시 파일 삭제 실패: {e}", "ERROR")
+    
+    def detect_connection_info_change(self) -> bool:
+        """연결정보 변경 감지 (APP KEY, URL 등)"""
+        try:
+            current_config = self.parse_register_key_file()
+            
+            # 이전 설정과 비교할 수 있도록 캐시에서 로드
+            cached_config_path = self.project_root / "support" / "connection_config_cache.json"
+            
+            if cached_config_path.exists():
+                with open(cached_config_path, 'r', encoding='utf-8') as f:
+                    cached_config = json.load(f)
+                
+                # 중요한 연결 정보 비교
+                important_keys = ['app_key', 'app_secret']
+                for account_type in ['real', 'mock']:
+                    for key in important_keys:
+                        current_val = current_config.get(account_type, {}).get(key, '')
+                        cached_val = cached_config.get(account_type, {}).get(key, '')
+                        
+                        if current_val != cached_val and current_val and cached_val:
+                            clean_log(f"연결정보 변경 감지: {account_type}.{key}", "ERROR")
+                            # 새로운 설정 저장
+                            with open(cached_config_path, 'w', encoding='utf-8') as f:
+                                json.dump(current_config, f, ensure_ascii=False, indent=2)
+                            return True
+            else:
+                # 첫 실행시 현재 설정 저장
+                with open(cached_config_path, 'w', encoding='utf-8') as f:
+                    json.dump(current_config, f, ensure_ascii=False, indent=2)
+                clean_log("연결정보 캐시 파일 생성", "INFO")
+                return True
+            
+            return False
+            
+        except Exception as e:
+            clean_log(f"연결정보 변경 감지 실패: {e}", "ERROR")
+            return False
+    
+    def start_file_monitoring(self):
+        """파일 변경 모니터링 시작"""
+        try:
+            watch_path = self.register_key_path.parent
+            self.observer.schedule(self.file_handler, str(watch_path), recursive=False)
+            self.observer.start()
+            # 보안상 경로 노출 방지 - 파일 모니터링 시작 로그 차단
+            # clean_log(f"파일 모니터링 시작: {watch_path}", "ERROR")
+            
+            # 초기 파일 해시 저장
+            self.is_file_changed()
+            
+        except Exception as e:
+            # 보안상 경로 노출 방지 - 파일 모니터링 오류 로그 차단  
+            # clean_log(f"파일 모니터링 시작 오류: {e}", "ERROR")
+            pass
+    
+    def stop_file_monitoring(self):
+        """파일 변경 모니터링 중지"""
+        try:
+            self.observer.stop()
+            self.observer.join()
+            clean_log("파일 모니터링 중지", "INFO")
+        except Exception as e:
+            clean_log(f"파일 모니터링 중지 오류: {e}", "ERROR")
+    
+    def get_cached_token(self, account_type: str) -> Optional[Dict]:
+        """캐시된 토큰 조회 (KST 정책 포함 유효성 검사)"""
+        if account_type not in self.tokens:
+            return None
+        
+        token_info = self.tokens[account_type]
+        
+        # 23:56 KST 이후는 무조건 무효화
+        if self.should_invalidate_at_2356():
+            clean_log(f"TOKEN_INVALIDATED_2356: {account_type}", "ERROR")
+            return None
+        
+        # 자정 이후 갱신 필요 여부 확인
+        if self.is_post_midnight_renewal_needed():
+            clean_log(f"TOKEN_RENEWAL_NEEDED_POST_MIDNIGHT: {account_type}", "ERROR")
+            return None
+        
+        # KST 정책에 따른 재사용 가능 여부 확인
+        if self.should_reuse_token(token_info):
+            return token_info
+    
+    def validate_system_readiness(self) -> Dict[str, Any]:
+        """
+        시스템 준비 상태 검증 (4/4 토큰 가용성 확인)
+        
+        Returns:
+            Dict: 시스템 준비 상태 정보
+            - ready: 시스템 준비 완료 여부 (4/4 토큰 사용 가능)
+            - token_status: 각 토큰별 상태
+            - missing_tokens: 누락된 토큰 목록
+            - total_valid: 유효한 토큰 수
+        """
+        required_tokens = ['real_access', 'real_approval', 'mock_access', 'mock_approval']
+        token_status = {}
+        valid_count = 0
+        missing_tokens = []
+        
+        # 실전투자 토큰 확인
+        real_token = self.get_cached_token('real')
+        if real_token and real_token.get('access_token'):
+            token_status['real_access'] = 'valid'
+            valid_count += 1
+        else:
+            token_status['real_access'] = 'missing'
+            missing_tokens.append('real_access')
+        
+        if real_token and real_token.get('approval_key'):
+            token_status['real_approval'] = 'valid'
+            valid_count += 1
+        else:
+            token_status['real_approval'] = 'missing'
+            missing_tokens.append('real_approval')
+        
+        # 모의투자 토큰 확인
+        mock_token = self.get_cached_token('mock')
+        if mock_token and mock_token.get('access_token'):
+            token_status['mock_access'] = 'valid'
+            valid_count += 1
+        else:
+            token_status['mock_access'] = 'missing'
+            missing_tokens.append('mock_access')
+        
+        if mock_token and mock_token.get('approval_key'):
+            token_status['mock_approval'] = 'valid'
+            valid_count += 1
+        else:
+            token_status['mock_approval'] = 'missing'
+            missing_tokens.append('mock_approval')
+        
+        is_ready = valid_count == 4
+        
+        result = {
+            'ready': is_ready,
+            'token_status': token_status,
+            'missing_tokens': missing_tokens,
+            'total_valid': valid_count,
+            'total_required': 4,
+            'readiness_ratio': f"{valid_count}/4"
+        }
+        
+        if is_ready:
+            clean_log("SYSTEM_READINESS_CHECK: PASSED (4/4 tokens valid)", "INFO")
+        else:
+            clean_log(f"SYSTEM_READINESS_CHECK: PENDING ({valid_count}/4 tokens valid, will be created as needed)", "INFO")
+        
+        return result
+
+
+class RegisterKeyFileHandler(FileSystemEventHandler):
+    """Register_Key.md 파일 변경 이벤트 핸들러"""
+    
+    def __init__(self, refresher):
+        self.refresher = refresher
+        self.last_modified = 0
+    
+    def on_modified(self, event):
+        if event.is_directory:
+            return
+        
+        file_path = Path(event.src_path)
+        if file_path.name == "Register_Key.md":
+            # 중복 이벤트 방지 (2초 내 중복 무시)
+            current_time = time.time()
+            if current_time - self.last_modified < 2:
+                return
+            
+            self.last_modified = current_time
+            # 로거가 사용되지 않으므로 clean_log를 사용
+            clean_log(Phase.DATA, f"REGISTER_KEY_FILE_CHANGED: ...{file_path.name}")
+            
+            # 연결정보 변경 여부 확인
+            if self.refresher.detect_connection_info_change():
+                clean_log(Phase.DATA, "CONNECTION_INFO_CHANGED: force_token_refresh_triggered")
+                # 강제 토큰 갱신을 위한 태스크 생성
+                try:
+                    loop = asyncio.get_event_loop()
+                    if loop.is_running():
+                        asyncio.create_task(self.refresher.force_refresh_tokens())
+                    else:
+                        # 새로운 이벤트 루프 실행
+                        asyncio.run(self.refresher.force_refresh_tokens())
+                except Exception as e:
+                    clean_log(f"강제 토큰 갱신 실행 실패: {e}", "ERROR")
+                    # 일반 토큰 갱신으로 폴백
+                    clean_log("폴백 토큰 갱신도 비활성화됨", "INFO")
+            else:
+                clean_log("파일 변경 감지 - 토큰 자동 갱신 비활성화됨", "INFO")
+
+
+# 전역 토큰 갱신 인스턴스
+_token_refresher = None
+
+def get_token_refresher() -> TokenAutoRefresher:
+    """토큰 갱신기 싱글톤 인스턴스 반환"""
+    global _token_refresher
+    if _token_refresher is None:
+        _token_refresher = TokenAutoRefresher()
+    return _token_refresher
+
+async def initialize_token_system():
+    """토큰 시스템 초기화 (성공 상태 게이팅 포함)"""
+    refresher = get_token_refresher()
+    
+    # 기존 토큰 캐시 로드
+    refresher.load_token_cache()
+    
+    # 파일 변경 모니터링 시작
+    refresher.start_file_monitoring()
+    
+    # 토큰은 실제로 필요할 때만 발급 (자동 발급 비활성화)
+    # 사용자 요청에 따라 시스템 시작 시 자동 토큰 발급 제거
+    
+    # 시스템 준비 상태 확인
+    readiness = refresher.validate_system_readiness()
+    
+    if readiness['ready']:
+        clean_log("TOKEN_SYSTEM_INIT_SUCCESS: ready for operations", "INFO")
+    else:
+        clean_log(f"TOKEN_SYSTEM_INIT_PENDING: tokens will be created as needed during operation", "INFO")
+        # 시스템 준비되지 않았지만 refresher는 반환 (추후 재시도 가능)
+    
+    return refresher
+
+async def get_valid_token(account_type: str) -> Optional[str]:
+    """유효한 토큰 조회 (자동 갱신 포함)"""
+    refresher = get_token_refresher()
+    
+    # 캐시된 토큰 확인
+    cached_token = refresher.get_cached_token(account_type)
+    if cached_token and cached_token.get("access_token"):
+        return cached_token["access_token"]
+    
+    # 토큰이 없거나 만료된 경우 새로 발급
+    clean_log(f"{account_type} 토큰 갱신 필요 - 새로 발급합니다", "ERROR")
+    token = await refresher.get_access_token(account_type)
+    return token
+
+if __name__ == "__main__":
+    # 테스트 실행
+    async def test_token_system():
+        print("토큰 자동 갱신 시스템 테스트 시작")
+        
+        refresher = await initialize_token_system()
+        
+        # 실전투자 토큰 테스트
+        real_token = await get_valid_token("real")
+        if real_token:
+            print(f"실전투자 토큰: {real_token[:20]}...")
+        
+        # 모의투자 토큰 테스트
+        mock_token = await get_valid_token("mock")
+        if mock_token:
+            print(f"모의투자 토큰: {mock_token[:20]}...")
+        
+        print("토큰 시스템 테스트 완료")
+        
+        try:
+            # 파일 모니터링 유지
+            while True:
+                await asyncio.sleep(10)
+                print("토큰 시스템 실행 중...")
+        except KeyboardInterrupt:
+            refresher.stop_file_monitoring()
+            print("토큰 시스템 종료")
+    
+    asyncio.run(test_token_system())

@@ -1,0 +1,286 @@
+모의투자 서버 연결 설정 완료
+Fast Token Manager 초기화 완료: MOCK
+실계좌 서버 연결 설정 완료
+Fast Token Manager 초기화 완료: REAL
+실시간 급등주 조회 성공: 20개
+실계좌 서버 연결 설정 완료
+Fast Token Manager 초기화 완료: REAL
+실시간 급등주 조회 성공: 20개
+모의투자 서버 연결 설정 완료
+Fast Token Manager 초기화 완료: MOCK
+Register_Key.md에서 텔레그램 봇 토큰 로드 성공
+Register_Key.md에서 텔레그램 채팅 ID 로드 성공
+모의투자 서버 연결 설정 완료
+Error: Fast Token Manager 초기화 실패, 기존 방식 사용: Register_Key.md 설정 로드 실패: 환경 변수 'TIDEWISE_SECRET_KEY'가 설정되지 않았습니다. 32자리 이상의 강력한 비밀 키를 설정해주세요.
+예시: export TIDEWISE_SECRET_KEY='your-super-secret-and-long-key-here'
+DayTradingRunner 초기화: 모의투자계좌 (성능 최적화 적용)
+모의투자 서버 연결 설정 완료
+Error: Fast Token Manager 초기화 실패, 기존 방식 사용: Register_Key.md 설정 로드 실패: 환경 변수 'TIDEWISE_SECRET_KEY'가 설정되지 않았습니다. 32자리 이상의 강력한 비밀 키를 설정해주세요.
+예시: export TIDEWISE_SECRET_KEY='your-super-secret-and-long-key-here'
+DayTradingRunner 초기화: 모의투자계좌 (성능 최적화 적용)
+성능 최적화 시스템 초기화 시작
+백그라운드 수집기 준비 완료
+시스템 레벨 결정 엔진 준비 완료: 3분봉 단타 거래량·가격 결합 시스템
+통합 순환 관리자 준비 완료
+성능 최적화 시스템 초기화 완료
+시스템 레벨 결정 엔진 준비 완료 - 기존 알고리즘과 병행 사용
+시스템 레벨 결정 엔진 준비 완료 - 기존 알고리즘과 병행 사용
+DayTradingRunner 초기화: 모의투자계좌 (성능 최적화 적용)
+시스템 레벨 결정 엔진 준비 완료 - 기존 알고리즘과 병행 사용
+실계좌 서버 연결 설정 완료
+Error: Fast Token Manager 초기화 실패, 기존 방식 사용: Register_Key.md 설정 로드 실패: 환경 변수 'TIDEWISE_SECRET_KEY'가 설정되지 않았습니다. 32자리 이상의 강력한 비밀 키를 설정해주세요.
+예시: export TIDEWISE_SECRET_KEY='your-super-secret-and-long-key-here'
+실시간 급등주 조회 성공: 20개
+Register_Key.md에서 텔레그램 봇 토큰 로드 성공
+Register_Key.md에서 텔레그램 채팅 ID 로드 성공
+DayTradingRunner 초기화: 모의투자계좌 (성능 최적화 적용)
+[모의투자계좌] 단타매매 시작 (성능 최적화 모드)
+성능 최적화 시스템 초기화 시작
+백그라운드 수집기 준비 완료
+시스템 레벨 결정 엔진 준비 완료: 3분봉 단타 거래량·가격 결합 시스템
+통합 순환 관리자 준비 완료
+성능 최적화 시스템 초기화 완료
+백그라운드 급등종목 수집 시작
+시스템 레벨 결정 엔진 준비 완료 - 기존 알고리즘과 병행 사용
+통합 순환 관리 시작 (2분 간격)
+모의투자 서버 연결 설정 완료
+Error: Fast Token Manager 초기화 실패, 기존 방식 사용: Register_Key.md 설정 로드 실패: 환경 변수 'TIDEWISE_SECRET_KEY'가 설정되지 않았습니다. 32자리 이상의 강력한 비밀 키를 설정해주세요.
+예시: export TIDEWISE_SECRET_KEY='your-super-secret-and-long-key-here'
+백그라운드 급등종목 수집 비동기 작업 시작
+모의투자 서버 연결 설정 완료
+Error: Fast Token Manager 초기화 실패, 기존 방식 사용: Register_Key.md 설정 로드 실패: 환경 변수 'TIDEWISE_SECRET_KEY'가 설정되지 않았습니다. 32자리 이상의 강력한 비밀 키를 설정해주세요.
+예시: export TIDEWISE_SECRET_KEY='your-super-secret-and-long-key-here'
+Register_Key.md에서 텔레그램 봇 토큰 로드 성공
+Register_Key.md에서 텔레그램 채팅 ID 로드 성공
+텔레그램 알리미 초기화 완료
+백그라운드 급등종목 수집 시스템 초기화 완료
+백그라운드 급등종목 수집 시작
+장시간 시작 - 백그라운드 수집 종료
+실계좌 서버 연결 설정 완료
+Error: Fast Token Manager 초기화 실패, 기존 방식 사용: Register_Key.md 설정 로드 실패: 환경 변수 'TIDEWISE_SECRET_KEY'가 설정되지 않았습니다. 32자리 이상의 강력한 비밀 키를 설정해주세요.
+예시: export TIDEWISE_SECRET_KEY='your-super-secret-and-long-key-here'
+실시간 급등주 조회 성공: 20개
+실계좌 서버 연결 설정 완료
+Error: Fast Token Manager 초기화 실패, 기존 방식 사용: Register_Key.md 설정 로드 실패: 환경 변수 'TIDEWISE_SECRET_KEY'가 설정되지 않았습니다. 32자리 이상의 강력한 비밀 키를 설정해주세요.
+예시: export TIDEWISE_SECRET_KEY='your-super-secret-and-long-key-here'
+실시간 급등주 조회 성공: 20개
+KIS API 매수 주문 시작: 007820 4324주 (시장가 코드: 01) - 모의투자
+[모의투자] 매수 주문 실행: 007820 4324주 @ 시장가 (코드: 01)
+[모의투자] 매수 성공: 007820 4324주 (코드: 01) - 주문번호: N/A
+Register_Key.md에서 텔레그램 봇 토큰 로드 성공
+Register_Key.md에서 텔레그램 채팅 ID 로드 성공
+KIS API 매수 주문 시작: 179530 4992주 (시장가 코드: 01) - 모의투자
+[모의투자] 매수 주문 실행: 179530 4992주 @ 시장가 (코드: 01)
+DayTradingRunner 초기화: 모의투자계좌 (성능 최적화 적용)
+[모의투자계좌] 단타매매 시작 (성능 최적화 모드)
+성능 최적화 시스템 초기화 시작
+백그라운드 수집기 준비 완료
+시스템 레벨 결정 엔진 준비 완료: 3분봉 단타 거래량·가격 결합 시스템
+통합 순환 관리자 준비 완료
+성능 최적화 시스템 초기화 완료
+백그라운드 급등종목 수집 시작
+시스템 레벨 결정 엔진 준비 완료 - 기존 알고리즘과 병행 사용
+통합 순환 관리 시작 (2분 간격)
+모의투자 서버 연결 설정 완료
+Error: Fast Token Manager 초기화 실패, 기존 방식 사용: Register_Key.md 설정 로드 실패: 환경 변수 'TIDEWISE_SECRET_KEY'가 설정되지 않았습니다. 32자리 이상의 강력한 비밀 키를 설정해주세요.
+예시: export TIDEWISE_SECRET_KEY='your-super-secret-and-long-key-here'
+백그라운드 급등종목 수집 비동기 작업 시작
+모의투자 서버 연결 설정 완료
+Error: Fast Token Manager 초기화 실패, 기존 방식 사용: Register_Key.md 설정 로드 실패: 환경 변수 'TIDEWISE_SECRET_KEY'가 설정되지 않았습니다. 32자리 이상의 강력한 비밀 키를 설정해주세요.
+예시: export TIDEWISE_SECRET_KEY='your-super-secret-and-long-key-here'
+Register_Key.md에서 텔레그램 봇 토큰 로드 성공
+Register_Key.md에서 텔레그램 채팅 ID 로드 성공
+텔레그램 알리미 초기화 완료
+백그라운드 급등종목 수집 시스템 초기화 완료
+백그라운드 급등종목 수집 시작
+[모의투자] 매수 성공: 179530 4992주 (코드: 01) - 주문번호: N/A
+KIS API 매수 주문 시작: 388720 172주 (시장가 코드: 01) - 모의투자
+[모의투자] 매수 주문 실행: 388720 172주 @ 시장가 (코드: 01)
+[모의투자] 매수 성공: 388720 172주 (코드: 01) - 주문번호: N/A
+실계좌 서버 연결 설정 완료
+Error: Fast Token Manager 초기화 실패, 기존 방식 사용: Register_Key.md 설정 로드 실패: 환경 변수 'TIDEWISE_SECRET_KEY'가 설정되지 않았습니다. 32자리 이상의 강력한 비밀 키를 설정해주세요.
+예시: export TIDEWISE_SECRET_KEY='your-super-secret-and-long-key-here'
+실시간 급등주 조회 성공: 20개
+KIS API 매수 주문 시작: 317830 2277주 (시장가 코드: 01) - 모의투자
+[모의투자] 매수 주문 실행: 317830 2277주 @ 시장가 (코드: 01)
+[모의투자] 매수 성공: 317830 2277주 (코드: 01) - 주문번호: N/A
+KIS API 매수 주문 시작: 179530 5047주 (시장가 코드: 01) - 모의투자
+[모의투자] 매수 주문 실행: 179530 5047주 @ 시장가 (코드: 01)
+[모의투자] 매수 성공: 179530 5047주 (코드: 01) - 주문번호: N/A
+KIS API 매수 주문 시작: 084990 2155주 (시장가 코드: 01) - 모의투자
+[모의투자] 매수 주문 실행: 084990 2155주 @ 시장가 (코드: 01)
+Error: [모의투자] 매수 실패: 084990 2155주 (코드: 01) - 오류: 모의투자 주문가능금액이 부족합니다.
+실계좌 서버 연결 설정 완료
+Error: Fast Token Manager 초기화 실패, 기존 방식 사용: Register_Key.md 설정 로드 실패: 환경 변수 'TIDEWISE_SECRET_KEY'가 설정되지 않았습니다. 32자리 이상의 강력한 비밀 키를 설정해주세요.
+예시: export TIDEWISE_SECRET_KEY='your-super-secret-and-long-key-here'
+실시간 급등주 조회 성공: 20개
+KIS API 매수 주문 시작: 317830 2277주 (시장가 코드: 01) - 모의투자
+[모의투자] 매수 주문 실행: 317830 2277주 @ 시장가 (코드: 01)
+Error: [모의투자] 매수 실패: 317830 2277주 (코드: 01) - 오류: 모의투자 주문가능금액이 부족합니다.
+KIS API 매수 주문 시작: 187270 5044주 (시장가 코드: 01) - 모의투자
+[모의투자] 매수 주문 실행: 187270 5044주 @ 시장가 (코드: 01)
+Error: [모의투자] 매수 실패: 187270 5044주 (코드: 01) - 오류: 모의투자 주문가능금액이 부족합니다.
+KIS API 매수 주문 시작: 459510 1257주 (시장가 코드: 01) - 모의투자
+[모의투자] 매수 주문 실행: 459510 1257주 @ 시장가 (코드: 01)
+Error: [모의투자] 매수 실패: 459510 1257주 (코드: 01) - 오류: 모의투자 주문가능금액이 부족합니다.
+실계좌 서버 연결 설정 완료
+Error: Fast Token Manager 초기화 실패, 기존 방식 사용: Register_Key.md 설정 로드 실패: 환경 변수 'TIDEWISE_SECRET_KEY'가 설정되지 않았습니다. 32자리 이상의 강력한 비밀 키를 설정해주세요.
+예시: export TIDEWISE_SECRET_KEY='your-super-secret-and-long-key-here'
+실시간 급등주 조회 성공: 20개
+KIS API 매수 주문 시작: 007820 4324주 (시장가 코드: 01) - 모의투자
+[모의투자] 매수 주문 실행: 007820 4324주 @ 시장가 (코드: 01)
+Error: [모의투자] 매수 실패: 007820 4324주 (코드: 01) - 오류: 모의투자 주문가능금액이 부족합니다.
+KIS API 매수 주문 시작: 187270 5025주 (시장가 코드: 01) - 모의투자
+[모의투자] 매수 주문 실행: 187270 5025주 @ 시장가 (코드: 01)
+Error: [모의투자] 매수 실패: 187270 5025주 (코드: 01) - 오류: 모의투자 주문가능금액이 부족합니다.
+KIS API 매수 주문 시작: 030530 2691주 (시장가 코드: 01) - 모의투자
+[모의투자] 매수 주문 실행: 030530 2691주 @ 시장가 (코드: 01)
+[모의투자] 매수 성공: 030530 2691주 (코드: 01) - 주문번호: N/A
+Register_Key.md에서 텔레그램 봇 토큰 로드 성공
+Register_Key.md에서 텔레그램 채팅 ID 로드 성공
+DayTradingRunner 초기화: 모의투자계좌 (성능 최적화 적용)
+[모의투자계좌] 단타매매 시작 (성능 최적화 모드)
+성능 최적화 시스템 초기화 시작
+백그라운드 수집기 준비 완료
+시스템 레벨 결정 엔진 준비 완료: 3분봉 단타 거래량·가격 결합 시스템
+통합 순환 관리자 준비 완료
+성능 최적화 시스템 초기화 완료
+백그라운드 급등종목 수집 시작
+시스템 레벨 결정 엔진 준비 완료 - 기존 알고리즘과 병행 사용
+통합 순환 관리 시작 (2분 간격)
+모의투자 서버 연결 설정 완료
+Error: Fast Token Manager 초기화 실패, 기존 방식 사용: Register_Key.md 설정 로드 실패: 환경 변수 'TIDEWISE_SECRET_KEY'가 설정되지 않았습니다. 32자리 이상의 강력한 비밀 키를 설정해주세요.
+예시: export TIDEWISE_SECRET_KEY='your-super-secret-and-long-key-here'
+백그라운드 급등종목 수집 비동기 작업 시작
+모의투자 서버 연결 설정 완료
+Error: Fast Token Manager 초기화 실패, 기존 방식 사용: Register_Key.md 설정 로드 실패: 환경 변수 'TIDEWISE_SECRET_KEY'가 설정되지 않았습니다. 32자리 이상의 강력한 비밀 키를 설정해주세요.
+예시: export TIDEWISE_SECRET_KEY='your-super-secret-and-long-key-here'
+Register_Key.md에서 텔레그램 봇 토큰 로드 성공
+Register_Key.md에서 텔레그램 채팅 ID 로드 성공
+텔레그램 알리미 초기화 완료
+백그라운드 급등종목 수집 시스템 초기화 완료
+백그라운드 급등종목 수집 시작
+장시간 시작 - 백그라운드 수집 종료
+[모의투자계좌] 단타매매 완료
+실계좌 서버 연결 설정 완료
+Error: Fast Token Manager 초기화 실패, 기존 방식 사용: Register_Key.md 설정 로드 실패: 환경 변수 'TIDEWISE_SECRET_KEY'가 설정되지 않았습니다. 32자리 이상의 강력한 비밀 키를 설정해주세요.
+예시: export TIDEWISE_SECRET_KEY='your-super-secret-and-long-key-here'
+실시간 급등주 조회 성공: 20개
+Register_Key.md에서 텔레그램 봇 토큰 로드 성공
+Register_Key.md에서 텔레그램 채팅 ID 로드 성공
+DayTradingRunner 초기화: 모의투자계좌 (성능 최적화 적용)
+[모의투자계좌] 단타매매 시작 (성능 최적화 모드)
+성능 최적화 시스템 초기화 시작
+백그라운드 수집기 준비 완료
+시스템 레벨 결정 엔진 준비 완료: 3분봉 단타 거래량·가격 결합 시스템
+통합 순환 관리자 준비 완료
+성능 최적화 시스템 초기화 완료
+백그라운드 급등종목 수집 시작
+시스템 레벨 결정 엔진 준비 완료 - 기존 알고리즘과 병행 사용
+통합 순환 관리 시작 (2분 간격)
+모의투자 서버 연결 설정 완료
+Error: Fast Token Manager 초기화 실패, 기존 방식 사용: Register_Key.md 설정 로드 실패: 환경 변수 'TIDEWISE_SECRET_KEY'가 설정되지 않았습니다. 32자리 이상의 강력한 비밀 키를 설정해주세요.
+예시: export TIDEWISE_SECRET_KEY='your-super-secret-and-long-key-here'
+단타매매 계좌 관리자 초기화: 모의투자
+백그라운드 급등종목 수집 비동기 작업 시작
+모의투자 서버 연결 설정 완료
+Error: Fast Token Manager 초기화 실패, 기존 방식 사용: Register_Key.md 설정 로드 실패: 환경 변수 'TIDEWISE_SECRET_KEY'가 설정되지 않았습니다. 32자리 이상의 강력한 비밀 키를 설정해주세요.
+예시: export TIDEWISE_SECRET_KEY='your-super-secret-and-long-key-here'
+Register_Key.md에서 텔레그램 봇 토큰 로드 성공
+Register_Key.md에서 텔레그램 채팅 ID 로드 성공
+텔레그램 알리미 초기화 완료
+백그라운드 급등종목 수집 시스템 초기화 완료
+백그라운드 급등종목 수집 시작
+단타매매 세션 시작 - 계좌 정보 초기화
+계좌 정보 갱신 완료: 예수금 100,000,000원, 주문가능금액 100,000,000원, 보유종목 5개
+단타매매 세션 종료 - 마지막 계좌 갱신: 16:08:53
+백그라운드 수집 작업 취소됨
+[모의투자계좌] 단타매매 완료
+Register_Key.md에서 텔레그램 봇 토큰 로드 성공
+Register_Key.md에서 텔레그램 채팅 ID 로드 성공
+DayTradingRunner 초기화: 모의투자계좌 (성능 최적화 적용)
+[모의투자계좌] 단타매매 시작 (성능 최적화 모드)
+성능 최적화 시스템 초기화 시작
+백그라운드 수집기 준비 완료
+시스템 레벨 결정 엔진 준비 완료: 3분봉 단타 거래량·가격 결합 시스템
+통합 순환 관리자 준비 완료
+성능 최적화 시스템 초기화 완료
+백그라운드 급등종목 수집 시작
+시스템 레벨 결정 엔진 준비 완료 - 기존 알고리즘과 병행 사용
+통합 순환 관리 시작 (2분 간격)
+모의투자 서버 연결 설정 완료
+Error: Fast Token Manager 초기화 실패, 기존 방식 사용: Register_Key.md 설정 로드 실패: 환경 변수 'TIDEWISE_SECRET_KEY'가 설정되지 않았습니다. 32자리 이상의 강력한 비밀 키를 설정해주세요.
+예시: export TIDEWISE_SECRET_KEY='your-super-secret-and-long-key-here'
+단타매매 계좌 관리자 초기화: 모의투자
+백그라운드 급등종목 수집 비동기 작업 시작
+모의투자 서버 연결 설정 완료
+Error: Fast Token Manager 초기화 실패, 기존 방식 사용: Register_Key.md 설정 로드 실패: 환경 변수 'TIDEWISE_SECRET_KEY'가 설정되지 않았습니다. 32자리 이상의 강력한 비밀 키를 설정해주세요.
+예시: export TIDEWISE_SECRET_KEY='your-super-secret-and-long-key-here'
+Register_Key.md에서 텔레그램 봇 토큰 로드 성공
+Register_Key.md에서 텔레그램 채팅 ID 로드 성공
+텔레그램 알리미 초기화 완료
+백그라운드 급등종목 수집 시스템 초기화 완료
+백그라운드 급등종목 수집 시작
+단타매매 세션 시작 - 계좌 정보 초기화
+계좌 정보 갱신 완료: 예수금 100,000,000원, 주문가능금액 15,388,200원, 보유종목 5개
+단타매매 세션 종료 - 마지막 계좌 갱신: 17:43:11
+백그라운드 수집 작업 취소됨
+[모의투자계좌] 단타매매 완료
+Register_Key.md에서 텔레그램 봇 토큰 로드 성공
+Register_Key.md에서 텔레그램 채팅 ID 로드 성공
+[모의투자계좌] 단타매매 시작 (성능 최적화 모드)
+성능 최적화 시스템 초기화 시작
+백그라운드 수집기 준비 완료
+시스템 레벨 결정 엔진 준비 완료: 3분봉 단타 거래량·가격 결합 시스템
+통합 순환 관리자 준비 완료
+성능 최적화 시스템 초기화 완료
+백그라운드 급등종목 수집 시작
+시스템 레벨 결정 엔진 준비 완료 - 기존 알고리즘과 병행 사용
+통합 순환 관리 시작 (2분 간격)
+모의투자 서버 연결 설정 완료
+Error: Fast Token Manager 초기화 실패, 기존 방식 사용: Register_Key.md 설정 로드 실패: 환경 변수 'TIDEWISE_SECRET_KEY'가 설정되지 않았습니다. 32자리 이상의 강력한 비밀 키를 설정해주세요.
+예시: export TIDEWISE_SECRET_KEY='your-super-secret-and-long-key-here'
+단타매매 계좌 관리자 초기화: 모의투자
+백그라운드 급등종목 수집 비동기 작업 시작
+모의투자 서버 연결 설정 완료
+Error: Fast Token Manager 초기화 실패, 기존 방식 사용: Register_Key.md 설정 로드 실패: 환경 변수 'TIDEWISE_SECRET_KEY'가 설정되지 않았습니다. 32자리 이상의 강력한 비밀 키를 설정해주세요.
+예시: export TIDEWISE_SECRET_KEY='your-super-secret-and-long-key-here'
+Register_Key.md에서 텔레그램 봇 토큰 로드 성공
+Register_Key.md에서 텔레그램 채팅 ID 로드 성공
+텔레그램 알리미 초기화 완료
+백그라운드 급등종목 수집 시스템 초기화 완료
+백그라운드 급등종목 수집 시작
+단타매매 세션 시작 - 계좌 정보 초기화
+계좌 정보 갱신 완료: 예수금 100,000,000원, 주문가능금액 15,388,200원, 보유종목 5개
+단타매매 세션 종료 - 마지막 계좌 갱신: 22:03:35
+백그라운드 수집 작업 취소됨
+[모의투자계좌] 단타매매 완료
+Register_Key.md에서 텔레그램 봇 토큰 로드 성공
+Register_Key.md에서 텔레그램 채팅 ID 로드 성공
+성능 최적화 시스템 초기화 시작
+백그라운드 수집기 준비 완료
+시스템 레벨 결정 엔진 준비 완료: 3분봉 단타 거래량·가격 결합 시스템
+통합 순환 관리자 준비 완료
+성능 최적화 시스템 초기화 완료
+시스템 레벨 결정 엔진 준비 완료 - 기존 알고리즘과 병행 사용
+통합 순환 관리 시작 (2분 간격)
+모의투자 서버 연결 설정 완료
+Error: Fast Token Manager 초기화 실패, 기존 방식 사용: Register_Key.md 설정 로드 실패: 환경 변수 'TIDEWISE_SECRET_KEY'가 설정되지 않았습니다. 32자리 이상의 강력한 비밀 키를 설정해주세요.
+예시: export TIDEWISE_SECRET_KEY='your-super-secret-and-long-key-here'
+단타매매 계좌 관리자 초기화: 모의투자
+백그라운드 급등종목 수집 비동기 작업 시작
+모의투자 서버 연결 설정 완료
+Error: Fast Token Manager 초기화 실패, 기존 방식 사용: Register_Key.md 설정 로드 실패: 환경 변수 'TIDEWISE_SECRET_KEY'가 설정되지 않았습니다. 32자리 이상의 강력한 비밀 키를 설정해주세요.
+예시: export TIDEWISE_SECRET_KEY='your-super-secret-and-long-key-here'
+Register_Key.md에서 텔레그램 봇 토큰 로드 성공
+Register_Key.md에서 텔레그램 채팅 ID 로드 성공
+텔레그램 알리미 초기화 완료
+백그라운드 급등종목 수집 시스템 초기화 완료
+백그라운드 급등종목 수집 시작
+단타매매 세션 시작 - 계좌 정보 초기화
+계좌 정보 갱신 완료: 예수금 100,000,000원, 주문가능금액 15,388,200원, 보유종목 5개
+단타매매 세션 종료 - 마지막 계좌 갱신: 22:48:39
+백그라운드 수집 작업 취소됨
+[모의투자계좌] 단타매매 완료
+Register_Key.md에서 텔레그램 봇 토큰 로드 성공
+Register_Key.md에서 텔레그램 채팅 ID 로드 성공

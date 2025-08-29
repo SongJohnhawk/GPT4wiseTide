@@ -1,0 +1,131 @@
+A) 파라미터(기본값)
+
+#기간 지표
+-EMA_fast = 5, EMA_slow = 20, RSI_len = 7
+-V_avg_len = 20 (3분봉 20개 ≈ 60분)
+
+#임계치
+-K_buy = 2.2 (거래량 급등 배수: 현재봉 거래량 ≥ K_buy × V20)
+-RSI_buy_zone = [55, 75]
+-Vol_fade = 0.5 (거래량 소멸: 현재봉 거래량 ≤ Vol_fade × V20)
+
+#리스크 관리
+-SL = -2.0% (진입가 기준 손절)
+-TP1 = +3.0% (1차 익절, 50% 청산)
+-TS_trigger = +2.0% 이후 Trailing = EMA_fast 또는 VWAP 하향 이탈
+
+#시간 규칙
+-신규 진입 금지: 14:30 이후
+-전량 청산: 14:55
+
+B) 핵심 아이디어 (단일 로직)
+-거래량 기반 ‘진짜 돌파’만 매수: V_now ≥ 2.2×V20 + 가격 돌파 + VWAP 위.
+-거래량 소멸·윗꼬리 과다·추세 이탈 시 매도.
+-뉴스 호재에도 음봉+대량은 세력 분배 신호로 간주 → 즉시 청산.
+
+C)단일 알고리즘(상태머신)— 의사코드
+[코드 시작]
+# 입력: 3분봉 OHLCV 스트림, 한국장 09:00–15:30
+# 지표: EMA5, EMA20, VWAP(당일), RSI7, V20(최근 20봉 평균 거래량)
+
+position    = "FLAT"
+entry_price = None
+half_taken  = False
+
+for each 3min bar t:
+
+    # ----- 공통 계산 -----
+    V_now = volume[t]
+    V20   = mean(volume[t-19:t])                 # 최근 20봉 평균
+    ema5  = EMA(close, 5)[t]
+    ema20 = EMA(close, 20)[t]
+    vwap  = VWAP(intraday)[t]
+    rsi7  = RSI(close, 7)[t]
+
+    # 시간 규칙
+    allow_new_entry = (time[t] < "14:30")
+    if time[t] >= "14:55" and position == "LONG":
+        sell_all(); position="FLAT"; continue
+
+    # 가격 돌파 정의(최근 20봉 고점 or 당일 고점 경신)
+    swing_high_break = (close[t] > max(high[t-20:t-1]))
+    vwap_filter_ok   = (close[t] > vwap)
+    trend_ok         = (ema5 > ema20)
+
+    # ===== 매수 신호(“진짜 돌파” 단일 조건군) =====
+    buy_signal = (
+        allow_new_entry
+        and (V_now >= 2.2 * V20)                 # 거래량 폭발
+        and swing_high_break                      # 가격 돌파
+        and vwap_filter_ok                        # VWAP 상방
+        and trend_ok                              # 단기추세 정렬
+        and (55 <= rsi7 <= 75)                    # 힘은 있으나 과열 직전
+        and (close[t] > open[t])                  # 양봉 마감
+    )
+
+    # ===== 매도(청산) 판단 요소 =====
+    # 긴 윗꼬리(세력 분배 신호): 윗꼬리 길이 >= 캔들 전체의 50%
+    long_upper_shadow = ((high[t] - max(close[t], open[t])) >= 0.5 * (high[t] - low[t]))
+    # 거래량 소멸
+    volume_fade = (V_now <= 0.5 * V20)
+    # 추세/모멘텀 이탈
+    trend_break = (close[t] < ema5) or (ema5 < ema20) or (close[t] < vwap)
+
+    # ===== 거래 실행 =====
+    if position == "FLAT":
+        if buy_signal:
+            buy()                                 # 시장가/분할진입 권장(2~3회)
+            entry_price = fill_price()
+            half_taken  = False
+            position    = "LONG"
+
+    elif position == "LONG":
+
+        # --- ① 하드 스톱 ---
+        if close[t] <= entry_price * (1 - 0.02):  # SL -2%
+            sell_all(); position="FLAT"; continue
+
+        # --- ② 1차 익절 ---
+        if (not half_taken) and (close[t] >= entry_price * (1 + 0.03)):  # TP1 +3%
+            sell_qty(0.5)                         # 절반 청산
+            half_taken = True
+
+        # --- ③ 트레일링(수익 2%↑ 구간에서 추세/ VWAP 이탈 시) ---
+        if (close[t] >= entry_price * (1 + 0.02)) and trend_break:
+            sell_all(); position="FLAT"; continue
+
+        # --- ④ 경고성 즉시 청산 ---
+        # 고점 대량 + 긴 윗꼬리(세력 분배)
+        if long_upper_shadow and (V_now >= 2.0 * V20):
+            sell_all(); position="FLAT"; continue
+
+        # 거래량 소멸 + 약세(EMA5 하회)
+        if volume_fade and (close[t] <= ema5):
+            sell_all(); position="FLAT"; continue
+[코드 종료]
+
+D) 실행 규칙(숏 제외, 매수·청산 일원화)
+**매수는 딱 한 종류의 ‘진짜 돌파’**만 인정:
+-대량거래(≥2.2×V20) + 고점 돌파 + VWAP 상방 + EMA5>EMA20 + RSI 55~75 + 양봉.
+-청산은 4가지 트리거로 단순화:
+-하드 스톱: -2%
+-1차 익절: +3% 절반 → 잔여는 추세 추종
+-트레일링: +2% 이후 EMA5/VWAP/정렬 이탈
+-거래량·캔들 경고: 고점대량+긴 윗꼬리, 또는 거래량 소멸(≤0.5×V20) + 약세 캔들
+
+E) 튜닝 가이드(필드 최적화)
+-테마·변동성 큰 종목: K_buy=2.5~3.0, SL=-2.5%, TP1=+4~5%
+-대형 우량/지수 연동: K_buy=1.8~2.2, SL=-1.5~2%, TP1=+2.5~3%
+-신호 과열 시: RSI 상한을 70→68로 낮추거나, 양봉 조건을 “종가가 고가 대비 70% 이상”으로 강화
+
+
+F) 실전 체크리스트(3분 요약)
+-09:00~10:30 집중, 14:30 이후 신규 진입 금지, 14:55 전량 청산
+-관심종목: 당일 재료/수급 유입 상위 + 초반 거래대금 상위
+-차트 오버레이: VWAP, EMA5/20, RSI7, 거래량(V20)
+-신호 발생 시 분할진입, 즉시 SL/TP 지정
+-체결강도 과열·윗꼬리 대량·거래량 소멸 조합은 망설임 없이 청산
+
+
+
+

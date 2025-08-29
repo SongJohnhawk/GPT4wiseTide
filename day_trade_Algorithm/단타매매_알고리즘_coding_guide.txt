@@ -1,0 +1,937 @@
+================================================================================
+tideWise 단타매매 알고리즘 개발 가이드
+================================================================================
+
+[가이드 목적]
+이 가이드는 tideWise 시스템과 완벽하게 호환되는 단타매매 알고리즘을 개발하기 위한 종합적이고 명확한 지침을 제공합니다.
+
+[대상 알고리즘]
+- 초단타/스캘핑 전략 (분 단위 ~ 시간 단위)
+- 급등종목 기반 데이트레이딩
+- 고빈도 매매 전략
+- 실시간 신호 생성 및 즉시 실행
+
+================================================================================
+1. 파일 구조 및 명명 규칙
+================================================================================
+
+[1.1] 파일 위치
+- 저장 경로: C:\Distribute_tideWise\day_trade_Algorithm\
+- 지원 확장자: .py, .pine, .js, .txt, .json
+
+[1.2] 파일 명명 규칙
+- Python 파일: [전략명]_DayTrading.py (예: New_DayTrading.py)
+- 설명 파일: [전략명]_DayTrading.md (선택사항)
+- 버전 관리: [전략명]_v1.0.py 형태로 버전 표기
+
+[1.3] 폴더 내 필수 구조
+day_trade_Algorithm/
+├── [알고리즘명].py          # 메인 단타 알고리즘 파일
+├── [알고리즘명].md          # 설명 문서 (선택)
+└── README.md                # 알고리즘 개요 (권장)
+
+================================================================================
+2. Python 단타매매 알고리즘 필수 구조
+================================================================================
+
+[2.1] 기본 클래스 상속
+```python
+from support.algorithm_interface import BaseAlgorithm
+
+class YourDayTradingAlgorithm(BaseAlgorithm):
+    def __init__(self):
+        super().__init__()
+        self.algorithm_name = "Your_DayTrading_Algorithm"
+        self.description = "단타매매 알고리즘 설명"
+        self.version = "1.0"
+        
+        # 단타매매 전용 설정
+        self.day_trading_mode = True
+        self.max_holding_time = 30  # 최대 보유시간 (분)
+        self.scalping_enabled = True
+```
+
+[2.2] 필수 구현 메서드
+```python
+def analyze(self, stock_data: Dict[str, Any]) -> Dict[str, Any]:
+    """
+    단타매매 신호 분석 (필수 구현)
+    
+    Args:
+        stock_data: {
+            'current_price': float,      # 현재가
+            'open_price': float,         # 시가 
+            'high_price': float,         # 고가
+            'low_price': float,          # 저가
+            'volume': int,               # 거래량
+            'change_rate': float,        # 등락률 (-1.0 ~ 1.0)
+            'volume_ratio': float,       # 거래량 비율 (급등종목 핵심)
+            'surge_rank': int,           # 급등종목 순위
+            'price_momentum': float,     # 가격 모멘텀
+            'intraday_high': float,      # 당일 최고가
+            'intraday_low': float,       # 당일 최저가
+            'tick_data': List[Dict],     # 틱 데이터 (사용 가능시)
+            'order_book': Dict,          # 호가창 정보 (사용 가능시)
+        }
+    
+    Returns:
+        {
+            'signal': str,               # 'BUY', 'SELL', 'HOLD' 중 하나
+            'confidence': float,         # 신뢰도 (0.0 ~ 1.0)
+            'reason': str,              # 매매 근거 설명
+            'urgency': str,             # 'HIGH', 'MEDIUM', 'LOW' - 실행 우선순위
+            'target_price': float,      # 목표가 (단타용)
+            'stop_loss': float,         # 손절가 (단타용)
+            'position_size': float,     # 포지션 크기 비율 (0.0 ~ 1.0)
+            'max_hold_time': int,       # 최대 보유시간 (분)
+            'scalping_mode': bool       # 스캘핑 모드 여부
+        }
+    """
+    # 단타매매 로직 구현
+    return result
+```
+
+[2.3] 단타매매 전용 메서드
+```python
+def is_surge_breakout(self, stock_data: Dict[str, Any]) -> bool:
+    """급등 돌파 여부 확인"""
+    current_price = stock_data['current_price']
+    intraday_high = stock_data.get('intraday_high', current_price)
+    volume_ratio = stock_data.get('volume_ratio', 1.0)
+    
+    # 급등 돌파 조건
+    price_breakout = current_price >= intraday_high * 0.995  # 고점 근접
+    volume_surge = volume_ratio >= 2.0  # 거래량 급증
+    
+    return price_breakout and volume_surge
+
+def calculate_scalping_target(self, entry_price: float, volatility: float) -> Tuple[float, float]:
+    """스캘핑 목표가 및 손절가 계산"""
+    # 변동성 기반 목표가 설정 (0.5% ~ 2.0%)
+    target_ratio = min(0.02, max(0.005, volatility * 0.5))
+    stop_ratio = target_ratio * 0.6  # 손익비 1:0.6
+    
+    target_price = entry_price * (1 + target_ratio)
+    stop_price = entry_price * (1 - stop_ratio)
+    
+    return target_price, stop_price
+```
+
+================================================================================
+3. 급등종목 데이터 처리
+================================================================================
+
+[3.1] 급등종목 API 연동
+```python
+def process_surge_stocks(self, surge_stock_list: List[Dict]) -> List[Dict]:
+    """급등종목 리스트 처리"""
+    processed_stocks = []
+    
+    for stock in surge_stock_list:
+        if self.is_valid_surge_candidate(stock):
+            processed_data = {
+                'code': stock['code'],
+                'name': stock['name'],
+                'current_price': stock['current_price'],
+                'change_rate': stock['change_rate'],
+                'volume_ratio': stock['volume_ratio'],
+                'surge_strength': self.calculate_surge_strength(stock),
+                'breakout_probability': self.calculate_breakout_probability(stock)
+            }
+            processed_stocks.append(processed_data)
+    
+    # 급등 강도순 정렬
+    return sorted(processed_stocks, key=lambda x: x['surge_strength'], reverse=True)
+
+def is_valid_surge_candidate(self, stock: Dict[str, Any]) -> bool:
+    """급등종목 후보 유효성 검사"""
+    change_rate = stock.get('change_rate', 0)
+    volume_ratio = stock.get('volume_ratio', 0)
+    current_price = stock.get('current_price', 0)
+    
+    # 단타매매 적합 조건
+    return (
+        change_rate >= 0.03 and           # 3% 이상 상승
+        volume_ratio >= 1.5 and          # 평균 거래량 1.5배 이상
+        1000 <= current_price <= 500000  # 가격대 제한
+    )
+```
+
+[3.2] 실시간 급등 감지
+```python
+def detect_real_time_surge(self, current_data: Dict[str, Any], 
+                          historical_data: List[Dict]) -> Dict[str, Any]:
+    """실시간 급등 감지"""
+    if len(historical_data) < 5:
+        return {'is_surge': False, 'strength': 0.0}
+    
+    current_price = current_data['current_price']
+    current_volume = current_data['volume']
+    
+    # 최근 5분간 평균과 비교
+    recent_prices = [d['current_price'] for d in historical_data[-5:]]
+    recent_volumes = [d['volume'] for d in historical_data[-5:]]
+    
+    avg_price = np.mean(recent_prices)
+    avg_volume = np.mean(recent_volumes)
+    
+    price_surge = (current_price - avg_price) / avg_price
+    volume_surge = current_volume / avg_volume if avg_volume > 0 else 1.0
+    
+    # 급등 강도 계산
+    surge_strength = (price_surge * 0.6) + (min(volume_surge, 5.0) * 0.4)
+    
+    return {
+        'is_surge': surge_strength > 0.02,  # 2% 이상 급등
+        'strength': surge_strength,
+        'price_momentum': price_surge,
+        'volume_momentum': volume_surge
+    }
+```
+
+================================================================================
+4. 틱/분봉 데이터 처리
+================================================================================
+
+[4.1] 틱 데이터 분석
+```python
+def analyze_tick_data(self, tick_data: List[Dict]) -> Dict[str, Any]:
+    """틱 데이터 분석"""
+    if not tick_data or len(tick_data) < 10:
+        return {'valid': False}
+    
+    # 최근 틱 데이터 분석
+    recent_ticks = tick_data[-20:]  # 최근 20틱
+    
+    prices = [tick['price'] for tick in recent_ticks]
+    volumes = [tick['volume'] for tick in recent_ticks]
+    
+    # 가격 추세 분석
+    price_trend = self.calculate_price_trend(prices)
+    
+    # 거래량 패턴 분석
+    volume_pattern = self.analyze_volume_pattern(volumes)
+    
+    # 매수/매도 압력 분석
+    buy_pressure = sum(tick['volume'] for tick in recent_ticks 
+                      if tick['trade_type'] == 'BUY')
+    sell_pressure = sum(tick['volume'] for tick in recent_ticks 
+                       if tick['trade_type'] == 'SELL')
+    
+    total_volume = buy_pressure + sell_pressure
+    buy_ratio = buy_pressure / total_volume if total_volume > 0 else 0.5
+    
+    return {
+        'valid': True,
+        'price_trend': price_trend,
+        'volume_pattern': volume_pattern,
+        'buy_pressure_ratio': buy_ratio,
+        'tick_momentum': (prices[-1] - prices[0]) / prices[0] if prices[0] > 0 else 0
+    }
+
+def calculate_price_trend(self, prices: List[float]) -> str:
+    """가격 추세 계산"""
+    if len(prices) < 3:
+        return 'NEUTRAL'
+    
+    # 선형 회귀로 추세 계산
+    x = np.arange(len(prices))
+    z = np.polyfit(x, prices, 1)
+    slope = z[0]
+    
+    threshold = prices[0] * 0.001  # 0.1% 기준
+    
+    if slope > threshold:
+        return 'UPTREND'
+    elif slope < -threshold:
+        return 'DOWNTREND'
+    else:
+        return 'NEUTRAL'
+```
+
+[4.2] 분봉 데이터 처리
+```python
+def process_minute_data(self, minute_data: List[Dict], timeframe: int = 3) -> Dict[str, Any]:
+    """분봉 데이터 처리 (기본 3분봉)"""
+    if not minute_data or len(minute_data) < timeframe:
+        return {'valid': False}
+    
+    # 지정된 시간프레임으로 데이터 집계
+    aggregated_data = self.aggregate_minute_data(minute_data, timeframe)
+    
+    # 기술적 지표 계산
+    df = pd.DataFrame(aggregated_data)
+    
+    indicators = {
+        'ema_5': self.calculate_ema(df['close'], 5).iloc[-1],
+        'ema_15': self.calculate_ema(df['close'], 15).iloc[-1],
+        'rsi_7': self.calculate_rsi(df['close'], 7).iloc[-1],
+        'volume_ma': df['volume'].rolling(5).mean().iloc[-1],
+        'price_volatility': df['close'].pct_change().std()
+    }
+    
+    # 단타매매 신호 생성
+    signal_strength = self.calculate_daytrading_signal(df, indicators)
+    
+    return {
+        'valid': True,
+        'indicators': indicators,
+        'signal_strength': signal_strength,
+        'current_candle': aggregated_data[-1]
+    }
+```
+
+================================================================================
+5. VI(Volatility Interruption) 처리
+================================================================================
+
+[5.1] VI 상태 감지
+```python
+def detect_vi_status(self, stock_data: Dict[str, Any]) -> Dict[str, str]:
+    """VI 상태 감지"""
+    current_price = stock_data['current_price']
+    open_price = stock_data['open_price']
+    high_price = stock_data.get('intraday_high', stock_data['high_price'])
+    low_price = stock_data.get('intraday_low', stock_data['low_price'])
+    
+    change_rate = (current_price - open_price) / open_price
+    
+    # VI 기준 (한국 시장)
+    if change_rate >= 0.30:  # 상한가 (+30%)
+        return {'status': '상한가', 'action': 'HOLD'}
+    elif change_rate <= -0.30:  # 하한가 (-30%)
+        return {'status': '하한가', 'action': 'SELL'}
+    elif change_rate >= 0.15:  # 상승 VI (+15%)
+        return {'status': '상승VI', 'action': 'BUY_OPPORTUNITY'}
+    elif change_rate <= -0.15:  # 하락 VI (-15%)
+        return {'status': '하락VI', 'action': 'SELL_IMMEDIATELY'}
+    
+    return {'status': '정상', 'action': 'NORMAL'}
+
+def handle_vi_situation(self, vi_info: Dict[str, str], 
+                       stock_data: Dict[str, Any]) -> Dict[str, Any]:
+    """VI 상황별 대응"""
+    vi_status = vi_info['status']
+    vi_action = vi_info['action']
+    
+    if vi_action == 'SELL_IMMEDIATELY':
+        return {
+            'signal': 'SELL',
+            'confidence': 0.95,
+            'reason': f'{vi_status} 발생 - 즉시 매도',
+            'urgency': 'HIGH',
+            'scalping_mode': False
+        }
+    
+    elif vi_action == 'BUY_OPPORTUNITY':
+        # 상승 VI는 단타 기회로 활용
+        volume_ratio = stock_data.get('volume_ratio', 1.0)
+        if volume_ratio >= 3.0:  # 충분한 거래량
+            return {
+                'signal': 'BUY',
+                'confidence': 0.8,
+                'reason': f'{vi_status} + 거래량급증 - 단타기회',
+                'urgency': 'HIGH',
+                'scalping_mode': True,
+                'max_hold_time': 15  # 15분 이내
+            }
+    
+    elif vi_status in ['상한가', '하한가']:
+        return {
+            'signal': 'HOLD',
+            'confidence': 0.9,
+            'reason': f'{vi_status} - 거래 중단',
+            'urgency': 'LOW'
+        }
+    
+    return None  # 정상 상황
+```
+
+================================================================================
+6. 단타매매 리스크 관리
+================================================================================
+
+[6.1] 단타 전용 리스크 파라미터
+```python
+class DayTradingRiskManager:
+    def __init__(self):
+        # 단타매매 전용 리스크 설정
+        self.max_position_size = 0.20      # 최대 포지션 20% (자동매매보다 공격적)
+        self.scalping_stop_loss = 0.015    # 스캘핑 손절 1.5%
+        self.scalping_take_profit = 0.025  # 스캘핑 익절 2.5%
+        self.max_holding_minutes = 30      # 최대 보유 30분
+        self.max_daily_trades = 20         # 일일 최대 거래 횟수
+        self.cooling_period = 5            # 손절 후 쿨링 타임 (분)
+        
+        # 급등종목별 리스크 조정
+        self.surge_multiplier = {
+            'HIGH_VOLUME': 1.2,    # 고거래량: 리스크 20% 증가
+            'MEDIUM_VOLUME': 1.0,  # 중간거래량: 기본 리스크
+            'LOW_VOLUME': 0.7      # 저거래량: 리스크 30% 감소
+        }
+
+def calculate_dynamic_stop_loss(self, entry_price: float, volatility: float, 
+                               volume_category: str) -> float:
+    """동적 손절가 계산"""
+    base_stop_pct = self.scalping_stop_loss
+    
+    # 변동성 조정
+    volatility_adjustment = min(volatility * 0.5, 0.01)  # 최대 1% 추가
+    
+    # 거래량별 조정
+    volume_multiplier = self.surge_multiplier.get(volume_category, 1.0)
+    
+    adjusted_stop_pct = base_stop_pct + volatility_adjustment
+    adjusted_stop_pct *= volume_multiplier
+    
+    return entry_price * (1 - adjusted_stop_pct)
+```
+
+[6.2] 시간 기반 리스크 관리
+```python
+def check_time_based_risks(self) -> Dict[str, Any]:
+    """시간 기반 리스크 확인"""
+    from datetime import datetime, time
+    
+    now = datetime.now()
+    current_time = now.time()
+    
+    # 한국 시장 시간대별 리스크
+    market_open = time(9, 0, 0)
+    lunch_break_start = time(11, 30, 0)
+    lunch_break_end = time(12, 30, 0)
+    market_close = time(15, 30, 0)
+    power_hour = time(14, 30, 0)  # 마지막 1시간
+    
+    risk_level = 'NORMAL'
+    action = 'CONTINUE'
+    
+    if current_time < time(9, 10, 0):
+        risk_level = 'HIGH'
+        action = 'CAREFUL'  # 개장 초반 변동성 주의
+    
+    elif lunch_break_start <= current_time <= lunch_break_end:
+        risk_level = 'LOW'
+        action = 'HOLD_ONLY'  # 점심시간 신규진입 금지
+    
+    elif current_time >= power_hour:
+        risk_level = 'HIGH'
+        action = 'EXIT_PREPARE'  # 마감 준비
+    
+    elif current_time >= time(15, 20, 0):
+        risk_level = 'CRITICAL'
+        action = 'FORCE_EXIT'  # 강제 청산
+    
+    return {
+        'risk_level': risk_level,
+        'action': action,
+        'current_time': current_time.strftime('%H:%M:%S')
+    }
+```
+
+================================================================================
+7. 실행 파이프라인 최적화
+================================================================================
+
+[7.1] 신호 → 결정 → 주문 파이프라인
+```python
+def execute_daytrading_pipeline(self, stock_data: Dict[str, Any]) -> Dict[str, Any]:
+    """단타매매 실행 파이프라인"""
+    pipeline_start = time.time()
+    
+    try:
+        # 1단계: 빠른 필터링 (10ms 이내)
+        if not self.quick_filter(stock_data):
+            return self.create_hold_signal("빠른 필터링 실패")
+        
+        # 2단계: VI 상태 확인 (5ms 이내)
+        vi_info = self.detect_vi_status(stock_data)
+        vi_response = self.handle_vi_situation(vi_info, stock_data)
+        if vi_response:
+            return vi_response
+        
+        # 3단계: 시간 기반 리스크 확인 (5ms 이내)
+        time_risk = self.check_time_based_risks()
+        if time_risk['action'] in ['HOLD_ONLY', 'FORCE_EXIT']:
+            return self.create_time_based_response(time_risk)
+        
+        # 4단계: 급등 감지 및 분석 (50ms 이내)
+        surge_analysis = self.analyze_surge_opportunity(stock_data)
+        if not surge_analysis['valid']:
+            return self.create_hold_signal("급등 분석 실패")
+        
+        # 5단계: 기술적 분석 (30ms 이내)
+        technical_analysis = self.perform_technical_analysis(stock_data)
+        
+        # 6단계: 신호 통합 및 결정 (10ms 이내)
+        final_signal = self.integrate_signals(surge_analysis, technical_analysis)
+        
+        # 실행 시간 체크 (100ms 초과시 경고)
+        execution_time = (time.time() - pipeline_start) * 1000
+        if execution_time > 100:
+            logger.warning(f"파이프라인 실행 시간 초과: {execution_time:.1f}ms")
+        
+        final_signal['execution_time_ms'] = execution_time
+        return final_signal
+        
+    except Exception as e:
+        logger.error(f"파이프라인 실행 오류: {e}")
+        return self.create_error_signal(str(e))
+
+def quick_filter(self, stock_data: Dict[str, Any]) -> bool:
+    """빠른 필터링 (10ms 이내 실행)"""
+    current_price = stock_data.get('current_price', 0)
+    volume = stock_data.get('volume', 0)
+    change_rate = stock_data.get('change_rate', 0)
+    
+    # 최소 조건 확인
+    return (
+        current_price > 1000 and        # 최소 가격
+        volume > 10000 and             # 최소 거래량
+        abs(change_rate) > 0.01        # 최소 변동성
+    )
+```
+
+[7.2] 멀티 스레딩 최적화
+```python
+import concurrent.futures
+from threading import Lock
+
+class MultithreadedDayTrader:
+    def __init__(self):
+        self.analysis_lock = Lock()
+        self.max_workers = 3
+        
+    def analyze_multiple_stocks(self, stock_list: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        """여러 종목 동시 분석"""
+        results = []
+        
+        with concurrent.futures.ThreadPoolExecutor(max_workers=self.max_workers) as executor:
+            # 각 종목별 분석 작업 제출
+            future_to_stock = {
+                executor.submit(self.analyze_single_stock, stock): stock 
+                for stock in stock_list
+            }
+            
+            # 결과 수집 (타임아웃 설정)
+            for future in concurrent.futures.as_completed(future_to_stock, timeout=1.0):
+                stock = future_to_stock[future]
+                try:
+                    result = future.result()
+                    result['stock_code'] = stock.get('code', 'UNKNOWN')
+                    results.append(result)
+                except Exception as e:
+                    logger.error(f"종목 {stock.get('code', 'UNKNOWN')} 분석 실패: {e}")
+        
+        # 신뢰도순 정렬
+        return sorted(results, key=lambda x: x.get('confidence', 0), reverse=True)
+    
+    def analyze_single_stock(self, stock_data: Dict[str, Any]) -> Dict[str, Any]:
+        """단일 종목 분석 (스레드 안전)"""
+        with self.analysis_lock:
+            return self.execute_daytrading_pipeline(stock_data)
+```
+
+================================================================================
+8. 백테스팅 및 시뮬레이션
+================================================================================
+
+[8.1] 단타매매 전용 백테스팅
+```python
+def backtest_daytrading_algorithm(self, historical_data: pd.DataFrame, 
+                                 initial_capital: float = 10000000) -> Dict[str, Any]:
+    """단타매매 알고리즘 백테스팅"""
+    
+    capital = initial_capital
+    positions = {}
+    trades = []
+    daily_pnl = []
+    
+    # 분봉 데이터로 백테스팅 (3분봉 기준)
+    for i in range(len(historical_data) - 1):
+        current_data = self.prepare_backtest_data(historical_data.iloc[i])
+        
+        # 알고리즘 신호 생성
+        signal = self.analyze(current_data)
+        
+        # 포지션 관리
+        if signal['signal'] == 'BUY' and signal['confidence'] > 0.6:
+            # 매수 실행
+            position = self.execute_backtest_buy(current_data, signal, capital)
+            if position:
+                positions[i] = position
+                capital -= position['cost']
+        
+        elif signal['signal'] == 'SELL':
+            # 매도 실행 (기존 포지션)
+            for pos_id, position in list(positions.items()):
+                trade_result = self.execute_backtest_sell(
+                    historical_data.iloc[i+1], position
+                )
+                trades.append(trade_result)
+                capital += trade_result['proceeds']
+                del positions[pos_id]
+        
+        # 시간 기반 강제 청산 (30분 경과)
+        self.check_time_exit(positions, historical_data.iloc[i], trades, capital)
+        
+        # 일일 손익 계산
+        daily_pnl.append(capital - initial_capital)
+    
+    # 백테스트 결과 분석
+    return self.analyze_backtest_results(trades, daily_pnl, initial_capital)
+
+def analyze_backtest_results(self, trades: List[Dict], daily_pnl: List[float], 
+                           initial_capital: float) -> Dict[str, Any]:
+    """백테스트 결과 분석"""
+    if not trades:
+        return {'error': '거래 없음'}
+    
+    # 거래 통계
+    profitable_trades = [t for t in trades if t['pnl'] > 0]
+    losing_trades = [t for t in trades if t['pnl'] < 0]
+    
+    # 성과 지표 계산
+    total_return = sum(t['pnl'] for t in trades)
+    win_rate = len(profitable_trades) / len(trades) * 100
+    avg_win = np.mean([t['pnl'] for t in profitable_trades]) if profitable_trades else 0
+    avg_loss = np.mean([t['pnl'] for t in losing_trades]) if losing_trades else 0
+    
+    # 샤프 비율
+    returns = np.array(daily_pnl)
+    if len(returns) > 1:
+        sharpe_ratio = np.mean(returns) / np.std(returns) if np.std(returns) > 0 else 0
+    else:
+        sharpe_ratio = 0
+    
+    # 최대 드로우다운
+    peak = np.maximum.accumulate(returns)
+    drawdown = (peak - returns) / peak
+    max_drawdown = np.max(drawdown) * 100
+    
+    return {
+        'total_trades': len(trades),
+        'win_rate': win_rate,
+        'total_return': total_return,
+        'total_return_pct': total_return / initial_capital * 100,
+        'avg_win': avg_win,
+        'avg_loss': avg_loss,
+        'profit_factor': abs(avg_win / avg_loss) if avg_loss != 0 else float('inf'),
+        'sharpe_ratio': sharpe_ratio,
+        'max_drawdown': max_drawdown,
+        'avg_holding_time': np.mean([t['holding_minutes'] for t in trades])
+    }
+```
+
+================================================================================
+9. 실시간 모니터링 및 알림
+================================================================================
+
+[9.1] 실시간 성과 추적
+```python
+class DayTradingMonitor:
+    def __init__(self):
+        self.trades_today = []
+        self.start_capital = 0
+        self.current_capital = 0
+        self.max_drawdown = 0
+        
+    def update_performance(self, trade_result: Dict[str, Any]):
+        """실시간 성과 업데이트"""
+        self.trades_today.append(trade_result)
+        self.current_capital += trade_result['pnl']
+        
+        # 드로우다운 추적
+        if self.current_capital < self.start_capital:
+            current_drawdown = (self.start_capital - self.current_capital) / self.start_capital
+            self.max_drawdown = max(self.max_drawdown, current_drawdown)
+        
+        # 위험 신호 체크
+        self.check_risk_alerts()
+    
+    def check_risk_alerts(self):
+        """위험 신호 체크"""
+        daily_return = (self.current_capital - self.start_capital) / self.start_capital
+        
+        # 일일 손실 5% 초과시 알림
+        if daily_return < -0.05:
+            self.send_risk_alert(f"일일 손실 {daily_return:.2%} 초과")
+        
+        # 연속 손실 3회 초과시 알림
+        recent_trades = self.trades_today[-3:]
+        if len(recent_trades) >= 3 and all(t['pnl'] < 0 for t in recent_trades):
+            self.send_risk_alert("연속 3회 손실 발생")
+        
+        # 최대 드로우다운 10% 초과시 알림
+        if self.max_drawdown > 0.10:
+            self.send_risk_alert(f"최대 드로우다운 {self.max_drawdown:.2%}")
+```
+
+================================================================================
+10. 실전 배포 가이드
+================================================================================
+
+[10.1] 단타매매 시스템 통합
+```python
+# day_trade_Algorithm 폴더에 저장된 알고리즘은
+# MinimalDayTrader 클래스에서 자동으로 로드됩니다
+
+def integrate_with_minimal_day_trader(self):
+    """MinimalDayTrader와 통합"""
+    
+    # 1. 알고리즘 등록
+    from support.minimal_day_trader import get_minimal_day_trader
+    
+    # 2. 모의투자로 테스트
+    trader = get_minimal_day_trader('MOCK', skip_market_hours=True)
+    
+    # 3. 급등종목 수집 테스트
+    surge_stocks = trader._collect_and_display_surge_stocks()
+    
+    # 4. 알고리즘 분석 테스트
+    for stock in surge_stocks[:3]:  # 상위 3개 종목 테스트
+        result = self.analyze(stock)
+        print(f"{stock['name']}: {result['signal']} (신뢰도: {result['confidence']:.2f})")
+```
+
+[10.2] 성능 최적화 체크리스트
+□ 파이프라인 실행시간 100ms 이내
+□ 메모리 사용량 모니터링 및 최적화  
+□ 스레드 안전성 확보
+□ 예외 처리 및 오류 복구 로직 구현
+□ 로그 레벨 최적화 (INFO → WARNING in production)
+□ 불필요한 연산 제거 및 캐싱 활용
+
+================================================================================
+11. 단타매매 알고리즘 예제
+================================================================================
+
+```python
+"""
+Scalping Day Trading Algorithm
+급등종목 기반 스캘핑 전략
+"""
+
+import pandas as pd
+import numpy as np
+from typing import Dict, Any, List
+import logging
+from datetime import datetime, time
+from support.algorithm_interface import BaseAlgorithm
+
+logger = logging.getLogger(__name__)
+
+class ScalpingDayTradingAlgorithm(BaseAlgorithm):
+    def __init__(self):
+        super().__init__()
+        self.algorithm_name = "Scalping_DayTrading"
+        self.description = "급등종목 기반 스캘핑 단타매매"
+        self.version = "1.0"
+        
+        # 스캘핑 파라미터
+        self.min_volume_ratio = 2.0      # 최소 거래량 비율
+        self.min_change_rate = 0.02      # 최소 등락률 2%
+        self.scalping_target = 0.015     # 스캘핑 목표 1.5%
+        self.scalping_stop = 0.008       # 스캘핑 손절 0.8%
+        self.max_hold_minutes = 15       # 최대 보유 15분
+        
+        # 기술적 지표 설정
+        self.ema_fast = 5
+        self.ema_slow = 15
+        self.rsi_period = 7
+        
+        # 내부 상태
+        self.price_history = {}
+    
+    def analyze(self, stock_data: Dict[str, Any]) -> Dict[str, Any]:
+        try:
+            # 빠른 필터링
+            if not self.quick_scalping_filter(stock_data):
+                return self.create_hold_signal("스캘핑 조건 미달")
+            
+            # VI 상태 확인
+            vi_status = self.detect_vi_status(stock_data)
+            if vi_status['action'] == 'SELL_IMMEDIATELY':
+                return {
+                    'signal': 'SELL',
+                    'confidence': 0.95,
+                    'reason': 'VI 하락 - 즉시 매도',
+                    'urgency': 'HIGH'
+                }
+            
+            # 급등 강도 분석
+            surge_strength = self.calculate_surge_strength(stock_data)
+            
+            # 기술적 분석
+            technical_score = self.calculate_technical_score(stock_data)
+            
+            # 스캘핑 신호 생성
+            return self.generate_scalping_signal(stock_data, surge_strength, technical_score)
+            
+        except Exception as e:
+            logger.error(f"스캘핑 알고리즘 오류: {e}")
+            return self.create_error_signal(str(e))
+    
+    def quick_scalping_filter(self, stock_data: Dict[str, Any]) -> bool:
+        """스캘핑 빠른 필터"""
+        volume_ratio = stock_data.get('volume_ratio', 0)
+        change_rate = abs(stock_data.get('change_rate', 0))
+        current_price = stock_data.get('current_price', 0)
+        
+        return (
+            volume_ratio >= self.min_volume_ratio and
+            change_rate >= self.min_change_rate and
+            1000 <= current_price <= 200000  # 적정 가격대
+        )
+    
+    def calculate_surge_strength(self, stock_data: Dict[str, Any]) -> float:
+        """급등 강도 계산"""
+        change_rate = stock_data.get('change_rate', 0)
+        volume_ratio = stock_data.get('volume_ratio', 1.0)
+        
+        # 가격 모멘텀 점수 (0-1)
+        price_momentum = min(abs(change_rate) / 0.10, 1.0)  # 10% 기준
+        
+        # 거래량 모멘텀 점수 (0-1)
+        volume_momentum = min(volume_ratio / 5.0, 1.0)  # 5배 기준
+        
+        # 가중 평균 (가격 60%, 거래량 40%)
+        return (price_momentum * 0.6) + (volume_momentum * 0.4)
+    
+    def calculate_technical_score(self, stock_data: Dict[str, Any]) -> float:
+        """기술적 분석 점수"""
+        stock_code = stock_data.get('code', 'DEFAULT')
+        current_price = stock_data['current_price']
+        
+        # 가격 히스토리 업데이트
+        if stock_code not in self.price_history:
+            self.price_history[stock_code] = []
+        
+        self.price_history[stock_code].append(current_price)
+        if len(self.price_history[stock_code]) > 50:
+            self.price_history[stock_code] = self.price_history[stock_code][-50:]
+        
+        prices = self.price_history[stock_code]
+        if len(prices) < self.ema_slow:
+            return 0.5  # 중립
+        
+        # EMA 계산
+        price_series = pd.Series(prices)
+        ema_fast = price_series.ewm(span=self.ema_fast).mean().iloc[-1]
+        ema_slow = price_series.ewm(span=self.ema_slow).mean().iloc[-1]
+        
+        # RSI 계산
+        rsi = self.calculate_rsi(price_series).iloc[-1]
+        
+        # 기술적 점수 계산
+        ema_score = 1.0 if ema_fast > ema_slow else 0.0
+        rsi_score = 0.0 if rsi > 80 else (1.0 if rsi < 20 else 0.5)
+        
+        return (ema_score * 0.6) + (rsi_score * 0.4)
+    
+    def generate_scalping_signal(self, stock_data: Dict[str, Any], 
+                                surge_strength: float, technical_score: float) -> Dict[str, Any]:
+        """스캘핑 신호 생성"""
+        current_price = stock_data['current_price']
+        change_rate = stock_data.get('change_rate', 0)
+        
+        # 종합 점수 계산
+        combined_score = (surge_strength * 0.7) + (technical_score * 0.3)
+        
+        # 매수 신호
+        if combined_score > 0.7 and change_rate > 0:
+            target_price = current_price * (1 + self.scalping_target)
+            stop_price = current_price * (1 - self.scalping_stop)
+            
+            return {
+                'signal': 'BUY',
+                'confidence': min(combined_score, 0.95),
+                'reason': f'스캘핑 매수: 급등강도 {surge_strength:.2f}, 기술적 {technical_score:.2f}',
+                'urgency': 'HIGH',
+                'target_price': target_price,
+                'stop_loss': stop_price,
+                'scalping_mode': True,
+                'max_hold_time': self.max_hold_minutes,
+                'position_size': 0.15  # 15% 포지션
+            }
+        
+        # 매도 신호
+        elif combined_score < 0.3 or change_rate < -0.02:
+            return {
+                'signal': 'SELL',
+                'confidence': 0.8,
+                'reason': f'스캘핑 매도: 점수 {combined_score:.2f}',
+                'urgency': 'MEDIUM'
+            }
+        
+        # 관망
+        else:
+            return {
+                'signal': 'HOLD',
+                'confidence': combined_score,
+                'reason': f'관망: 종합점수 {combined_score:.2f}',
+                'urgency': 'LOW'
+            }
+    
+    def calculate_rsi(self, prices: pd.Series) -> pd.Series:
+        """RSI 계산"""
+        delta = prices.diff()
+        gain = delta.clip(lower=0).rolling(self.rsi_period).mean()
+        loss = (-delta.clip(upper=0)).rolling(self.rsi_period).mean()
+        rs = gain / (loss.replace(0, np.nan))
+        return 100 - (100 / (1 + rs))
+    
+    def create_hold_signal(self, reason: str) -> Dict[str, Any]:
+        return {
+            'signal': 'HOLD',
+            'confidence': 0.0,
+            'reason': reason,
+            'urgency': 'LOW'
+        }
+    
+    def create_error_signal(self, error: str) -> Dict[str, Any]:
+        return {
+            'signal': 'HOLD',
+            'confidence': 0.0,
+            'reason': f'오류: {error}',
+            'urgency': 'LOW',
+            'error': True
+        }
+
+# 알고리즘 인스턴스 생성
+algorithm_instance = ScalpingDayTradingAlgorithm()
+```
+
+================================================================================
+체크리스트 - 단타매매 배포 전 확인사항
+================================================================================
+
+□ BaseAlgorithm 클래스 상속 확인
+□ analyze() 메서드 올바른 반환 형식 (urgency, scalping_mode 포함)
+□ 급등종목 데이터 처리 로직 구현
+□ VI 상황 처리 로직 구현
+□ 실행 시간 최적화 (100ms 이내 목표)
+□ 스레드 안전성 확보
+□ 시간 기반 리스크 관리 구현
+□ 백테스팅 검증 완료
+□ 메모리 사용량 최적화
+□ 실시간 모니터링 및 알림 기능 구현
+□ 오류 처리 및 복구 로직 구현
+□ MinimalDayTrader와 통합 테스트 완료
+
+================================================================================
+연락처 및 지원
+================================================================================
+
+- 단타매매 알고리즘 관련 문의: tideWise 개발팀
+- 급등종목 API 연동 문의: MinimalDayTrader 개발 가이드 참조
+- 성능 최적화 지원: 프로파일링 도구 및 모니터링 시스템 활용
+
+이 가이드를 따라 개발된 단타매매 알고리즘은 tideWise의 MinimalDayTrader와
+완벽하게 호환되며, 급등종목 기반 고속 거래를 안정적으로 지원합니다.
+
+================================================================================
+문서 버전: 1.0  
+최종 수정일: 2025-01-22
+다음 업데이트 예정: 2025-04-22
+================================================================================

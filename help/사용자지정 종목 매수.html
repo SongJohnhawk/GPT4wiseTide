@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <title>사용자 지정종목 매수 가이드북 — 초보자도 바로 쓰는 운영 안내</title>
+  <meta name="description" content="초보자 관점에서 쉽게 읽고 바로 적용할 수 있는 사용자 지정종목 매수 운영 가이드. 점심 자동 실행, 신규/추가 매수 규칙, 안전장치, 문제해결, 설정 변경 방법까지 한 번에 정리." />
+  <style>
+    /* ======== Modern Reset ======== */
+    *,*::before,*::after { box-sizing: border-box; }
+    html,body { margin:0; padding:0; }
+    :root{
+      --bg:#ffffff; --fg:#111111; --muted:#5a5a5a; --line:#eaeaea; --card:#f8f9fb;
+      --accent:#7c5cff; --ok:#1a936f; --warn:#d9822b; --err:#c92a2a; --link:#0b6bcb;
+      --code:#f3f4f7; --shadow:0 10px 35px rgba(0,0,0,.06);
+      --w:860px; --lh:1.75; --r:16px;
+    }
+    [data-theme="dark"]{
+      --bg:#0f1115; --fg:#eaeaea; --muted:#b7b7b7; --line:#242938; --card:#171923;
+      --accent:#a996ff; --ok:#7cd7b8; --warn:#ffcc80; --err:#ff8a80; --link:#82b1ff;
+      --code:#1b1e27; --shadow:0 12px 40px rgba(0,0,0,.35);
+    }
+    body{
+      background:var(--bg); color:var(--fg);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans KR", Arial, sans-serif;
+      line-height:var(--lh); letter-spacing:.1px; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+      word-break:keep-all;
+    }
+    .wrap{ max-width:var(--w); margin:0 auto; padding:28px 18px 80px; }
+    /* Progress bar */
+    .progress{ position:fixed; inset:0 0 auto 0; height:3px; background:linear-gradient(90deg,var(--accent),var(--link)); width:0%; z-index:9999; }
+    /* Header */
+    header{ padding:10px 0 18px; margin-bottom:2px; border-bottom:1px solid var(--line); }
+    .kicker{ color:var(--accent); font-weight:800; font-size:12px; letter-spacing:.4px; text-transform:uppercase; }
+    h1{ font-size:clamp(26px,4.6vw,40px); line-height:1.25; margin:.2rem 0 .4rem; }
+    .meta{ color:var(--muted); font-size:14px; }
+    .lead{
+      margin:14px 0 16px; color:var(--muted); font-size:clamp(15px,2.4vw,18px);
+    }
+    .controls{ display:flex; gap:8px; margin-top:10px; flex-wrap:wrap; }
+    .btn{
+      border:1px solid var(--line); background:var(--card); color:var(--fg);
+      padding:9px 12px; border-radius:12px; cursor:pointer; box-shadow:var(--shadow);
+    }
+    .btn:hover{ filter:brightness(.98); }
+    /* Content blocks */
+    section{ background:var(--card); border:1px solid var(--line); border-radius:var(--r); padding:18px 16px; margin:18px 0; box-shadow:var(--shadow); }
+    h2{ font-size:clamp(20px,3vw,26px); margin:0 0 8px; }
+    h3{ font-size:clamp(16px,2.6vw,20px); margin:18px 0 8px; }
+    p{ margin:10px 0; }
+    hr.sep{ border:0; border-top:1px solid var(--line); margin:24px 0; opacity:.7; }
+    /* Chips */
+    .chips{ display:flex; gap:8px; flex-wrap:wrap; margin:6px 0 2px; }
+    .chip{ font-size:12px; padding:6px 10px; border-radius:999px; background:var(--bg); border:1px solid var(--line); }
+    /* Callouts */
+    .call{ border-left:4px solid var(--accent); background:var(--bg); border-radius:12px; padding:12px 14px; margin:12px 0; }
+    .call.ok{ border-color:var(--ok); }
+    .call.warn{ border-color:var(--warn); }
+    .call.err{ border-color:var(--err); }
+    .call .t{ font-weight:800; margin-bottom:4px; font-size:14px; color:var(--muted); }
+    /* Lists & table */
+    ul,ol{ padding-left:20px; margin:10px 0; }
+    table{ width:100%; border-collapse:collapse; margin:10px 0; font-size:14px; }
+    th,td{ border:1px solid var(--line); padding:10px; vertical-align:top; }
+    th{ text-align:left; background:var(--bg); }
+    /* Code */
+    pre,code{ font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace; }
+    code{ background:var(--code); padding:2px 6px; border-radius:8px; }
+    pre{ background:var(--code); padding:14px; border-radius:12px; overflow:auto; border:1px solid var(--line); }
+    /* Footer */
+    footer{ color:var(--muted); font-size:13px; margin-top:28px; border-top:1px solid var(--line); padding-top:14px; }
+    /* Print */
+    @media print{
+      .controls, .progress{ display:none !important; }
+      section{ box-shadow:none; break-inside:avoid; }
+      h1{ font-size:28px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress" id="progress"></div>
+  <div class="wrap">
+    <header>
+      <div class="kicker">GUIDEBOOK — USER DESIGNATED STOCK BUY</div>
+      <h1>사용자 지정종목 매수 가이드북</h1>
+      <div class="meta">작성일 2025-08-18 · 버전 1.0 · 읽기 시간 6~8분</div>
+      <p class="lead">
+        이 문서는 **초보자 관점**에서, “지정해 둔 종목은 자동으로 어떻게, 언제, 얼마나 사는가?”를
+        <strong>한 번에 이해</strong>하도록 구성했다. 복잡한 용어 없이 규칙·안전장치·문제해결·설정 변경까지
+        순서대로 쭉 읽으면 된다.
+      </p>
+      <div class="controls">
+        <button class="btn" id="themeBtn">라이트/다크 전환</button>
+        <button class="btn" onclick="window.print()">PDF로 내보내기</button>
+      </div>
+    </header>
+
+    <!-- 1. 시스템 한눈에 보기 -->
+    <section>
+      <h2>1) 한눈에 보는 핵심</h2>
+      <div class="chips">
+        <div class="chip">점심 자동 실행 12:00–12:30</div>
+        <div class="chip">신규 매수: 예수금의 7%</div>
+        <div class="chip">추가 매수(추매): -5% 하락 시, 보유수량의 10%</div>
+        <div class="chip">장 시간 내 09:00–15:30</div>
+        <div class="chip">최소 예산 10만 원</div>
+        <div class="chip">지정가 주문</div>
+      </div>
+      <div class="call ok">
+        <div class="t">핵심 요약</div>
+        <p>
+          지정해 둔 종목은 <strong>정해진 시간</strong>에 <strong>정해진 비율</strong>로 <strong>자동 매수</strong>한다.
+          기본은 “점심 자동 1회 실행”이며, 시스템 시작 시 1회(INITIAL), 필요할 때 수동 실행(NORMAL)도 가능하다.
+        </p>
+      </div>
+    </section>
+
+    <!-- 2. 언제 실행되나 -->
+    <section>
+      <h2>2) 언제 실행되나? — 실행 타이밍</h2>
+      <h3>· 점심 자동 실행 (매일 12:00–12:30, 1회)</h3>
+      <ul>
+        <li>하루에 <strong>한 번</strong>만 자동 실행(중복 방지 플래그로 관리).</li>
+        <li>실행 후 “오늘 점심 실행 완료” 표시를 남겨 같은 날 다시 돌지 않음.</li>
+      </ul>
+      <h3>· 시스템 시작 시 초기 실행 (INITIAL)</h3>
+      <ul>
+        <li>자동매매/단타매매를 <strong>시작할 때 딱 1회</strong>, 계좌를 확인하며 지정종목 매수 기회를 점검.</li>
+      </ul>
+      <h3>· 수동 실행 (NORMAL)</h3>
+      <ul>
+        <li>필요하면 <strong>독립 실행 함수</strong>를 직접 호출해 즉시 수행.</li>
+      </ul>
+      <div class="call warn">
+        <div class="t">운영시간 주의</div>
+        <p>실행은 <strong>평일 장 운영시간(09:00–15:30)</strong>에만 유효. 주말·공휴일·마감 후에는 작동하지 않음.</p>
+      </div>
+    </section>
+
+    <!-- 3. 무엇을 어떻게 사나 -->
+    <section>
+      <h2>3) 무엇을, 어떻게 사나? — 매수 규칙</h2>
+      <h3>① 신규 매수(처음 사는 경우)</h3>
+      <ul>
+        <li><strong>보유수량 0</strong>인 “사용자 지정종목”만 해당.</li>
+        <li>예산은 <strong>예수금의 7%</strong> 한도에서 계산(수수료 0.2% 포함).</li>
+        <li>최소 실행 금액: <strong>10만 원</strong> 이상.</li>
+        <li>주문 방식: <strong>지정가</strong>(현재가 기준으로 지정가 주문).</li>
+      </ul>
+
+      <h3>② 추가 매수(추매, 이미 보유 중)</h3>
+      <ul>
+        <li>현재가가 <strong>평단 대비 -5% 이상</strong> 하락했을 때만.</li>
+        <li>수량: <strong>보유수량의 10%</strong>(최소 1주).</li>
+        <li>예산이 충분할 때만 집행.</li>
+      </ul>
+
+      <div class="call">
+        <div class="t">쉬운 공식</div>
+        <p><code>목표수량 = (예수금 × 0.07) ÷ 1.002 ÷ 현재가</code><br/>
+           <code>추매수량 = max(1, ⌊보유수량 × 0.1⌋)</code></p>
+      </div>
+    </section>
+
+    <!-- 4. 안전장치 -->
+    <section>
+      <h2>4) 안전장치 — 실수와 과열을 막는 기본 보호</h2>
+      <ul>
+        <li><strong>장외 시간</strong> 실행 금지.</li>
+        <li><strong>예수금 부족</strong> 시 즉시 중단.</li>
+        <li><strong>중복 실행 방지</strong> 플래그 운영.</li>
+        <li>오류 발생 시 <strong>안전 종료</strong> 및 결과 기록.</li>
+      </ul>
+      <div class="call err">
+        <div class="t">중요</div>
+        <p>“사용자 지정종목”은 <strong>조건 충족 시 자동 매수</strong> 대상이다. 시장 변동과 무관하게 규칙이
+        맞으면 집행되므로, 지정 리스트와 한도(7%)를 주기적으로 점검하자.</p>
+      </div>
+    </section>
+
+    <!-- 5. 시스템이 어떤 파일을 쓰나 -->
+    <section>
+      <h2>5) 시스템이 바라보는 파일·위치</h2>
+      <table>
+        <thead><tr><th>구분</th><th>경로 / 설명</th></tr></thead>
+        <tbody>
+          <tr><td>메인 실행</td><td>C:\tideWise\support\user_designated_trading_manager.py (핵심 실행/분석/주문)</td></tr>
+          <tr><td>종목 관리</td><td>C:\tideWise\support\user_designated_stocks.py (지정종목 로딩/관리)</td></tr>
+          <tr><td>종목 목록</td><td>C:\tideWise\support\menual_StokBuyList.md (사용자 지정 목록)</td></tr>
+        </tbody>
+      </table>
+      <div class="call">
+        <div class="t">운영 팁</div>
+        <p>지정종목을 바꾸려면 <em>목록 파일</em>을 우선 점검하고, 변경 후 점심 자동 실행을 기다리거나 수동 실행(NORMAL)을 사용하자.</p>
+      </div>
+    </section>
+
+    <!-- 6. 문제해결 -->
+    <section>
+      <h2>6) 문제해결 — 흔한 상황 바로 처방</h2>
+      <h3>· 매수가 왜 안 됐지?</h3>
+      <ul>
+        <li>장 운영시간이 맞는가? (09:00–15:30)</li>
+        <li>예수금이 <strong>10만 원 이상</strong> 남아있는가?</li>
+        <li><em>지정종목 목록 파일</em>이 올바른가?</li>
+        <li>증권사/브로커 <strong>API 연결</strong>이 정상인가?</li>
+      </ul>
+      <h3>· 추매가 왜 안 됐지?</h3>
+      <ul>
+        <li>현재 하락률이 <strong>-5% 이상</strong>인가?</li>
+        <li>추매에 필요한 예산이 충분한가?</li>
+        <li>해당 종목을 <strong>이미 보유</strong> 중인가?</li>
+        <li><strong>평단가</strong>가 정확히 집계되었는가?</li>
+      </ul>
+    </section>
+
+    <!-- 7. 바꿀 수 있는 설정 -->
+    <section>
+      <h2>7) 바꿀 수 있는 설정 — 현장 맞춤</h2>
+      <ul>
+        <li><strong>예산 비율</strong> (기본 7%) — 목표수량 계산 메서드에서 조정.</li>
+        <li><strong>추매 기준</strong> (기본 -5%) — 매수 분석 로직에서 조정.</li>
+        <li><strong>추매 비율</strong> (기본 보유의 10%) — <code>max(1, int(보유×0.1))</code>.</li>
+        <li><strong>실행 시간</strong> — 점심(12:00–12:30), 장시간(09:00–15:30) 체크 메서드에서 수정 가능.</li>
+      </ul>
+      <div class="call ok">
+        <div class="t">권장 프리셋</div>
+        <p>초보자는 <strong>기본값 유지</strong>를 권장. 변동성이 큰 장세에만 예산 비율을 5–6%로 낮춰
+        리스크를 줄이는 식으로 단계 조정하자.</p>
+      </div>
+    </section>
+
+    <!-- 8. 빠른 점검표 -->
+    <section>
+      <h2>8) 빠른 점검 체크리스트</h2>
+      <ol>
+        <li>지정종목 목록 최신화 완료.</li>
+        <li>예수금 확인(최소 10만 원, 권장 여유 자금).</li>
+        <li>장 운영시간 확인(09:00–15:30). 주말/공휴일 제외.</li>
+        <li>점심 자동 실행 상태 및 중복 방지 플래그 확인.</li>
+        <li>API 연결/오류 로그 확인.</li>
+      </ol>
+    </section>
+
+    <!-- 9. 쉬운 용어 풀이 -->
+    <section>
+      <h2>9) 용어 간단 정리</h2>
+      <ul>
+        <li><strong>신규 매수</strong>: 해당 종목을 <em>처음</em> 사는 것(보유수량 0 → &gt;0).</li>
+        <li><strong>추매</strong>: 이미 들고 있는 종목을 <em>추가로</em> 사는 것. 여기선 <em>평단 대비 -5%</em> 이상 하락 시.</li>
+        <li><strong>평단(평균 매수가)</strong>: 그 종목을 지금까지 산 가격들의 평균값.</li>
+        <li><strong>지정가 주문</strong>: 원하는 가격을 지정해 주문하는 방식(현재가 기준으로 설정).</li>
+      </ul>
+    </section>
+
+    <footer>
+      본 가이드는 운영자가 업로드한 규칙 문서를 바탕으로, 초보자도 쉽게 이해하도록 재구성했습니다.
+      실제 주문 집행 전, 브로커/모의계좌에서 동작을 검증하는 것을 권장합니다.
+    </footer>
+  </div>
+
+  <script>
+    // Theme toggle
+    document.getElementById('themeBtn').addEventListener('click', () => {
+      const html = document.documentElement;
+      html.dataset.theme = html.dataset.theme === 'dark' ? 'light' : 'dark';
+      localStorage.setItem('guide-theme', html.dataset.theme);
+    });
+    (function initTheme(){
+      const saved = localStorage.getItem('guide-theme');
+      if(saved) document.documentElement.dataset.theme = saved;
+      else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.dataset.theme = 'dark';
+      }
+    })();
+    // Reading progress bar
+    const prog = document.getElementById('progress');
+    const onScroll = () => {
+      const s = document.documentElement.scrollTop || document.body.scrollTop;
+      const h = (document.documentElement.scrollHeight - document.documentElement.clientHeight);
+      const p = h ? (s / h) * 100 : 0; prog.style.width = p + '%';
+    };
+    document.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  </script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+{
+  "market_time_check_enabled": false,
+  "market_close_time": "14:55",
+  "description": "종장 시간 체크 설정 파일"
+}

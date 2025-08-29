@@ -1,0 +1,82 @@
+{
+  "Core_Large_Cap": {
+    "stocks": [
+      "005930",
+      "000660",
+      "035420",
+      "051910",
+      "006400",
+      "207940",
+      "005380",
+      "373220"
+    ],
+    "description": "Core_Large_Cap 투자 종목 8개",
+    "purpose": "trading_investment",
+    "last_updated": "2025-08-06T12:17:16.953424"
+  },
+  "AI_Semiconductor": {
+    "stocks": [
+      "042700",
+      "095340",
+      "108860",
+      "036930",
+      "240810"
+    ],
+    "description": "AI_Semiconductor 투자 종목 5개",
+    "purpose": "trading_investment",
+    "last_updated": "2025-08-06T12:17:16.953424"
+  },
+  "Battery_EV": {
+    "stocks": [
+      "096770",
+      "066970",
+      "247540",
+      "322000",
+      "018880"
+    ],
+    "description": "Battery_EV 투자 종목 5개",
+    "purpose": "trading_investment",
+    "last_updated": "2025-08-06T12:17:16.953424"
+  },
+  "Bio_Healthcare": {
+    "stocks": [
+      "326030",
+      "302440",
+      "196170",
+      "145720",
+      "068270"
+    ],
+    "description": "Bio_Healthcare 투자 종목 5개",
+    "purpose": "trading_investment",
+    "last_updated": "2025-08-06T12:17:16.953424"
+  },
+  "Gaming_Platform": {
+    "stocks": [
+      "251270",
+      "036570",
+      "259960",
+      "263750",
+      "035720"
+    ],
+    "description": "Gaming_Platform 투자 종목 5개",
+    "purpose": "trading_investment",
+    "last_updated": "2025-08-06T12:17:16.953424"
+  },
+  "Defense_Tech": {
+    "stocks": [
+      "047810",
+      "272210",
+      "012450",
+      "278470"
+    ],
+    "description": "Defense_Tech 투자 종목 4개",
+    "purpose": "trading_investment",
+    "last_updated": "2025-08-06T12:17:16.953424"
+  },
+  "_meta": {
+    "version": "lightweight_trading",
+    "total_stocks": 32,
+    "purpose": "real_trading_investment",
+    "is_mock": true
+  }
+}

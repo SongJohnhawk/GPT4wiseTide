@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tideWise 세션 리포트 - 2025-08-23</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 20px; background-color: #f5f5f5; }
+        .container { max-width: 1200px; margin: 0 auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .header { text-align: center; margin-bottom: 30px; }
+        .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 30px; }
+        .summary-card { background: #f8f9fa; padding: 15px; border-radius: 8px; text-align: center; }
+        .positive { color: #28a745; }
+        .negative { color: #dc3545; }
+        .chart-container { margin: 20px 0; }
+        .trades-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        .trades-table th, .trades-table td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        .trades-table th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>tideWise 거래 세션 리포트</h1>
+            <h2>2025-08-23</h2>
+        </div>
+        
+        <div class="summary-grid">
+            <div class="summary-card">
+                <h3>총 거래 수</h3>
+                <div style="font-size: 24px; font-weight: bold;">2</div>
+            </div>
+            <div class="summary-card">
+                <h3>총 손익</h3>
+                <div style="font-size: 24px; font-weight: bold;" class="positive">
+                    28,456원
+                </div>
+            </div>
+            <div class="summary-card">
+                <h3>승률</h3>
+                <div style="font-size: 24px; font-weight: bold;">50.0%</div>
+            </div>
+            <div class="summary-card">
+                <h3>최대 수익</h3>
+                <div style="font-size: 24px; font-weight: bold;" class="positive">28,456원</div>
+            </div>
+            <div class="summary-card">
+                <h3>최대 손실</h3>
+                <div style="font-size: 24px; font-weight: bold;" class="negative">0원</div>
+            </div>
+            <div class="summary-card">
+                <h3>수수료</h3>
+                <div style="font-size: 24px; font-weight: bold;">1,634원</div>
+            </div>
+        </div>
+        
+        <div class="chart-container">
+            <h3>일일 손익 차트</h3>
+            <canvas id="pnlChart" width="800" height="300"></canvas>
+        </div>
+        
+        <div class="chart-container">
+            <h3>누적 손익 차트</h3>
+            <canvas id="cumulativeChart" width="800" height="300"></canvas>
+        </div>
+        
+        <h3>거래 내역</h3>
+        <table class="trades-table">
+            <thead>
+                <tr>
+                    <th>시간</th>
+                    <th>종목</th>
+                    <th>매매</th>
+                    <th>수량</th>
+                    <th>가격</th>
+                    <th>손익</th>
+                    <th>알고리즘</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>04:58:32</td><td>035420</td><td>BUY</td><td>3</td><td>200,000</td><td class="positive">0</td><td>Enhanced_DavidPaul_Trading</td></tr><tr><td>04:58:32</td><td>035420</td><td>SELL</td><td>3</td><td>210,000</td><td class="positive">28,456</td><td>Enhanced_DavidPaul_Trading</td></tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <script>
+        
+        // 일일 손익 차트
+        const pnlCanvas = document.getElementById('pnlChart');
+        const pnlCtx = pnlCanvas.getContext('2d');
+        
+        const labels = ['04'];
+        const pnlData = [28456.5];
+        const cumulativeData = [28456.5];
+        
+        // 간단한 바 차트 그리기
+        function drawBarChart(ctx, data, width, height) {
+            const barWidth = width / data.length;
+            const maxVal = Math.max(...data.map(Math.abs));
+            
+            ctx.clearRect(0, 0, width, height);
+            
+            // 축 그리기
+            ctx.strokeStyle = '#000';
+            ctx.beginPath();
+            ctx.moveTo(0, height/2);
+            ctx.lineTo(width, height/2);
+            ctx.stroke();
+            
+            // 바 그리기
+            data.forEach((val, i) => {
+                const barHeight = (Math.abs(val) / maxVal) * (height/2 - 20);
+                const x = i * barWidth;
+                const y = val >= 0 ? height/2 - barHeight : height/2;
+                
+                ctx.fillStyle = val >= 0 ? '#28a745' : '#dc3545';
+                ctx.fillRect(x + 2, y, barWidth - 4, barHeight);
+                
+                // 레이블
+                ctx.fillStyle = '#000';
+                ctx.font = '12px Arial';
+                ctx.textAlign = 'center';
+                ctx.fillText(labels[i], x + barWidth/2, height - 5);
+            });
+        }
+        
+        // 라인 차트 그리기
+        function drawLineChart(ctx, data, width, height) {
+            const pointWidth = width / (data.length - 1);
+            const maxVal = Math.max(...data);
+            const minVal = Math.min(...data);
+            const range = maxVal - minVal || 1;
+            
+            ctx.clearRect(0, 0, width, height);
+            
+            if (data.length < 2) return;
+            
+            ctx.strokeStyle = '#007bff';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            
+            data.forEach((val, i) => {
+                const x = i * pointWidth;
+                const y = height - ((val - minVal) / range) * (height - 40) - 20;
+                
+                if (i === 0) {
+                    ctx.moveTo(x, y);
+                } else {
+                    ctx.lineTo(x, y);
+                }
+            });
+            
+            ctx.stroke();
+            
+            // 포인트 그리기
+            ctx.fillStyle = '#007bff';
+            data.forEach((val, i) => {
+                const x = i * pointWidth;
+                const y = height - ((val - minVal) / range) * (height - 40) - 20;
+                ctx.beginPath();
+                ctx.arc(x, y, 3, 0, 2 * Math.PI);
+                ctx.fill();
+            });
+        }
+        
+        drawBarChart(pnlCtx, pnlData, 800, 300);
+        
+        const cumulativeCanvas = document.getElementById('cumulativeChart');
+        const cumulativeCtx = cumulativeCanvas.getContext('2d');
+        drawLineChart(cumulativeCtx, cumulativeData, 800, 300);
+        
+    </script>
+</body>
+</html>
+        

@@ -1,0 +1,35 @@
+Register_Key.md에서 텔레그램 봇 토큰 로드 성공
+Register_Key.md에서 텔레그램 채팅 ID 로드 성공
+DayTradingRunner 초기화: 모의투자계좌 (성능 최적화 적용)
+[시뮬레이션] 매수 주문 (실제 실행 안함): 005930 1주
+[모의투자] 매수 시뮬레이션: 005930 1주 @ 시장가
+[시뮬레이션] 매도 주문 (실제 실행 안함): 005930 1주
+[모의투자] 매도 시뮬레이션: 005930 1주 @ 시장가
+Register_Key.md에서 텔레그램 봇 토큰 로드 성공
+Register_Key.md에서 텔레그램 채팅 ID 로드 성공
+Error: 텔레그램 연동을 위한 정보가 없어 텔레그램은 작동하지 않습니다.
+Error: 계좌 조회 일반 오류, 3초 후 재시도... (시도 1/5): 'latin-1' codec can't encode characters in position 1-3: ordinal not in range(256)
+Error: 계좌 조회 일반 오류, 6초 후 재시도... (시도 2/5): 'latin-1' codec can't encode characters in position 1-3: ordinal not in range(256)
+Error: 텔레그램 연동을 위한 정보가 없어 텔레그램은 작동하지 않습니다.
+Error: 계좌 조회 일반 오류, 3초 후 재시도... (시도 1/5): 'latin-1' codec can't encode characters in position 1-3: ordinal not in range(256)
+Error: 계좌 조회 일반 오류, 6초 후 재시도... (시도 2/5): 'latin-1' codec can't encode characters in position 1-3: ordinal not in range(256)
+Error: 계좌 조회 일반 오류, 9초 후 재시도... (시도 3/5): 'latin-1' codec can't encode characters in position 1-3: ordinal not in range(256)
+Error: Register_Key.md 로드 실패: Error loading from Register_Key.md: attempted relative import with no known parent package
+Register_Key.md에서 텔레그램 봇 토큰 로드 성공
+Register_Key.md에서 텔레그램 채팅 ID 로드 성공
+Error: HTTP Error 500: API 요청 실패
+Error: API network error occurred
+Error: 계좌 조회 API 오류: API call failed
+Error: HTTP Error 500: API 요청 실패
+Error: API network error occurred
+Error: 계좌 조회 API 오류: API call failed
+Error: HTTP Error 500: API 요청 실패
+Error: API network error occurred
+Error: 계좌 조회 API 오류: API call failed
+Error: HTTP Error 500: API 요청 실패
+Error: API network error occurred
+Error: 계좌 조회 API 오류: API call failed
+Error: HTTP Error 500: API 요청 실패
+Error: API network error occurred
+Error: 계좌 조회 API 오류: API call failed
+Error: 계좌 조회 최종 실패, 기본값 반환하여 시스템 계속 실행

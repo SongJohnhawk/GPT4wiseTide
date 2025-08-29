@@ -1,0 +1,64 @@
+KRX의 인증키="300D69E0E1E24266BF1D8A6266C0A2F1E507163B"
+
+KRX는 실제로 POST 방식의 요청을 JSON 또는 form-data 형태의 payload와 함께 보내야 하는 경우가 많습니다.
+종목 기본정보를 조회하기 위해서는 엔드포인트 URL, 요청 파라미터(주로 form-data), 헤더를 포함해서 요청합니다.
+아래 샘플에서는 KRX ‘시가총액’ 조회 API를 예로 하여, POST 요청을 보내 종목정보를 JSON으로 받아오는 예시를 구현합니다.
+
+[sample code]
+import requests
+
+# 실제 사용할 KRX OPEN API URL (2025년 현재 기준)
+url = "https://data.krx.co.kr/comm/bldAttendant/getJsonData.cmd"
+
+# POST 요청 시 필요한 payload (form-data 형식)
+payload = {
+    "bld": "dbms/MDC/STAT/standard/MDCSTAT01501",  # 시가총액 조회용 빌더명
+    "mktId": "STK",             # 시장구분: STK (코스피), KSQ (코스닥), NMS (코넥스)
+    "trdDd": "20250731",        # 조회일자 (예: 2025년 7월 31일)
+    "share": "1",               # 주식수 기준 (1: 액면가 기준)
+    "money": "1",               # 금액단위 (1: 원단위)
+    # 추가 파라미터가 필요하면 여기에 더 넣을 수 있음
+}
+
+# 기본 헤더 설정
+headers = {
+    "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+    "User-Agent": "Mozilla/5.0"
+}
+
+try:
+    # POST 요청 보내기
+    response = requests.post(url, data=payload, headers=headers)
+    response.raise_for_status()  # HTTP 에러 발생 시 예외 발생
+
+    # JSON 데이터 파싱
+    data = response.json()
+
+    # 조회 결과 확인 (예: 종목코드, 종목명, 시가총액 등)
+    for item in data.get("OutBlock_1", []):
+        print(f"종목코드: {item['ISU_CD']}, 종목명: {item['ISU_ABBRV']}, 시가총액: {item['MKT_CAP']}억")
+
+except requests.exceptions.RequestException as e:
+    print("API 요청 중 오류 발생:", e)
+except ValueError:
+    print("응답 JSON 파싱 실패")
+++++++++++++++++++++++++++++++++++++++
+주요 설명
+url : KRX 데이터포털에서 실제 API 호출에 사용하는 공통 엔드포인트입니다.
+
+payload : bld 파라미터는 조회 유형별로 고유 코드를 가지며, MDCSTAT01501는 "시가총액 정보"를 조회하는 용도입니다.
+
+mktId, trdDd 등은 시장 구분과 조회 날짜를 지정합니다.
+
+응답 JSON 내 OutBlock_1 배열 안에 각 종목의 시가총액과 기본 정보를 포함한 여러 필드가 존재합니다.
+
+응답 필드 예시: ISU_CD(종목코드), ISU_ABBRV(종목명), MKT_CAP(시가총액, 단위: 억원)
+
+참고사항
+trdDd (거래일자) 파라미터는 반드시 실제 존재하는 거래일 날짜로 지정해야 하며, 휴장일이나 미래 날짜는 조회가 안됩니다.
+
+다른 조회를 원하시면 KRX 데이터포털의 해당 페이지에서 bld 값을 조회하고, 필요한 파라미터를 추가/조정하면 됩니다.
+
+KRX OPEN API는 따로 공개된 인증키 발급 등이 필요없고, 누구나 제한적 범위 내에서 데이터를 조회할 수 있으나 요청 빈도 제한이 있으니 유의하세요.
+
+자세한 파라미터 정책은 KRX 데이터포털의 기술문서 및 안내를 반드시 확인하시기 바랍니다.

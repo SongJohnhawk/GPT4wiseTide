@@ -1,0 +1,15 @@
+KIS API 커넥터 초기화 완료
+KIS API 커넥터 초기화 완료
+Error: 종목 005930 daily 데이터 수집 실패: 'list' object has no attribute 'get'
+Error: 종목 005930 investor_trading 데이터 수집 실패: 'list' object has no attribute 'get'
+Error: 종목 000660 daily 데이터 수집 실패: 'list' object has no attribute 'get'
+Error: 종목 000660 investor_trading 데이터 수집 실패: 'list' object has no attribute 'get'
+Error: 종목 373220 daily 데이터 수집 실패: 'list' object has no attribute 'get'
+Error: 종목 373220 investor_trading 데이터 수집 실패: 'list' object has no attribute 'get'
+Error: 종목 035420 daily 데이터 수집 실패: 'list' object has no attribute 'get'
+Error: 종목 035420 investor_trading 데이터 수집 실패: 'list' object has no attribute 'get'
+Error: 종목 035720 5min 데이터 수집 실패: division by zero
+Error: 종목 035720 daily 데이터 수집 실패: 'list' object has no attribute 'get'
+Error: 종목 035720 investor_trading 데이터 수집 실패: 'list' object has no attribute 'get'
+Error: 종목 005380 daily 데이터 수집 실패: 'list' object has no attribute 'get'
+Error: 종목 005380 investor_trading 데이터 수집 실패: 'list' object has no attribute 'get'

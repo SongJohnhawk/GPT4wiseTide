@@ -1,0 +1,119 @@
+{
+  "_instructions": {
+    "description": "사용자 정의 테마 설정 파일",
+    "usage": "이 파일을 텍스트 에디터로 열어서 테마를 수정하세요",
+    "note": "프로그램 시작시 이 설정이 자동으로 로드됩니다",
+    "theme_types": {
+      "backtesting": "백테스팅용 - 종합적인 테마 (100+개 종목)",
+      "trading": "실전투자용 - 선별된 테마 (30+개 종목)"
+    }
+  },
+  
+  "user_preferences": {
+    "enable_custom_themes": true,
+    "default_theme_type": "trading",
+    "max_stocks_per_theme": 20,
+    "min_total_stocks": 30
+  },
+  
+  "backtesting_themes": {
+    "AI_Technology": {
+      "enabled": true,
+      "keywords": ["인공지능", "AI", "머신러닝", "딥러닝", "자연어처리", "로보틱스", "자동화"],
+      "description": "AI 및 인공지능 기술 관련 종목",
+      "priority": 1,
+      "expected_return": "high"
+    },
+    "Semiconductor": {
+      "enabled": true,
+      "keywords": ["반도체", "HBM메모리", "시스템반도체", "팹리스", "반도체장비", "AI반도체"],
+      "description": "HBM 메모리 종목",
+      "priority": 1,
+      "expected_return": "high"
+    },
+    "Battery_EV": {
+      "enabled": true,
+      "keywords": ["이차전지", "전기차", "EV", "양극재", "음극재", "전고체"],
+      "description": "배터리 및 전기차 관련 종목",
+      "priority": 1,
+      "expected_return": "high"
+    },
+    "Bio_Healthcare": {
+      "enabled": true,
+      "keywords": ["AI바이오", "AI의료기기", "AI진단", "백신", "바이오 기술수출", "헬스케어"],
+      "description": "바이오 및 헬스케어 관련 종목",
+      "priority": 1,
+      "expected_return": "medium-high"
+    },
+    "Renewable_Energy": {
+      "enabled": true,
+      "keywords": ["연료전지", "신재생에너지", "SMR원전", "트렌스포머", "고전압 변압기"],
+      "description": "신재생에너지 관련 종목",
+      "priority": 2,
+      "expected_return": "medium"
+    },
+    "Defense_Aerospace": {
+      "enabled": true,
+      "keywords": ["방산", "국방", "항공우주", "위성", "드론", "미사일", "레이더"],
+      "description": "방산 및 항공우주 관련 종목",
+      "priority": 2,
+      "expected_return": "medium"
+    },
+    "Financial_Fintech": {
+      "enabled": false,
+      "keywords": ["핀테크", "블록체인", "암호화폐", "디지털화폐", "결제", "금융"],
+      "description": "핀테크 및 디지털금융 관련 종목",
+      "priority": 3,
+      "expected_return": "low"
+    },
+    "Construction_Infrastructure": {
+      "enabled": false,
+      "keywords": ["원전건설"],
+      "description": "원전 건설 및 인프라 관련 종목",
+      "priority": 3,
+      "expected_return": "low"
+    }
+  },
+  
+  "trading_themes": {
+    "AI_Semiconductor": {
+      "enabled": true,
+      "keywords": ["인공지능", "AI", "반도체", "시스템반도체", "HBM"],
+      "description": "AI 및 반도체 융합 고성장 종목",
+      "priority": 1,
+      "expected_return": "high"
+    },
+    "Gaming_Platform": {
+      "enabled": true,
+      "keywords": ["AI플랫폼"],
+      "description": "AI플렛폼",
+      "priority": 2,
+      "expected_return": "medium-high"
+    },
+    "Defense_Tech": {
+      "enabled": true,
+      "keywords": ["방산", "국방", "항공우주", "드론"],
+      "description": "방산 및 첨단 기술 종목",
+      "priority": 3,
+      "expected_return": "medium"
+    }
+  },
+  
+  "core_large_cap_stocks": {
+    "enabled": true,
+    "description": "안정성 기반 대형주 포트폴리오",
+    "stocks": [
+      "005930",
+      "329180", 
+      "454910",
+      "003490",
+      "034020",
+      "010120",
+      "042660",
+      "329180"
+    ]
+  },
+  
+  "_last_updated": "2025-08-06T12:20:00.000000",
+  "_version": "1.0"
+}

@@ -1,0 +1,45 @@
+{
+  "summary": {
+    "session_start": "2025-08-23T04:58:32.727666+09:00",
+    "session_end": "2025-08-23T04:58:32.727703+09:00",
+    "total_trades": 2,
+    "total_profit_loss": 28456.5,
+    "total_commission": 1633.5,
+    "win_trades": 1,
+    "lose_trades": 0,
+    "win_rate": 50.0,
+    "largest_win": 28456.5,
+    "largest_loss": 0.0,
+    "account_balance_start": 100000000.0,
+    "account_balance_end": 100000000.0
+  },
+  "trades": [
+    {
+      "timestamp": "2025-08-23T04:58:32.727684+09:00",
+      "symbol": "035420",
+      "action": "BUY",
+      "quantity": 3,
+      "price": 200000,
+      "amount": 600000,
+      "commission": 89.99999999999999,
+      "profit_loss": 0.0,
+      "account_type": "MOCK",
+      "trading_mode": "AUTO",
+      "algorithm": "Enhanced_DavidPaul_Trading"
+    },
+    {
+      "timestamp": "2025-08-23T04:58:32.727695+09:00",
+      "symbol": "035420",
+      "action": "SELL",
+      "quantity": 3,
+      "price": 210000,
+      "amount": 630000,
+      "commission": 1543.5,
+      "profit_loss": 28456.5,
+      "account_type": "MOCK",
+      "trading_mode": "AUTO",
+      "algorithm": "Enhanced_DavidPaul_Trading"
+    }
+  ],
+  "generated_at": "2025-08-23T04:58:32.727740+09:00"
+}

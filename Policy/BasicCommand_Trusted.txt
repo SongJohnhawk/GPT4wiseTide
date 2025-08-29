@@ -1,0 +1,175 @@
+{
+  "trustedCommands": {
+    "enabled": true,
+    "autoExecute": true,
+    "confirmDestructiveCommands": true,
+    "commands": [
+      // === 기본 버전 확인 명령어들 ===
+      "python --version",
+      "python -V",
+      "node --version", 
+      "node -v",
+      "npm --version",
+      "npm -v",
+      "git --version",
+      "pip --version",
+      "python -m pip --version",
+      
+      // === 시스템 정보 명령어들 ===
+      "whoami",
+      "pwd",
+      "Get-Location",
+      "Get-ChildItem",
+      "dir",
+      
+      // === Python 패키지 관리 ===
+      "python -m pip list",
+      "pip list",
+      "pip list --outdated",
+      "pip show pandas",
+      "pip show numpy", 
+      "pip show requests",
+      "pip show anthropic",
+      "pip show matplotlib",
+      "pip show yfinance",
+      "pip show beautifulsoup4",
+      "pip show mcp",
+      "pip show openai",
+      "pip show plotly",
+      "pip show scikit-learn",
+      "pip show scipy",
+      
+      // === Node.js 패키지 관리 ===
+      "npm list",
+      "npm list --depth=0",
+      "npm list -g --depth=0",
+      "npm outdated",
+      "npm config list",
+      "npm config get registry",
+      "npm info express",
+      "npm info react",
+      "npm info lodash",
+      "npm info axios",
+      "npm info typescript",
+      
+      // === Git 명령어들 ===
+      "git status",
+      "git branch",
+      "git log --oneline -5",
+      "git log --oneline -10",
+      "git remote -v",
+      "git config --list",
+      "git config --global --list",
+      "git diff --name-only",
+      "git show --name-only",
+      
+      // === npx 명령어들 ===
+      "npx --version",
+      "npx create-react-app --help",
+      "npx typescript --version",
+      "npx eslint --version",
+      
+      // === Windows PowerShell 시스템 명령어들 ===
+      "Get-ComputerInfo",
+      "Get-Process python",
+      "Get-Process node",
+      "Get-Process git",
+      "Get-Command python",
+      "Get-Command node",
+      "Get-Command git"
+    ],
+    
+    // === 패턴으로 허용할 명령어들 ===
+    "trustedPatterns": [
+      // Python 코드 실행 패턴들
+      "python -c \".*\"",
+      "python -c '.*'",
+      "python -m .*",
+      "pip show .*",
+      "pip search .*",
+      "pip install --dry-run .*",
+      
+      // Node.js 코드 실행 패턴들  
+      "node -e \".*\"",
+      "node -e '.*'",
+      "npm info .*",
+      "npm search .*",
+      "npm install --dry-run .*",
+      "npm run .*",
+      "npx .* --help",
+      "npx .* --version",
+      
+      // Git 명령어 패턴들
+      "git log .*",
+      "git show .*", 
+      "git diff .*",
+      "git branch .*",
+      "git config .*",
+      
+      // 시스템 명령어 패턴들
+      "echo .*",
+      "type .*",
+      "Get-Content .*",
+      "Get-ChildItem .*",
+      "dir .*",
+      "findstr .*",
+      "where .*",
+      
+      // 안전한 정보 확인 명령어들
+      ".*--version",
+      ".*--help",
+      ".* --version",
+      ".* --help"
+    ],
+    
+    // === 특별히 허용할 복잡한 명령어들 ===
+    "complexCommands": [
+      // 환경 정보 확인
+      "python -c \"import sys; print(sys.executable)\"",
+      "python -c \"import sys; print(sys.version)\"",
+      "python -c \"import sys; print(sys.path)\"",
+      "python -c \"import os; print(os.getcwd())\"",
+      "python -c \"import platform; print(platform.platform())\"",
+      "node -e \"console.log(process.execPath)\"",
+      "node -e \"console.log(process.version)\"", 
+      "node -e \"console.log(process.platform)\"",
+      "node -e \"console.log(process.cwd())\"",
+      
+      // 패키지 import 테스트들
+      "python -c \"import pandas; print(f'Pandas {pandas.__version__} OK')\"",
+      "python -c \"import numpy; print(f'NumPy {numpy.__version__} OK')\"",
+      "python -c \"import requests; print(f'Requests {requests.__version__} OK')\"",
+      "python -c \"import anthropic; print('Anthropic 패키지 OK')\"",
+      "python -c \"import mcp; print('MCP 패키지 OK')\"",
+      "python -c \"import matplotlib; print(f'Matplotlib {matplotlib.__version__} OK')\"",
+      "python -c \"import yfinance; print('YFinance 패키지 OK')\"",
+      
+      // 간단한 계산/테스트
+      "python -c \"print(2 + 2)\"",
+      "python -c \"print(sum(range(1, 101)))\"",
+      "python -c \"import math; print(f'π = {math.pi:.4f}')\"",
+      "node -e \"console.log('2 + 2 =', 2 + 2)\"",
+      "node -e \"console.log('π =', Math.PI.toFixed(4))\"",
+      
+      // 시간/날짜
+      "python -c \"from datetime import datetime; print(f'현재 시간: {datetime.now()}')\"",
+      "node -e \"console.log('현재 시간:', new Date().toLocaleString())\"",
+      
+      // JSON 처리
+      "python -c \"import json; print(json.dumps({'test': 'data'}, indent=2))\"",
+      "node -e \"console.log(JSON.stringify({test: 'data'}, null, 2))\"",
+      
+      // 메모리/성능 정보
+      "python -c \"import psutil; print(f'메모리 사용률: {psutil.virtual_memory().percent}%')\"",
+      "node -e \"const used = process.memoryUsage(); console.log('메모리:', Math.round(used.rss / 1024 / 1024), 'MB')\"",
+      
+      // 네트워크 정보
+      "python -c \"import socket; print(f'호스트명: {socket.gethostname()}')\"",
+      "node -e \"console.log('호스트명:', require('os').hostname())\"",
+      
+      // 환경 변수 확인
+      "python -c \"import os; print(f'PYTHONPATH: {os.environ.get(\\\"PYTHONPATH\\\", \\\"Not set\\\")}')\"",
+      "node -e \"console.log('NODE_ENV:', process.env.NODE_ENV || 'Not set')\""
+    ]
+  }
+}

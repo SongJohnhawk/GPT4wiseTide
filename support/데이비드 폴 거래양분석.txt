@@ -1,0 +1,124 @@
+데이비드 폴이 반복해서 강조한 가격×거래량의 ‘검증(Validation) vs 비검증(Non-Validation)’ 원리를 구현한 커스텀 차트가 적절하다. 아래 -Pine Script는 그 핵심을 하나로 묶은 DP Volume Validation (David Paul-inspired) 지표다.
+-Validation: 넓은 범위(큰 캔들) + 높은 거래량 → “의미 있는” 움직임
+-Non-Validation: 넓은 범위 + 낮은 거래량 → “속 빈” 움직임(속임/피로)
+-상·하 다이버전스: 가격 고점↑에 거래량 고점↓(약세), 가격 저점↓에 거래량 저점↑(강세)
+-이 원리는 데이비드 폴의 강연·자료에서 반복적으로 등장한다
+
+TradingView Pine Script (v5) — DP Volume Validation
+아래 코드를 그대로 붙여 넣고 Indicators → Create에서 저장 후 차트에 적용하면 된다. 3분봉에 최적화되어 있으나 어떤 주기에도 작동한다.
+[코드시작]
+//@version=5
+indicator("DP Volume Validation (David Paul-inspired)", overlay=true, timeframe="", timeframe_gaps=true)
+
+// === Inputs ===
+vLen   = input.int(20, "Volume MA Length", minval=5)
+rLen   = input.int(20, "Range MA Length", minval=5)
+vMult  = input.float(2.2, "Volume Spike × VMA", step=0.1)
+rMult  = input.float(1.5, "Wide Range × RMA", step=0.1)
+divLb  = input.int(60, "Divergence Lookback Bars", minval=20)
+showVWAP = input.bool(true, "Show VWAP (session)")
+showEMA  = input.bool(true, "Show EMA(5/20)")
+showTrueBreak = input.bool(true, "Show 'True Breakout' markers")
+
+// === Base Series ===
+rng   = high - low
+rma   = ta.sma(rng, rLen)
+vma   = ta.sma(volume, vLen)
+vSpike = volume >= vMult * vma
+wide   = rng    >= rMult * rma
+
+// Validation & Non-Validation (David Paul theme)
+validation     = wide and vSpike
+nonValidation  = wide and (volume < vma)
+
+// Momentum slope check (rising on falling volume, etc.)
+slopeClose = ta.linearreg_slope(close, 5)
+slopeVol   = ta.linearreg_slope(volume, 5)
+rise_on_falling_vol = slopeClose > 0 and slopeVol < 0
+fall_on_rising_vol  = slopeClose < 0 and slopeVol > 0
+
+// Divergences via simple pivot logic
+ph  = ta.pivothigh(high, 5, 5)
+pvH = ta.pivothigh(volume, 5, 5)
+pl  = ta.pivotlow(low, 5, 5)
+pvL = ta.pivotlow(volume, 5, 5)
+
+var float lastPriceHigh = na
+var float lastVolHigh   = na
+var float lastPriceLow  = na
+var float lastVolLow    = na
+
+bearDiv = false
+bullDiv = false
+
+if not na(ph)
+    // new price pivot high
+    bearDiv := not na(lastPriceHigh) and not na(lastVolHigh) and ph > lastPriceHigh and pvH < lastVolHigh
+    lastPriceHigh := ph
+    lastVolHigh   := pvH
+
+if not na(pl)
+    // new price pivot low
+    bullDiv := not na(lastPriceLow) and not na(lastVolLow) and pl < lastPriceLow and pvL > lastVolLow
+    lastPriceLow := pl
+    lastVolLow   := pvL
+
+// Overlays: VWAP / EMA
+vwap = ta.vwap
+ema5 = ta.ema(close, 5)
+ema20 = ta.ema(close, 20)
+
+plot(showVWAP ? vwap : na, "VWAP", color=color.new(color.blue, 0), linewidth=2)
+plot(showEMA ? ema5 : na, "EMA5", color=color.new(color.teal, 0))
+plot(showEMA ? ema20: na, "EMA20", color=color.new(color.purple, 0))
+
+// True Breakout: volume spike + 최근고점 돌파 + 추세 정렬 + VWAP 상방
+swingHigh = ta.highest(high[1], 20)
+trueBreak = vSpike and close > swingHigh and ema5 > ema20 and close > vwap
+
+// Bar coloring: validation vs non-validation
+barcolor(validation    ? color.new(color.lime, 0) :
+         nonValidation ? color.new(color.orange, 0) : na)
+
+// Markers
+plotshape(validation, title="Validation", style=shape.triangleup, size=size.tiny,
+     location=location.belowbar, color=color.lime, text="VAL")
+plotshape(nonValidation, title="Non-Validation", style=shape.triangledown, size=size.tiny,
+     location=location.abovebar, color=color.orange, text="NON")
+plotshape(rise_on_falling_vol, title="Rise on Falling Vol (Caution)", style=shape.circle,
+     location=location.abovebar, color=color.new(color.yellow, 0), size=size.tiny, text="RoFV")
+plotshape(fall_on_rising_vol, title="Fall on Rising Vol (Caution)", style=shape.circle,
+     location=location.belowbar, color=color.new(color.red, 0), size=size.tiny, text="FoRV")
+
+plotshape(showTrueBreak and trueBreak, title="True Breakout", style=shape.labelup,
+     location=location.belowbar, color=color.new(color.green, 0), text="TB", textcolor=color.white)
+
+// Divergence labels
+plotshape(bearDiv, title="Bearish Vol Divergence", style=shape.labeldown, location=location.abovebar,
+     color=color.new(color.red, 0), text="Vol↓ vs Px↑", textcolor=color.white, size=size.tiny)
+plotshape(bullDiv, title="Bullish Vol Divergence", style=shape.labelup, location=location.belowbar,
+     color=color.new(color.lime, 0), text="Vol↑ vs Px↓", textcolor=color.white, size=size.tiny)
+
+// Status table
+var table t = table.new(position.top_right, 1, 6, border_color=color.new(color.white,80))
+statusTxt = "VMA("+str.tostring(vLen)+"):" + str.tostring(vma, format.mintick) +
+            "\nRMA("+str.tostring(rLen)+"):" + str.tostring(rma, format.mintick) +
+            "\nValidation: " + str.tostring(validation) +
+            "\nNon-Validation: " + str.tostring(nonValidation) +
+            "\nTrueBreak: " + str.tostring(trueBreak)
+if barstate.islast
+    table.cell(t, 0, 0, statusTxt, text_color=color.white, bgcolor=color.new(color.black, 35))
+
+[코드종료]
+
+해석 가이드
+-초록(VAL): “진짜 힘(Validation)” — 넓은 캔들×대량 거래 동시 발생.
+-주황(NON): “비검증(Non-Validation)” — 넓은 캔들인데 거래량 부족 → 속임수·피로 가능.
+-노랑/빨강 원형: “가격 상승↔거래량 하락”/“가격 하락↔거래량 상승” 경고.
+-TB(Label “True Breakout”): 데이비드 폴 스타일의 거래량 검증된 돌파를 보다 보수적으로 압축(대량+고점돌파+추세정렬+VWAP 상방).
+-근거 맥락: 데이비드 폴은 ‘넓은 변동폭이 큰 거래량과 함께 나와야 진짜’, ‘거래량 없는 급등/상승은 비검증’, **‘가격과 거래량의 불일치(다이버전스) 경계’**를 일관되게 강조한다
+
+실전 팁 (3분봉 단타와 맞물려 사용)
+-엔트리: TB 신호가 캔들 종가 확정 시 등장하고, 직전 20봉 고점을 갱신하며 EMA5>EMA20 & VWAP 상방이면 진입 후보.
+-청산: TB 후 Validation→거래량 소멸(≤0.5×VMA) + EMA5 이탈이면 이익잠금 또는 전량 청산.
+-경고:NON 또는 **가격↑·거래량↓(RoFV)**가 반복되면 가짜 돌파 가능성 높음 — 비중 축소.

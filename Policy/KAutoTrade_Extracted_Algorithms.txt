@@ -1,0 +1,636 @@
+===== Trading_Rule.md =====
+# tideWise 매매 원칙 및 규칙 설정
+
+이 파일은 tideWise 시스템 자체에서 적용하는 매매 원칙과 규칙을 정의합니다.
+알고리즘 특화 규칙은 제외하고, 시스템 전반에 적용되는 기본 원칙만 포함됩니다.
+
+---
+
+## 🎯 사용자 지정종목 관리 규칙
+
+### 수익률 알림 설정
+```
+PROFIT_NOTIFICATION_THRESHOLD = "0.30"  # 30% 이상 수익시 텔레그램 알림
+```
+
+### 사용자 지정종목 목록 (17개)
+```
+USER_DESIGNATED_STOCKS = {
+    "005930": {"name": "삼성전자", "target_quantity": "20"},
+    "009540": {"name": "한화오션", "target_quantity": "20"},
+    "267260": {"name": "HD현대일렉트릭", "target_quantity": "5"},
+    "267250": {"name": "HD현대중공업", "target_quantity": "5"},
+    "373220": {"name": "LG에너지솔루션", "target_quantity": "10"},
+    "375500": {"name": "DL이엔씨", "target_quantity": "50"},
+    "034020": {"name": "두산에너빌리티", "target_quantity": "50"},
+    "003490": {"name": "대한항공", "target_quantity": "20"},
+    "000150": {"name": "두산", "target_quantity": "50"},
+    "123330": {"name": "제닉", "target_quantity": "20"},
+    "117730": {"name": "로보티즈", "target_quantity": "20"},
+    "030800": {"name": "원익홀딩스", "target_quantity": "50"},
+    "212560": {"name": "클로봇", "target_quantity": "20"},
+    "454910": {"name": "두산로보틱스", "target_quantity": "20"},
+    "000720": {"name": "현대건설", "target_quantity": "20"},
+    "196170": {"name": "알테오젠", "target_quantity": "10"},
+    "064350": {"name": "현대로템", "target_quantity": "20"},
+    "047810": {"name": "한국항공우주", "target_quantity": "10"}
+}
+```
+
+---
+
+## 💰 매수 수량 및 예산 관리 규칙
+
+### 예산 비율 제한 (모든 종목 공통 적용)
+```
+POSITION_SIZE_BUDGET_RATIO = "0.07"  # 예수금의 7%를 넘지 않도록 제한 (모든 종목 대상)
+MARGIN_RATE = "1.002"  # 수수료 및 마진 고려 (0.2% 추가)
+APPLY_TO_ALL_STOCKS = "true"  # 사용자 지정종목, 급등주, 일반 종목 모두 7% 원칙 적용
+```
+
+### 가격별 매수 수량 제한
+```
+# 3만원 이하 종목
+LOW_PRICE_THRESHOLD = "30000"  # 3만원 이하 기준
+LOW_PRICE_MIN_QUANTITY = "10"  # 최소 10주 매수 (예산 제한 무시 가능)
+
+# 20만원 이상 종목
+HIGH_PRICE_THRESHOLD = "200000"  # 20만원 이상 기준
+HIGH_PRICE_MAX_QUANTITY = "5"  # 최대 5주 제한
+
+# 30만원 이상 종목 (소액 계좌)
+ULTRA_HIGH_PRICE_THRESHOLD = "300000"  # 30만원 이상 기준
+SMALL_ACCOUNT_LIMIT = "10000000"  # 예수금 1천만원 미만 기준
+ULTRA_HIGH_PRICE_MAX_QUANTITY = "2"  # 최대 2주 제한
+```
+
+### 가격대별 기본 수량 기준
+```
+PRICE_THRESHOLDS = {
+    "high_price_limit": "200000",  # 20만원 이상 -> 기본 10주
+    "low_price_limit": "100000",   # 10만원 이하 -> 기본 50주
+    "default_quantity": "20"       # 기타 -> 기본 20주
+}
+```
+
+---
+
+## 📊 매매 세션 및 시간 관리
+
+### 장 시간 설정
+```
+MARKET_OPEN_TIME = "09:05"      # 장 시작 시간
+MARKET_CLOSE_TIME = "15:30"     # 장 마감 시간
+MORNING_SESSION_END = "12:00"   # 오전 세션 종료
+AFTERNOON_SESSION_START = "13:00"  # 오후 세션 시작
+AFTERNOON_SESSION_END = "15:20"    # 오후 세션 종료
+AUTO_STOP_TIME = "15:20"        # 자동매매 종료 시간
+```
+
+### 매매 간격 설정
+```
+MORNING_TRADING_INTERVAL = "180"    # 오전 매매 간격 (3분)
+AFTERNOON_TRADING_INTERVAL = "180"  # 오후 매매 간격 (3분)
+```
+
+### 전날 보유 잔고 처리
+```
+PREMARKET_LIQUIDATION_START = "09:05"  # 전날 잔고 처리 시작
+PREMARKET_LIQUIDATION_END = "09:06"    # 전날 잔고 처리 종료
+ENABLE_PREMARKET_LIQUIDATION = "true"  # 전날 잔고 처리 활성화
+```
+
+---
+
+## 🚨 리스크 관리 및 긴급 매도
+
+### 포지션 관리
+```
+MAX_POSITIONS = "5"           # 최대 보유 포지션 수
+POSITION_SIZE_RATIO = "0.15"  # 포지션 크기 비율
+MAX_POSITION_VALUE = "0.25"   # 최대 포지션 가치 비율
+MIN_PO
+
+
+===== Trading_Rules.txt =====
+# tideWise 자동매매 시스템 원칙 및 기준
+
+본 문서는 tideWise 시스템에서 개별 알고리즘과 독립적으로 적용되는 자동매매 원칙, 기준, 규칙들을 정리한 문서입니다.
+
+## 📋 포지션 관리 (Position Management)
+
+항목: 최대 보유 포지션 수
+값: 5개
+설명: 동시에 보유할 수 있는 최대 종목 수
+
+항목: 포지션 크기 비율
+값: 10%
+설명: 계좌 대비 단일 포지션 기본 크기
+
+항목: 최대 포지션 비중
+값: 20%
+설명: 단일 종목에 투자할 수 있는 최대 비율
+
+항목: 최소 포지션 비중
+값: 1%
+설명: 단일 종목에 투자해야 하는 최소 비율
+
+## 🛡️ 리스크 관리 (Risk Management)
+
+항목: 일일 최대 손실한도
+값: 5%
+설명: 하루 최대 허용 손실률
+
+항목: 전체 리스크 한도
+값: 15%
+설명: 계좌 전체 리스크 허용 한도
+
+항목: 연속 손실 허용횟수
+값: 3회
+설명: 연속으로 허용하는 최대 손실 거래 수
+
+항목: 최대 낙폭 한도
+값: 10%
+설명: 계좌 최대 드로다운 허용 한도
+
+## ⏰ 거래 세션 관리 (Trading Session)
+
+항목: 장 시작 시간
+값: 09:00
+설명: 정규 거래 시작 시간
+
+항목: 장 마감 시간
+값: 15:30
+설명: 정규 거래 마감 시간
+
+항목: 오전 세션 종료
+값: 12:00
+설명: 오전 거래 세션 종료
+
+항목: 오후 세션 시작
+값: 13:00
+설명: 오후 거래 세션 시작
+
+항목: 오후 세션 종료
+값: 15:20
+설명: 오후 거래 세션 종료 (청산 준비)
+
+항목: 오전 매매 간격
+값: 300초 (5분)
+설명: 오전 자동매매 실행 간격
+
+항목: 오후 매매 간격
+값: 300초 (5분)
+설명: 오후 자동매매 실행 간격
+
+항목: 장 시작 전 준비시간
+값: 30분
+설명: 시장 개장 전 시스템 준비 시간
+
+항목: 장 마감 후 정리시간
+값: 30분
+설명: 시장 폐장 후 시스템 정리 시간
+
+항목: 장전 청산 기능
+값: 활성화
+설명: 09:00-09:01 장전 청산 실행
+
+## 🚨 긴급 매도 규칙 (Emergency Sell)
+
+항목: 급락 감지 활성화
+값: True
+설명: 급락 상황 자동 감지 기능
+
+항목: 급락 기준
+값: -3.0%
+설명: 급락으로 판단하는 하락률 기준
+
+항목: VI 감지 활성화
+값: True
+설명: 변동성완화장치(VI) 발동 감지
+
+항목: 거래량 급증 비율
+값: 3.0배
+설명: 평균 대비 거래량 급증 기준
+
+항목: 급락시 즉시 매도
+값: True
+설명: 급락 감지시 매매간격 무시하고 즉시 매도
+
+항목: VI시 즉시 매도
+값: True
+설명: VI 발동시 매매간격 무시하고 즉시 매도
+
+## 📝 주문 관리 (Order Management)
+
+항목: 주문 타임아웃
+값: 300초 (5분)
+설명: 주문 실행 최대 대기 시간
+
+항목: 주문 재시도 횟수
+값: 3회
+설명: 주문 실패시 최대 재시도 횟수
+
+항목: 부분체결 허용 비율
+값: 80%
+설명: 부분체결 허용 최소 비율
+
+항목: 호가 이탈 허용범위
+값: 2%
+설명: 현재가 대비 주문가격 허용 범위
+
+## 📊 모니터링 설정 (Monitoring)
+
+항목: 포지션 체크 간격
+값: 60초 (1분)
+설명: 보유 포지션 상태 확인 주기
+
+항목: 시장 스캔 간격
+값: 300초 (5분)
+설명: 전체 시장 상황 스캔 주기
+
+항목: 시스템 헬스체크 간격
+값: 600초 (10분)
+설명: 시스템 상태 점검 주기
+
+항목: 데이터 갱신 간격
+값: 900초 (15분)
+설명: 시장 데이터 갱신 주기
+
+## 🔍 종목 필터링 (Stock Filters)
+
+항목: 최소 거래량
+값: 100,000주
+설명: 매매 가능 종목 최소 일일 거래량
+
+항목: 최소 시가총액
+값: 1,000억원
+설명: 매매 가능 종목 최소 시가총액
+
+항목: 최대 변동성
+값: 15%
+설명: 매매 가능 종목 최대 일일 변동성
+
+항목: 제외 업종
+값: [] (현재 없음)
+설명: 매매에서 제외할 업종 목록
+
+항목: 블랙리스트
+값: [] (현재 없음)
+설명: 매매 금지 종목 목록
+
+## 💰 거래 비용 (Trading Costs)
+
+항목: 매수 수수료율
+값: 0.15%
+설명: 매수시 적용되는 수수료율
+
+항목: 매도 수수료율
+값: 0.15%
+설명: 매도시 적용되는 수수료율
+
+항목: 매도세율
+값: 0.25%
+설명: 매도시 적용되는 증권거래세
+
+항목: 슬리피지율
+값: 0.1%
+설명: 예상 슬리피지 (시장 충격 비용)
+
+항목: 최소 수수료
+값: 1,000원
+설명: 거래당 최소 수수료
+
+## 🎯 VI 감지 설정 (Volatility Interruption)
+
+위험도: LOW
+변동률 기준: 5%
+조치 사항: 거래 지속
+
+위험도: MEDIUM
+변동률 기준: 10%
+조치 사항: 포지션 축소
+
+위험도: HIGH
+변동률 기준: 15%
+조치 사항: 즉시 매도
+
+## 🔄 API 제한 (Rate Limiting)
+
+항목: 분당 최대 API 호출
+값: 20회
+설명: API 서버 부하 방지를 위한 제한
+
+항목: 요청 간 지연시간
+값: 1.0초
+설명: API 요청 사이 최소 대기 시간
+
+항목: 최대 재시도 횟수
+값: 3회
+설명: API 호출 실패시 최대 재시도
+
+## 🎮 백테스팅 설정 (Backtesting)
+
+항목: 초기 자본금
+값: 10,000,000원
+설명: 백테스팅 시작 자본금
+
+항목: 최대 포지션 크기
+값: 20%
+설명: 백테스팅에서 단일 종목 최대 비중
+
+항목: 최대 보유 종목수
+값: 5개
+설명: 백테스팅에서 동시 보유 가능 종목 수
+
+항목: 무위험 수익률
+값: 2.5%
+설명: 연간 무위험 수익률 (국고채 기준)
+
+항목: 벤치마크
+값: KOSPI200
+설명: 성과 비교 기준 지수
+
+항목: 리밸런싱 주기
+값: 일일
+설명: 포트폴리오 재조정 주기
+
+## 📁 설정 파일 위치
+
+주요 설정 파일들:
+- support/trading_rules.json: 매매 규칙 JSON 설정
+- support/trading_rules.py: 매매 규칙 관리 클래스
+- backtesting/backtesting_config.json: 백테스팅 설정
+- support/api_connector.py: API 연결 및 제한 설정
+
+## ⚠️ 중요 사항
+
+1.
+
+
+===== Basic_Algorithm.py =====
+"""
+기본 알고리즘 - tideWise 기본 매매 전략
+사용자가 별도 알고리즘을 선택하지 않았을 때 자동으로 사용되는 안전한 기본 알고리즘
+"""
+
+import pandas as pd
+import numpy as np
+from typing import Dict, Any
+import sys
+from pathlib import Path
+sys.path.append(str(Path(__file__).parent.parent))
+
+from support.algorithm_interface import BaseAlgorithm
+
+class DefaultAlgorithm(BaseAlgorithm):
+    """기본 안전 매매 알고리즘"""
+    
+    def __init__(self):
+        super().__init__()
+        self.algorithm_name = "DefaultAlgorithm"
+        self.description = "tideWise Default Safe Trading Algorithm"
+        
+        # 매우 보수적인 매개변수
+        self.sma_short = 5
+        self.sma_long = 20
+        self.rsi_period = 14
+        self.rsi_oversold = 35
+        self.rsi_overbought = 65
+        self.volume_threshold = 2.0
+    
+    def analyze(self, data: pd.DataFrame, **kwargs) -> Dict[str, Any]:
+        """
+        매우 보수적인 분석 로직
+        기본적으로 HOLD를 선호하며, 매우 확실한 신호에서만 매수/매도
+        """
+        try:
+            if data is None or data.empty or len(data) < self.sma_long:
+                return {
+                    'recommendation': 'HOLD',
+                    'confidence': 20,
+                    'algorithm': self.algorithm_name,
+                    'note': 'Insufficient data for analysis'
+                }
+            
+            # 기본 지표 계산
+            data = data.copy()
+            data['SMA_short'] = data['close'].rolling(window=self.sma_short).mean()
+            data['SMA_long'] = data['close'].rolling(window=self.sma_long).mean()
+            
+            # RSI 계산
+            delta = data['close'].diff()
+            gain = (delta.where(delta > 0, 0)).rolling(window=self.rsi_period).mean()
+            loss = (-delta.where(delta < 0, 0)).rolling(window=self.rsi_period).mean()
+            rs = gain / loss
+            data['RSI'] = 100 - (100 / (1 + rs))
+            
+            # 최신 데이터
+            latest = data.iloc[-1]
+            
+            # 매우 보수적인 매수 조건
+            buy_conditions = [
+                latest['SMA_short'] > latest['SMA_long'],  # 단기 > 장기 이평
+                latest['RSI'] < self.rsi_oversold,         # 과매도
+                latest['volume'] > data['volume'].rolling(20).mean() * self.volume_threshold  # 거래량 증가
+            ]
+            
+            # 매도 조건
+            sell_conditions = [
+                latest['SMA_short'] < latest['SMA_long'],  # 단기 < 장기 이평
+                latest['RSI'] > self.rsi_overbought        # 과매수
+            ]
+            
+            # 결정 로직 (매우 보수적)
+            if all(buy_conditions):
+                return {
+                    'recommendation': 'BUY',
+                    'confidence': 40,  # 낮은 신뢰도로 보수적 매수
+                    'algorithm': self.algorithm_name,
+                    'note': 'Conservative buy signal detected'
+                }
+            elif any(sell_conditions):
+                return {
+                    'recommendation': 'SELL',
+                    'confidence': 45,  # 손절/익절에는 조금 더 적극적
+                    'algorithm': self.algorithm_name,
+                    'n
+
+
+===== Basic-DayTrading.py =====
+"""
+tideWise 통합 단타매매 알고리즘
+기본 거래량·가격 기반 매매 로직을 단타매매에 최적화한 통합 전략
+tideWise 단타매매 정책 (3분봉 거래량·가격 결합 로직) 완전 적용
+"""
+
+import pandas as pd
+import numpy as np
+from typing import Dict, Any, List, Optional, Tuple
+from datetime import datetime, time
+import sys
+from pathlib import Path
+sys.path.append(str(Path(__file__).parent.parent))
+
+from support.algorithm_interface import BaseAlgorithm
+
+
+class BasicDayTrading(BaseAlgorithm):
+    """tideWise 통합 단타매매 알고리즘 - 거래량·가격 기반"""
+    
+    def __init__(self):
+        super().__init__()
+        self.algorithm_name = "BasicDayTrading"
+        self.description = "tideWise 통합 단타매매 알고리즘 - 거래량·가격 정책 적용"
+        
+        # tideWise 단타매매 정책 파라미터 (3분봉 기준)
+        # 기간 지표
+        self.ema_fast = 5  # EMA_fast = 5
+        self.ema_slow = 20  # EMA_slow = 20
+        self.rsi_length = 7  # RSI_len = 7
+        self.v_avg_length = 20  # V_avg_len = 20 (3분봉 20개 ≈ 60분)
+        
+        # 임계치
+        self.k_buy = 2.2  # 거래량 급등 배수: 현재봉 거래량 ≥ K_buy × V20
+        self.rsi_buy_zone = [55, 75]  # RSI_buy_zone = [55, 75]
+        self.vol_fade = 0.5  # 거래량 소멸: 현재봉 거래량 ≤ Vol_fade × V20
+        
+        # 리스크 관리
+        self.stop_loss_pct = -0.02  # SL = -2.0% (진입가 기준 손절)
+        self.take_profit_1 = 0.03  # TP1 = +3.0% (1차 익절, 50% 청산)
+        self.trailing_trigger = 0.02  # TS_trigger = +2.0% 이후 Trailing
+        
+        # 신호 파라미터
+        self.min_surge_stocks = 10  # 최소 급등종목 수집 개수 (완화)
+        self.top_selection = 1  # 상위 선택 종목 수 (집중)
+        self.sell_order_ratio = 2.0  # 매도/매수 주문 비율 임계값
+        
+        # 종목별 보유 정보
+        self.holdings = {}  # {symbol: {'price': float, 'quantity': int, 'time': datetime}}
+        
+        # 사이클 관리 (3분봉 기준)
+        self.cycle_interval = 180  # 3분 (초)
+        self.last_cycle_time = None
+        
+        # 시간 규칙 (단타매매 정책)
+        self.entry_cutoff = time(14, 30)  # 신규 진입 금지: 14:30 이후
+        self.market_close = time(14, 55)  # 전량 청산: 14:55
+        
+        # 상태 관리
+        self.half_taken = {}  # 종목별 절반 익절 상태
+        
+    def get_name(self) -> str:
+        return "tideWise 통합 단타매매 알고리즘"
+    
+    def get_version(self) -> str:
+        return "2.0"
+    
+    def get_description(self) -> str:
+        return "tideWise 기본 거래량·가격 로직을 단타매매에 최적화한 통합 전략"
+    
+    def analyze(self, data: pd.DataFrame, **kwargs) -> Dict[str, Any]:
+        """tideWise 단타매매 정책 기반 매매 신호 분석"""
+        try:
+            # 현재 시간 확인
+            current_time = datetime.now().time()
+            
+            # 시간 규칙 적용
+            if current_time >= self.market_close:
+                return self._generate_close_signal()
+            
+            allow_new_entry = current_time < self.entry_cutoff
+            
+            # 보유 종목 모니터링 (우선순위)
+            if self.holdings:
+                return self._monitor_holdings_with_policy(data, **kwargs)
+            
+            # 신규 진입 가능 시간에만 새 종목 탐색
+            if allow_new_entry and self._is_new_cycle():
+                return self._find_stocks_with_policy(data, **kwargs)
+
+
+===== Korea_Algorithm.pine =====
+//@version=5
+strategy("tideWise 통합 단타매매 전략", shorttitle="K-DayTrading", overlay=true, 
+         initial_capital=10000000, default_qty_value=1000000, 
+         pyramiding=1, commission_type=strategy.commission.percent, 
+         commission_value=0.35, max_bars_back=1000)
+
+// === tideWise 단타매매 정책 파라미터 (3분봉 기준) ===
+// 기간 지표
+ema_fast_period = input.int(5, title="EMA Fast 기간", minval=3, maxval=10)
+ema_slow_period = input.int(20, title="EMA Slow 기간", minval=15, maxval=30)
+rsi_period = input.int(7, title="RSI 기간", minval=5, maxval=14)
+v_avg_period = input.int(20, title="거래량 평균 기간", minval=15, maxval=30)
+
+// 임계치
+k_buy = input.float(2.2, title="거래량 급등 배수 (K_buy)", minval=1.8, maxval=3.0, step=0.1)
+rsi_buy_min = input.int(55, title="RSI 매수 하한", minval=50, maxval=60)
+rsi_buy_max = input.int(75, title="RSI 매수 상한", minval=70, maxval=80)
+vol_fade = input.float(0.5, title="거래량 소멸 배수", minval=0.3, maxval=0.7, step=0.1)
+
+// 리스크 관리
+stop_loss_pct = input.float(2.0, title="하드 스톱 (%)", minval=1.5, maxval=3.0, step=0.1) / 100
+take_profit_1_pct = input.float(3.0, title="1차 익절 (%)", minval=2.0, maxval=5.0, step=0.1) / 100
+trailing_trigger_pct = input.float(2.0, title="트레일링 트리거 (%)", minval=1.5, maxval=3.0, step=0.1) / 100
+
+// 시간 규칙
+entry_cutoff_hour = input.int(14, title="신규 진입 금지 시간", minval=13, maxval=15)
+entry_cutoff_minute = input.int(30, title="신규 진입 금지 분", minval=0, maxval=59)
+market_close_hour = input.int(14, title="전량 청산 시간", minval=14, maxval=15)
+market_close_minute = input.int(55, title="전량 청산 분", minval=30, maxval=59)
+
+// === 시간 필터 ===
+allow_new_entry = hour < entry_cutoff_hour or (hour == entry_cutoff_hour and minute < entry_cutoff_minute)
+force_close = hour > market_close_hour or (hour == market_close_hour and minute >= market_close_minute)
+
+// === 기술적 지표 계산 ===
+// EMA 계산
+ema_fast = ta.ema(close, ema_fast_period)
+ema_slow = ta.ema(close, ema_slow_period)
+
+// RSI 계산
+rsi = ta.rsi(close, rsi_period)
+
+// VWAP (당일)
+vwap = ta.vwap(hlc3)
+
+// 거래량 분석
+volume_avg = ta.sma(volume, v_avg_period)
+volume_surge = volume >= (k_buy * volume_avg)
+volume_fade_signal = volume <= (vol_fade * volume_avg)
+
+// 스윙 하이 (최근 20봉 고점)
+swing_high_20 = ta.highest(high, 20)
+price_breakout = close > swing_high_20[1]
+
+// === tideWise '진짜 돌파' 조건 ===
+// 1. 거래량 폭발 (V_now ≥ 2.2×V20)
+volume_condition = volume_surge
+
+// 2. 가격 돌파 (최근 20봉 고점 경신)
+breakout_condition = price_breakout
+
+// 3. VWAP 상방 필터
+vwap_condition = close > vwap
+
+// 4. 단기추세 정렬 (EMA5 > EMA20)
+trend_condition = ema_fast > ema_slow
+
+// 5. RSI 힘있으나 과열 직전 (55 <= RSI <= 75)
+rsi_condition = rsi >= rsi_buy_min and rsi <= rsi_buy_max
+
+// 6. 양봉 마감
+bullish_condition = close > open
+
+// === 진짜 돌파 매수 신호 ===
+real_breakout_signal = allow_new_entry and volume_condition and breakout_condition and 
+                      vwap_condition and trend_condition and rsi_condition and bullish_condition
+
+// === 매도 조건들 ===
+var float entry_price = na
+var bool half_taken = false
+
+// 현재 수익률 계산
+current_return = strategy.position_size > 0 ? (close - entry_price
+

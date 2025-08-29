@@ -1,0 +1,70 @@
+{
+  "position_management": {
+    "max_positions": 5,
+    "position_size_ratio": 0.15,
+    "max_position_value": 0.25,
+    "min_position_value": 0.05
+  },
+  "risk_management": {
+    "daily_loss_limit": 0.05,
+    "total_risk_limit": 0.15,
+    "max_consecutive_losses": 3,
+    "drawdown_limit": 0.1,
+    "profit_target": 0.07,
+    "enable_profit_taking": true
+  },
+  "trading_session": {
+    "market_open": "09:05",
+    "market_close": "15:30",
+    "morning_session_end": "12:00",
+    "afternoon_session_start": "13:00",
+    "afternoon_session_end": "15:20",
+    "morning_interval": 180,
+    "afternoon_interval": 180,
+    "pre_market_buffer": 30,
+    "post_market_buffer": 30,
+    "premarket_liquidation_start": "09:05",
+    "premarket_liquidation_end": "09:06",
+    "enable_premarket_liquidation": true
+  },
+  "emergency_sell": {
+    "enable_crash_detection": true,
+    "crash_threshold": -2.0,
+    "vi_detection": true,
+    "volume_spike_ratio": 3.0,
+    "immediate_sell_on_crash": true,
+    "immediate_sell_on_vi": true
+  },
+  "order_management": {
+    "order_timeout": 300,
+    "max_retries": 3,
+    "partial_fill_threshold": 0.8,
+    "price_deviation_limit": 0.02
+  },
+  "monitoring": {
+    "position_check_interval": 60,
+    "market_scan_interval": 300,
+    "health_check_interval": 600,
+    "data_refresh_interval": 900
+  },
+  "filters": {
+    "min_volume": 100000,
+    "min_market_cap": 1000,
+    "max_volatility": 0.15,
+    "excluded_sectors": [],
+    "blacklist_stocks": []
+  },
+  "volume_price_analysis": {
+    "enable": true,
+    "signal_priority": 1,
+    "decline_with_volume_sell": true,
+    "decline_threshold": -1.0,
+    "decline_period_days": 3,
+    "decline_volume_ratio": 1.2,
+    "sideways_with_volume_buy": true,
+    "sideways_period_days": 5,
+    "sideways_threshold": 2.0,
+    "sideways_volume_ratio": 1.15,
+    "sideways_stability": 0.7
+  }
+}

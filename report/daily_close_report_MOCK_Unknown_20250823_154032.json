@@ -1,0 +1,12 @@
+{
+  "timestamp": "20250823_154032",
+  "account_type": "MOCK",
+  "algorithm": "Unknown",
+  "market_close_time": "14:55",
+  "trading_stats": {
+    "total_cycles": 0,
+    "end_time": "2025-08-23 15:40:32",
+    "account_type": "MOCK"
+  },
+  "system_status": "MARKET_CLOSED"
+}

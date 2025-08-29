@@ -1,0 +1,211 @@
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Public+Sans%3Awght%40400%3B500%3B700%3B900"
+    />
+
+    <title>Stitch Design</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  </head>
+  <body>
+    <div class="relative flex size-full min-h-screen flex-col bg-slate-50 group/design-root overflow-x-hidden" style='font-family: "Public Sans", "Noto Sans", sans-serif;'>
+      <div class="layout-container flex h-full grow flex-col">
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e7edf3] px-10 py-3">
+          <div class="flex items-center gap-4 text-[#0e141b]">
+            <div class="size-4">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z"
+                  fill="currentColor"
+                ></path>
+              </svg>
+            </div>
+            <h2 class="text-[#0e141b] text-lg font-bold leading-tight tracking-[-0.015em]">Stock Portfolio</h2>
+          </div>
+          <div class="flex flex-1 justify-end gap-8">
+            <div class="flex items-center gap-9">
+              <a class="text-[#0e141b] text-sm font-medium leading-normal" href="#">Dashboard</a>
+              <a class="text-[#0e141b] text-sm font-medium leading-normal" href="#">Portfolio</a>
+              <a class="text-[#0e141b] text-sm font-medium leading-normal" href="#">Transactions</a>
+              <a class="text-[#0e141b] text-sm font-medium leading-normal" href="#">Reports</a>
+            </div>
+            <button
+              class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-[#e7edf3] text-[#0e141b] gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5"
+            >
+              <div class="text-[#0e141b]" data-icon="Bell" data-size="20px" data-weight="regular">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                  <path
+                    d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z"
+                  ></path>
+                </svg>
+              </div>
+            </button>
+            <div
+              class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+              style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDr0x7kEM_qJBlodTq3grnHndPy9VJeF_6gZrr3_ZFU-9kgwqNMH8D1zQUKMysLuAOqOndPLEEOTeSpm6djeAQzevRPIPB741r0NRlXlnuNa3_gzqrH4fLK7rrWt5RIrk4US5UzQsfOHQo_VywFRob_nniqARzzwXUMm7fR2UruyLlmsFrtyHRg-lJ7Usu2U16ECgvzVCYD3iky4D6IZTl8jUpl5QH0LgNEU42Iy5L51rCm2oQPKrWa_RMAbX7yiO3NYsOPqYbV0IhN");'
+            ></div>
+          </div>
+        </header>
+        <div class="px-40 flex flex-1 justify-center py-5">
+          <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+            <div class="flex flex-wrap justify-between gap-3 p-4">
+              <div class="flex min-w-72 flex-col gap-3">
+                <p class="text-[#0e141b] tracking-light text-[32px] font-bold leading-tight">Investment Report</p>
+                <p class="text-[#4e7097] text-sm font-normal leading-normal">Analyze your investment performance over the past year.</p>
+              </div>
+            </div>
+            <h2 class="text-[#0e141b] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Performance Overview</h2>
+            <div class="flex flex-wrap gap-4 px-4 py-6">
+              <div class="flex min-w-72 flex-1 flex-col gap-2 rounded-lg border border-[#d0dbe7] p-6">
+                <p class="text-[#0e141b] text-base font-medium leading-normal">Portfolio Value Over Time</p>
+                <p class="text-[#0e141b] tracking-light text-[32px] font-bold leading-tight truncate">$125,000</p>
+                <div class="flex gap-1">
+                  <p class="text-[#4e7097] text-base font-normal leading-normal">Last 12 Months</p>
+                  <p class="text-[#07883b] text-base font-medium leading-normal">+15%</p>
+                </div>
+                <div class="flex min-h-[180px] flex-1 flex-col gap-8 py-4">
+                  <svg width="100%" height="148" viewBox="-3 0 478 150" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                    <path
+                      d="M0 109C18.1538 109 18.1538 21 36.3077 21C54.4615 21 54.4615 41 72.6154 41C90.7692 41 90.7692 93 108.923 93C127.077 93 127.077 33 145.231 33C163.385 33 163.385 101 181.538 101C199.692 101 199.692 61 217.846 61C236 61 236 45 254.154 45C272.308 45 272.308 121 290.462 121C308.615 121 308.615 149 326.769 149C344.923 149 344.923 1 363.077 1C381.231 1 381.231 81 399.385 81C417.538 81 417.538 129 435.692 129C453.846 129 453.846 25 472 25V149H326.769H0V109Z"
+                      fill="url(#paint0_linear_1131_5935)"
+                    ></path>
+                    <path
+                      d="M0 109C18.1538 109 18.1538 21 36.3077 21C54.4615 21 54.4615 41 72.6154 41C90.7692 41 90.7692 93 108.923 93C127.077 93 127.077 33 145.231 33C163.385 33 163.385 101 181.538 101C199.692 101 199.692 61 217.846 61C236 61 236 45 254.154 45C272.308 45 272.308 121 290.462 121C308.615 121 308.615 149 326.769 149C344.923 149 344.923 1 363.077 1C381.231 1 381.231 81 399.385 81C417.538 81 417.538 129 435.692 129C453.846 129 453.846 25 472 25"
+                      stroke="#4e7097"
+                      stroke-width="3"
+                      stroke-linecap="round"
+                    ></path>
+                    <defs>
+                      <linearGradient id="paint0_linear_1131_5935" x1="236" y1="1" x2="236" y2="149" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#e7edf3"></stop>
+                        <stop offset="1" stop-color="#e7edf3" stop-opacity="0"></stop>
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                  <div class="flex justify-around">
+                    <p class="text-[#4e7097] text-[13px] font-bold leading-normal tracking-[0.015em]">Jan</p>
+                    <p class="text-[#4e7097] text-[13px] font-bold leading-normal tracking-[0.015em]">Feb</p>
+                    <p class="text-[#4e7097] text-[13px] font-bold leading-normal tracking-[0.015em]">Mar</p>
+                    <p class="text-[#4e7097] text-[13px] font-bold leading-normal tracking-[0.015em]">Apr</p>
+                    <p class="text-[#4e7097] text-[13px] font-bold leading-normal tracking-[0.015em]">May</p>
+                    <p class="text-[#4e7097] text-[13px] font-bold leading-normal tracking-[0.015em]">Jun</p>
+                    <p class="text-[#4e7097] text-[13px] font-bold leading-normal tracking-[0.015em]">Jul</p>
+                  </div>
+                </div>
+              </div>
+              <div class="flex min-w-72 flex-1 flex-col gap-2 rounded-lg border border-[#d0dbe7] p-6">
+                <p class="text-[#0e141b] text-base font-medium leading-normal">Asset Allocation</p>
+                <p class="text-[#0e141b] tracking-light text-[32px] font-bold leading-tight truncate">60% Stocks, 40% Bonds</p>
+                <p class="text-[#4e7097] text-base font-normal leading-normal">Current</p>
+                <div class="grid min-h-[180px] grid-flow-col gap-6 grid-rows-[1fr_auto] items-end justify-items-center px-3">
+                  <div class="border-[#4e7097] bg-[#e7edf3] border-t-2 w-full" style="height: 100%;"></div>
+                  <p class="text-[#4e7097] text-[13px] font-bold leading-normal tracking-[0.015em]">Stocks</p>
+                  <div class="border-[#4e7097] bg-[#e7edf3] border-t-2 w-full" style="height: 60%;"></div>
+                  <p class="text-[#4e7097] text-[13px] font-bold leading-normal tracking-[0.015em]">Bonds</p>
+                </div>
+              </div>
+            </div>
+            <h2 class="text-[#0e141b] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Portfolio Holdings</h2>
+            <div class="px-4 py-3 @container">
+              <div class="flex overflow-hidden rounded-lg border border-[#d0dbe7] bg-slate-50">
+                <table class="flex-1">
+                  <thead>
+                    <tr class="bg-slate-50">
+                      <th class="table-7085b891-58fb-4364-bbf8-63be16486527-column-120 px-4 py-3 text-left text-[#0e141b] w-[400px] text-sm font-medium leading-normal">Asset</th>
+                      <th class="table-7085b891-58fb-4364-bbf8-63be16486527-column-240 px-4 py-3 text-left text-[#0e141b] w-[400px] text-sm font-medium leading-normal">
+                        Quantity
+                      </th>
+                      <th class="table-7085b891-58fb-4364-bbf8-63be16486527-column-360 px-4 py-3 text-left text-[#0e141b] w-[400px] text-sm font-medium leading-normal">
+                        Current Value
+                      </th>
+                      <th class="table-7085b891-58fb-4364-bbf8-63be16486527-column-480 px-4 py-3 text-left text-[#0e141b] w-[400px] text-sm font-medium leading-normal">
+                        Cost Basis
+                      </th>
+                      <th class="table-7085b891-58fb-4364-bbf8-63be16486527-column-600 px-4 py-3 text-left text-[#0e141b] w-[400px] text-sm font-medium leading-normal">
+                        Unrealized Gain/Loss
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="border-t border-t-[#d0dbe7]">
+                      <td class="table-7085b891-58fb-4364-bbf8-63be16486527-column-120 h-[72px] px-4 py-2 w-[400px] text-[#0e141b] text-sm font-normal leading-normal">
+                        Tech Corp
+                      </td>
+                      <td class="table-7085b891-58fb-4364-bbf8-63be16486527-column-240 h-[72px] px-4 py-2 w-[400px] text-[#4e7097] text-sm font-normal leading-normal">100</td>
+                      <td class="table-7085b891-58fb-4364-bbf8-63be16486527-column-360 h-[72px] px-4 py-2 w-[400px] text-[#4e7097] text-sm font-normal leading-normal">$10,000</td>
+                      <td class="table-7085b891-58fb-4364-bbf8-63be16486527-column-480 h-[72px] px-4 py-2 w-[400px] text-[#4e7097] text-sm font-normal leading-normal">$8,000</td>
+                      <td class="table-7085b891-58fb-4364-bbf8-63be16486527-column-600 h-[72px] px-4 py-2 w-[400px] text-[#4e7097] text-sm font-normal leading-normal">$2,000</td>
+                    </tr>
+                    <tr class="border-t border-t-[#d0dbe7]">
+                      <td class="table-7085b891-58fb-4364-bbf8-63be16486527-column-120 h-[72px] px-4 py-2 w-[400px] text-[#0e141b] text-sm font-normal leading-normal">
+                        Health Inc
+                      </td>
+                      <td class="table-7085b891-58fb-4364-bbf8-63be16486527-column-240 h-[72px] px-4 py-2 w-[400px] text-[#4e7097] text-sm font-normal leading-normal">50</td>
+                      <td class="table-7085b891-58fb-4364-bbf8-63be16486527-column-360 h-[72px] px-4 py-2 w-[400px] text-[#4e7097] text-sm font-normal leading-normal">$7,500</td>
+                      <td class="table-7085b891-58fb-4364-bbf8-63be16486527-column-480 h-[72px] px-4 py-2 w-[400px] text-[#4e7097] text-sm font-normal leading-normal">$6,000</td>
+                      <td class="table-7085b891-58fb-4364-bbf8-63be16486527-column-600 h-[72px] px-4 py-2 w-[400px] text-[#4e7097] text-sm font-normal leading-normal">$1,500</td>
+                    </tr>
+                    <tr class="border-t border-t-[#d0dbe7]">
+                      <td class="table-7085b891-58fb-4364-bbf8-63be16486527-column-120 h-[72px] px-4 py-2 w-[400px] text-[#0e141b] text-sm font-normal leading-normal">
+                        Energy Ltd
+                      </td>
+                      <td class="table-7085b891-58fb-4364-bbf8-63be16486527-column-240 h-[72px] px-4 py-2 w-[400px] text-[#4e7097] text-sm font-normal leading-normal">75</td>
+                      <td class="table-7085b891-58fb-4364-bbf8-63be16486527-column-360 h-[72px] px-4 py-2 w-[400px] text-[#4e7097] text-sm font-normal leading-normal">$5,000</td>
+                      <td class="table-7085b891-58fb-4364-bbf8-63be16486527-column-480 h-[72px] px-4 py-2 w-[400px] text-[#4e7097] text-sm font-normal leading-normal">$4,500</td>
+                      <td class="table-7085b891-58fb-4364-bbf8-63be16486527-column-600 h-[72px] px-4 py-2 w-[400px] text-[#4e7097] text-sm font-normal leading-normal">$500</td>
+                    </tr>
+                    <tr class="border-t border-t-[#d0dbe7]">
+                      <td class="table-7085b891-58fb-4364-bbf8-63be16486527-column-120 h-[72px] px-4 py-2 w-[400px] text-[#0e141b] text-sm font-normal leading-normal">
+                        Consumer Goods Co
+                      </td>
+                      <td class="table-7085b891-58fb-4364-bbf8-63be16486527-column-240 h-[72px] px-4 py-2 w-[400px] text-[#4e7097] text-sm font-normal leading-normal">200</td>
+                      <td class="table-7085b891-58fb-4364-bbf8-63be16486527-column-360 h-[72px] px-4 py-2 w-[400px] text-[#4e7097] text-sm font-normal leading-normal">$12,000</td>
+                      <td class="table-7085b891-58fb-4364-bbf8-63be16486527-column-480 h-[72px] px-4 py-2 w-[400px] text-[#4e7097] text-sm font-normal leading-normal">$10,000</td>
+                      <td class="table-7085b891-58fb-4364-bbf8-63be16486527-column-600 h-[72px] px-4 py-2 w-[400px] text-[#4e7097] text-sm font-normal leading-normal">$2,000</td>
+                    </tr>
+                    <tr class="border-t border-t-[#d0dbe7]">
+                      <td class="table-7085b891-58fb-4364-bbf8-63be16486527-column-120 h-[72px] px-4 py-2 w-[400px] text-[#0e141b] text-sm font-normal leading-normal">
+                        Financial Group
+                      </td>
+                      <td class="table-7085b891-58fb-4364-bbf8-63be16486527-column-240 h-[72px] px-4 py-2 w-[400px] text-[#4e7097] text-sm font-normal leading-normal">150</td>
+                      <td class="table-7085b891-58fb-4364-bbf8-63be16486527-column-360 h-[72px] px-4 py-2 w-[400px] text-[#4e7097] text-sm font-normal leading-normal">$9,000</td>
+                      <td class="table-7085b891-58fb-4364-bbf8-63be16486527-column-480 h-[72px] px-4 py-2 w-[400px] text-[#4e7097] text-sm font-normal leading-normal">$8,500</td>
+                      <td class="table-7085b891-58fb-4364-bbf8-63be16486527-column-600 h-[72px] px-4 py-2 w-[400px] text-[#4e7097] text-sm font-normal leading-normal">$500</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <style>
+                          @container(max-width:120px){.table-7085b891-58fb-4364-bbf8-63be16486527-column-120{display: none;}}
+                @container(max-width:240px){.table-7085b891-58fb-4364-bbf8-63be16486527-column-240{display: none;}}
+                @container(max-width:360px){.table-7085b891-58fb-4364-bbf8-63be16486527-column-360{display: none;}}
+                @container(max-width:480px){.table-7085b891-58fb-4364-bbf8-63be16486527-column-480{display: none;}}
+                @container(max-width:600px){.table-7085b891-58fb-4364-bbf8-63be16486527-column-600{display: none;}}
+              </style>
+            </div>
+            <h2 class="text-[#0e141b] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Performance Comparison</h2>
+            <div class="flex flex-wrap gap-4 px-4 py-6">
+              <div class="flex min-w-72 flex-1 flex-col gap-2 rounded-lg border border-[#d0dbe7] p-6">
+                <p class="text-[#0e141b] text-base font-medium leading-normal">Return on Investment vs. Benchmark</p>
+                <p class="text-[#0e141b] tracking-light text-[32px] font-bold leading-tight truncate">12% vs. 8%</p>
+                <p class="text-[#4e7097] text-base font-normal leading-normal">Last 12 Months</p>
+                <div class="grid min-h-[180px] gap-x-4 gap-y-6 grid-cols-[auto_1fr] items-center py-3">
+                  <p class="text-[#4e7097] text-[13px] font-bold leading-normal tracking-[0.015em]">Your Portfolio</p>
+                  <div class="h-full flex-1"><div class="border-[#4e7097] bg-[#e7edf3] border-r-2 h-full" style="width: 20%;"></div></div>
+                  <p class="text-[#4e7097] text-[13px] font-bold leading-normal tracking-[0.015em]">Benchmark Index</p>
+                  <div class="h-full flex-1"><div class="border-[#4e7097] bg-[#e7edf3] border-r-2 h-full" style="width: 50%;"></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

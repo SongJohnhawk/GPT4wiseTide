@@ -1,0 +1,22 @@
+Task: 장마감 체크 시스템 완성
+Timestamp: 20250815_233621
+Original Length: 629 chars
+--------------------------------------------------
+
+[OK] 장마감 체크 시스템 완전 구현 완료 | [STATS] MarketCloseController 통합, Setup 메뉴 추가, production/simple 자동매매 연동, report 생성 기능 | [WARN] 테스트 및 검증 단계 진행
+
+완성된 기능:
+1. MarketCloseController 클래스: 장마감 시간 관리, On/Off 설정, 리포트 생성
+2. Setup 메뉴 통합: 4번 메뉴로 장마감 체크 설정 추가
+3. production_auto_trader.py: MarketCloseController 기반 장마감 체크 적용
+4. simple_auto_trader.py: 동일한 MarketCloseController 로직 적용
+5. 매매 리포트 자동 생성: report 폴더에 JSON 형태로 저장
+
+주요 개선사항:
+- 기존 복잡한 TimeGateManager 대신 간단한 MarketCloseController 사용
+- ON/OFF 토글로 사용자가 장마감 체크 활성화/비활성화 제어
+- 실전투자/모의투자 모두 동일한 로직으로 14:55 자동 종료
+- 종료 시 매매 통계와 함께 리포트 파일 자동 생성
+- 텔레그램 알림 및 콘솔 로그로 명확한 상태 전달
+
+다음 단계: 전체 시스템 테스트 및 검증

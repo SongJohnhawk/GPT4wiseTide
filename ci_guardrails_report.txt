@@ -1,0 +1,186 @@
+======================================================================
+tideWise CI 가드레일 위반사항 보고서
+======================================================================
+
+=== 위반사항 요약 ===
+[WARNING] STOCK_DATA_FALLBACK: 61건
+
+=== 상세 위반사항 ===
+
+[파일] backtesting\enhanced_data_collector.py
+  [WARNING] 라인 73: STOCK_DATA_FALLBACK
+     종목 데이터 풀백/백업 하드코딩 의심: default_stocks = [
+  [WARNING] 라인 97: STOCK_DATA_FALLBACK
+     종목 데이터 풀백/백업 하드코딩 의심: all_stocks.update(default_stocks)
+  [WARNING] 라인 116: STOCK_DATA_FALLBACK
+     종목 데이터 풀백/백업 하드코딩 의심: self.target_stocks = default_stocks
+
+[파일] day_trade_Algorithm\New_DayTrading.py
+  [WARNING] 라인 200: STOCK_DATA_FALLBACK
+     종목 데이터 풀백/백업 하드코딩 의심: vi_response = self._handle_vi_emergency(vi_status, stock_data, stock_code)
+  [WARNING] 라인 243: STOCK_DATA_FALLBACK
+     종목 데이터 풀백/백업 하드코딩 의심: def _handle_vi_emergency(self, vi_status: str, stock_data: Dict[str, Any], stock_code: str = None) -> Optional[Dict[str, Any]]:
+
+[파일] stock_data_collector.py
+  [WARNING] 라인 59: STOCK_DATA_FALLBACK
+     종목 데이터 풀백/백업 하드코딩 의심: def _get_fallback_stocks(self) -> List[str]:
+  [WARNING] 라인 121: STOCK_DATA_FALLBACK
+     종목 데이터 풀백/백업 하드코딩 의심: # fallback: 그냥 앞에서부터 max_analysis_stocks 개수만큼 선택
+  [WARNING] 라인 298: STOCK_DATA_FALLBACK
+     종목 데이터 풀백/백업 하드코딩 의심: if cached_data and "theme_stocks" in cached_data:
+  [WARNING] 라인 299: STOCK_DATA_FALLBACK
+     종목 데이터 풀백/백업 하드코딩 의심: return cached_data["theme_stocks"]
+  [WARNING] 라인 305: STOCK_DATA_FALLBACK
+     종목 데이터 풀백/백업 하드코딩 의심: if cached_data and "stock_info" in cached_data:
+  [WARNING] 라인 306: STOCK_DATA_FALLBACK
+     종목 데이터 풀백/백업 하드코딩 의심: return cached_data["stock_info"].get(stock_code, {})
+  [WARNING] 라인 623: STOCK_DATA_FALLBACK
+     종목 데이터 풀백/백업 하드코딩 의심: stock_info = cached_data.get("stock_info", {})
+  [WARNING] 라인 624: STOCK_DATA_FALLBACK
+     종목 데이터 풀백/백업 하드코딩 의심: theme_stocks = cached_data.get("theme_stocks", [])
+
+[파일] support\Hyper_upStockFind.py
+  [WARNING] 라인 67: STOCK_DATA_FALLBACK
+     종목 데이터 풀백/백업 하드코딩 의심: return self._default_result(stock_code, "insufficient_data")
+  [WARNING] 라인 76: STOCK_DATA_FALLBACK
+     종목 데이터 풀백/백업 하드코딩 의심: return self._default_result(stock_code, "invalid_price")
+  [WARNING] 라인 86: STOCK_DATA_FALLBACK
+     종목 데이터 풀백/백업 하드코딩 의심: return self._default_result(stock_code, "filtered_out")
+  [WARNING] 라인 120: STOCK_DATA_FALLBACK
+     종목 데이터 풀백/백업 하드코딩 의심: return self._default_result(stock_code, f"error: {e}")
+  [WARNING] 라인 312: STOCK_DATA_FALLBACK
+     종목 데이터 풀백/백업 하드코딩 의심: def _default_result(self, stock_code: str, reason: str) -> Dict[str, Any]:
+
+[파일] support\__init__.py
+  [WARNING] 라인 16: STOCK_DATA_FALLBACK
+     종목 데이터 풀백/백업 하드코딩 의심: 'get_default_theme_stocks',
+  [WARNING] 라인 47: STOCK_DATA_FALLBACK
+     종목 데이터 풀백/백업 하드코딩 의심: elif name == 'get_default_theme_stocks':
+  [WARNING] 라인 48: STOCK_DATA_FALLBACK
+     종목 데이터 풀백/백업 하드코딩 의심: from .enhanced_theme_stocks import get_default_theme_stocks
+  [WARNING] 라인 49: STOCK_DATA_FALLBACK
+     종목 데이터 풀백/백업 하드코딩 의심: return get_default_theme_stocks
+
+[파일] support\advanced_surge_analyzer.py
+  [WARNING] 라인 369: STOCK_DATA_FALLBACK
+     종목 데이터 풀백/백업 하드코딩 의심: self.cached_results = surge_stocks
+
+[파일] support\api_connector.py
+  [WARNING] 라인 1582: STOCK_DATA_FALLBACK
+     종목 데이터 풀백/백업 하드코딩 의심: """종목코드에 대한 fallback 종목명 제공 (StockDataCollector 기반)"""
+
+[파일] support\enhanced_theme_stocks.py
+  [WARNING] 라인 131: STOCK_DATA_FALLBACK
+     종목 데이터 풀백/백업 하드코딩 의심: def get_default_stocks() -> List[str]:
+  [WARNING] 라인 146: STOCK_DATA_FALLBACK
+     종목 데이터 풀백/백업 하드코딩 의심: def get_default_theme_stocks() -> Dict[str, Any]:
+  [WARNING] 라인 177: STOCK_DATA_FALLBACK
+     종목 데이터 풀백/백업 하드코딩 의심: "stocks": get_default_stocks(),
+
+[파일] support\minimal_auto_trader.py
+  [WARNING] 라인 51: STOCK_DATA_FALLBACK
+     종목 데이터 풀백/백업 하드코딩 의심: self.load_cached_stocks()
+  [WARNING] 라인 434: STOCK_DATA_FALLBACK
+     종목 데이터 풀백/백업 하드코딩 의심: def load_cached_stocks(self):
+
+[파일] support\minimal_day_trader.py
+  [WARNING] 라인 1549: STOCK_DATA_FALLBACK
+     종목 데이터 풀백/백업 하드코딩 의심: def _get_stock_name_fallback(self, stock_code: str, current_name: str) -> str:
+  [WARNING] 라인 1550: STOCK_DATA_FALLBACK
+     종목 데이터 풀백/백업 하드코딩 의심: """종목코드에 대한 fallback 종목명 제공 - StockDataCollector 활용"""
+  [WARNING] 라인 1555: STOCK_DATA_FALLBACK
+     종목 데이터 풀백/백업 하드코딩 의심: fallback_name = collector._get_stock_name(stock_code, self.api)
+
+[파일] support\premarket_data_collector.py
+  [WARNING] 라인 557: STOCK_DATA_FALLBACK
+     종목 데이터 풀백/백업 하드코딩 의심: def get_cached_surge_stocks() -> Dict[str, Any]:
+
+[파일] support\production_auto_trader.py
+  [WARNING] 라인 1937: STOCK_DATA_FALLBACK
+     종목 데이터 풀백/백업 하드코딩 의심: def _get_stock_name_fallback(self, stock_code: str, current_name: str) -> str:
+  [WARNING] 라인 1938: STOCK_DATA_FALLBACK
+     종목 데이터 풀백/백업 하드코딩 의심: """종목코드에 대한 fallback 종목명 제공 - StockDataCollector 활용"""
+  [WARNING] 라인 1943: STOCK_DATA_FALLBACK
+     종목 데이터 풀백/백업 하드코딩 의심: fallback_name = collector._get_stock_name(stock_code, self.api)
+
+[파일] support\simple_auto_trader.py
+  [WARNING] 라인 271: STOCK_DATA_FALLBACK
+     종목 데이터 풀백/백업 하드코딩 의심: from support.enhanced_theme_stocks import get_default_stocks
+  [WARNING] 라인 272: STOCK_DATA_FALLBACK
+     종목 데이터 풀백/백업 하드코딩 의심: return get_default_stocks()
+  [WARNING] 라인 317: STOCK_DATA_FALLBACK
+     종목 데이터 풀백/백업 하드코딩 의심: from support.enhanced_theme_stocks import get_default_stocks
+  [WARNING] 라인 318: STOCK_DATA_FALLBACK
+     종목 데이터 풀백/백업 하드코딩 의심: return get_default_stocks()
+  [WARNING] 라인 1553: STOCK_DATA_FALLBACK
+     종목 데이터 풀백/백업 하드코딩 의심: from support.enhanced_theme_stocks import get_default_stocks
+  [WARNING] 라인 1554: STOCK_DATA_FALLBACK
+     종목 데이터 풀백/백업 하드코딩 의심: self.theme_stocks = get_default_stocks()[:5]  # 빠른 시작을 위해 5개만
+
+[파일] support\surge_stock_providers.py
+  [WARNING] 라인 732: STOCK_DATA_FALLBACK
+     종목 데이터 풀백/백업 하드코딩 의심: self.cached_stocks = []
+  [WARNING] 라인 1156: STOCK_DATA_FALLBACK
+     종목 데이터 풀백/백업 하드코딩 의심: async def _fallback_surge_detection(self, api_connector, price_limit: int, min_price: int) -> List[SurgeStockInfo]:
+  [WARNING] 라인 1478: STOCK_DATA_FALLBACK
+     종목 데이터 풀백/백업 하드코딩 의심: default_stocks = list(stock_data['stock_info'].keys())[:2]  # 상위 2개
+  [WARNING] 라인 1480: STOCK_DATA_FALLBACK
+     종목 데이터 풀백/백업 하드코딩 의심: default_stocks = []
+  [WARNING] 라인 1482: STOCK_DATA_FALLBACK
+     종목 데이터 풀백/백업 하드코딩 의심: for i, stock_code in enumerate(default_stocks):
+  [WARNING] 라인 1582: STOCK_DATA_FALLBACK
+     종목 데이터 풀백/백업 하드코딩 의심: default_stocks = list(stock_data['stock_info'].keys())[:5]  # 상위 5개
+  [WARNING] 라인 1584: STOCK_DATA_FALLBACK
+     종목 데이터 풀백/백업 하드코딩 의심: default_stocks = []
+  [WARNING] 라인 1586: STOCK_DATA_FALLBACK
+     종목 데이터 풀백/백업 하드코딩 의심: for i, stock_code in enumerate(default_stocks):
+  [WARNING] 라인 1643: STOCK_DATA_FALLBACK
+     종목 데이터 풀백/백업 하드코딩 의심: self.cached_stocks):
+  [WARNING] 라인 1644: STOCK_DATA_FALLBACK
+     종목 데이터 풀백/백업 하드코딩 의심: logger.info(f"캐시된 급등종목 데이터 사용: {len(self.cached_stocks)}개")
+  [WARNING] 라인 1646: STOCK_DATA_FALLBACK
+     종목 데이터 풀백/백업 하드코딩 의심: price_filtered = [s for s in self.cached_stocks if s.current_price >= min_price]
+  [WARNING] 라인 1666: STOCK_DATA_FALLBACK
+     종목 데이터 풀백/백업 하드코딩 의심: self.cached_stocks = filtered_stocks
+  [WARNING] 라인 1739: STOCK_DATA_FALLBACK
+     종목 데이터 풀백/백업 하드코딩 의심: fallback_symbols = list(stock_data['stock_info'].keys())[:5]
+  [WARNING] 라인 1746: STOCK_DATA_FALLBACK
+     종목 데이터 풀백/백업 하드코딩 의심: return await self._fetch_fallback_stocks(fallback_symbols)
+  [WARNING] 라인 1752: STOCK_DATA_FALLBACK
+     종목 데이터 풀백/백업 하드코딩 의심: async def _fetch_fallback_stocks(self, symbols: List[str]) -> List[SurgeStockInfo]:
+
+[파일] tests\test_stock_collection.py
+  [WARNING] 라인 39: STOCK_DATA_FALLBACK
+     종목 데이터 풀백/백업 하드코딩 의심: stock_info = cached_data.get('stock_info', {})
+  [WARNING] 라인 62: STOCK_DATA_FALLBACK
+     종목 데이터 풀백/백업 하드코딩 의심: from support.enhanced_theme_stocks import load_theme_stocks_list, get_default_stocks
+  [WARNING] 라인 69: STOCK_DATA_FALLBACK
+     종목 데이터 풀백/백업 하드코딩 의심: default_stocks = get_default_stocks()
+  [WARNING] 라인 70: STOCK_DATA_FALLBACK
+     종목 데이터 풀백/백업 하드코딩 의심: print(f"get_default_stocks() 결과: {len(default_stocks)}개")
+
+======================================================================
+수정 가이드
+======================================================================
+
+1. DEPRECATED_LOADER 수정:
+   - register_key_reader → authoritative_register_key_loader
+   - get_register_key_reader() → get_authoritative_loader()
+
+2. HARDCODED_API_KEY/TOKEN 수정:
+   - Policy/Register_Key/Register_Key.md로 이동
+   - AuthoritativeRegisterKeyLoader 사용
+
+3. BACKUP_AUTH_FILE 수정:
+   - 백업 파일 삭제
+   - Register_Key.md만 사용
+
+4. HARDCODED_STOCK_* 수정:
+   - 동적 데이터 수집 사용
+   - 사용자 지정 종목은 support/menual_StokBuyList.md 사용
+   - 하드코딩된 종목 리스트 제거
+
+5. STOCK_DATA_FALLBACK 수정:
+   - 풀백/백업 종목 데이터 제거
+   - 실시간 API 데이터만 사용
+   - 오류시 graceful failure 구현

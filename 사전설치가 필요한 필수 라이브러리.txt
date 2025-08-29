@@ -1,0 +1,85 @@
+# 사전설치가 필요한 필수 라이브러리
+# tideWise 시스템 의존성 목록
+
+## Python 필수 라이브러리
+아래 라이브러리들이 자동 설치에 실패할 경우 수동으로 설치해주세요.
+
+### HTTP 클라이언트
+[DEPENDENCY] aiohttp
+[INSTALL COMMAND] pip install aiohttp>=3.8.0
+[STATUS] REQUIRED
+
+[DEPENDENCY] requests  
+[INSTALL COMMAND] pip install requests>=2.28.0
+[STATUS] REQUIRED
+
+### 웹 스크래핑
+[DEPENDENCY] beautifulsoup4
+[INSTALL COMMAND] pip install beautifulsoup4>=4.11.0
+[STATUS] REQUIRED
+
+[DEPENDENCY] lxml
+[INSTALL COMMAND] pip install lxml>=4.9.0
+[STATUS] REQUIRED
+
+### 데이터 처리
+[DEPENDENCY] pandas
+[INSTALL COMMAND] pip install pandas>=1.5.0
+[STATUS] REQUIRED
+
+[DEPENDENCY] numpy
+[INSTALL COMMAND] pip install numpy>=1.23.0
+[STATUS] REQUIRED
+
+[DEPENDENCY] numba
+[INSTALL COMMAND] pip install numba>=0.56.0
+[STATUS] OPTIONAL
+
+### 설정 및 유틸리티
+[DEPENDENCY] PyYAML
+[INSTALL COMMAND] pip install PyYAML>=6.0
+[STATUS] REQUIRED
+
+[DEPENDENCY] python-dateutil
+[INSTALL COMMAND] pip install python-dateutil>=2.8.0
+[STATUS] REQUIRED
+
+[DEPENDENCY] cryptography
+[INSTALL COMMAND] pip install cryptography>=38.0.0
+[STATUS] REQUIRED
+
+[DEPENDENCY] psutil
+[INSTALL COMMAND] pip install psutil>=5.9.0
+[STATUS] REQUIRED
+
+[DEPENDENCY] colorama
+[INSTALL COMMAND] pip install colorama>=0.4.5
+[STATUS] OPTIONAL
+
+[DEPENDENCY] tqdm
+[INSTALL COMMAND] pip install tqdm>=4.64.0
+[STATUS] OPTIONAL
+
+## 설치 순서 권장사항
+1. 먼저 requirements.txt 전체 설치 시도:
+   pip install -r requirements.txt
+
+2. 실패 시 개별 라이브러리 설치:
+   pip install aiohttp requests beautifulsoup4 lxml pandas numpy PyYAML python-dateutil cryptography psutil
+
+3. 선택적 라이브러리 설치:
+   pip install numba colorama tqdm
+
+## 문제 해결 방법
+- Python 버전 확인: python --version (3.8+ 필요)
+- pip 업그레이드: python -m pip install --upgrade pip
+- Visual C++ 빌드 도구 설치 (일부 라이브러리에 필요)
+- 네트워크 연결 확인
+- 관리자 권한으로 실행
+
+## 시스템 요구사항
+- Python 3.8 이상
+- Windows 10/11
+- 인터넷 연결
+- 최소 2GB 여유 디스크 공간
+- 4GB 이상 RAM 권장

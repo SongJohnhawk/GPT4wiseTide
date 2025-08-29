@@ -1,0 +1,973 @@
+{
+    "API 목록": [
+        {
+            "순번": 1,
+            "API 통신방식": "REST",
+            "메뉴 위치": "OAuth인증",
+            "API 명": "접근토큰발급(P)",
+            "API ID": "인증-001",
+            "실전 TR_ID": NaN,
+            "모의 TR_ID": NaN,
+            "HTTP Method": "POST",
+            "URL 명": "/oauth2/tokenP",
+            "실전 Domain": "https://openapi.koreainvestment.com:9443",
+            "모의 Domain": "https://openapivts.koreainvestment.com:29443"
+        },
+        {
+            "순번": 2,
+            "API 통신방식": "REST",
+            "메뉴 위치": "OAuth인증",
+            "API 명": "접근토큰폐기(P)",
+            "API ID": "인증-002",
+            "실전 TR_ID": NaN,
+            "모의 TR_ID": NaN,
+            "HTTP Method": "POST",
+            "URL 명": "/oauth2/revokeP",
+            "실전 Domain": "https://openapi.koreainvestment.com:9443",
+            "모의 Domain": "https://openapivts.koreainvestment.com:29443"
+        },
+        {
+            "순번": 3,
+            "API 통신방식": "REST",
+            "메뉴 위치": "OAuth인증",
+            "API 명": "Hashkey",
+            "API ID": "Hashkey",
+            "실전 TR_ID": NaN,
+            "모의 TR_ID": NaN,
+            "HTTP Method": "POST",
+            "URL 명": "/uapi/hashkey",
+            "실전 Domain": "https://openapi.koreainvestment.com:9443",
+            "모의 Domain": "https://openapivts.koreainvestment.com:29443"
+        },
+        {
+            "순번": 4,
+            "API 통신방식": "WEBSOCKET",
+            "메뉴 위치": "OAuth인증",
+            "API 명": "실시간 (웹소켓) 접속키 발급",
+            "API ID": "실시간-000",
+            "실전 TR_ID": NaN,
+            "모의 TR_ID": NaN,
+            "HTTP Method": "POST",
+            "URL 명": "/oauth2/Approval",
+            "실전 Domain": "https://openapi.koreainvestment.com:9443",
+            "모의 Domain": "https://openapivts.koreainvestment.com:29443"
+        }
+    ],
+    "접근토큰발급(P)": [
+        {
+            "접근토큰발급(P)": "API 통신방식",
+            "Unnamed: 1": "REST",
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "접근토큰발급(P)": "메뉴 위치",
+            "Unnamed: 1": "OAuth인증",
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "접근토큰발급(P)": "API 명",
+            "Unnamed: 1": "접근토큰발급(P)",
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "접근토큰발급(P)": "API ID",
+            "Unnamed: 1": "인증-001",
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "접근토큰발급(P)": "실전 TR_ID",
+            "Unnamed: 1": null,
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "접근토큰발급(P)": "모의 TR_ID",
+            "Unnamed: 1": null,
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "접근토큰발급(P)": "기본정보",
+            "Unnamed: 1": null,
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "접근토큰발급(P)": "HTTP Method",
+            "Unnamed: 1": "POST",
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "접근토큰발급(P)": "실전 Domain",
+            "Unnamed: 1": "https://openapi.koreainvestment.com:9443",
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "접근토큰발급(P)": "모의 Domain",
+            "Unnamed: 1": "https://openapivts.koreainvestment.com:29443",
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "접근토큰발급(P)": "URL 명",
+            "Unnamed: 1": "/oauth2/tokenP",
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "접근토큰발급(P)": "개요",
+            "Unnamed: 1": null,
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "접근토큰발급(P)": "개요",
+            "Unnamed: 1": "본인 계좌에 필요한 인증 절차로, 인증을 통해 접근 토큰을 부여받아 오픈API 활용이 가능합니다.\r\n\r\n1. 접근토큰(access_token)의 유효기간은 24시간 이며(1일 1회발급 원칙) \r\n   갱신발급주기는 6시간 입니다.(6시간 이내는 기존 발급키로 응답)\r\n\r\n2. 접근토큰발급(/oauth2/tokenP) 시 접근토큰값(access_token)과 함께 수신되는 \r\n   접근토큰 유효기간(acess_token_token_expired)을 이용해 접근토큰을 관리하실 수 있습니다.\r\n\r\n\r\n[참고]\r\n\r\n'23.4.28 이후 지나치게 잦은 토큰 발급 요청건을 제어 하기 위해 신규 접근토큰발급 이후 일정시간 이내에 재호출 시에는 직전 토큰값을 리턴하게 되었습니다. 일정시간 이후 접근토큰발급 API 호출 시에는 신규 토큰값을 리턴합니다. \r\n접근토큰발급 API 호출 및 코드 작성하실 때 해당 사항을 참고하시길 바랍니다.\r\n\r\n※ 참고 : 포럼 &gt; 공지사항 &gt;  [수정] [중요] 접근 토큰 발급 변경 안내",
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "접근토큰발급(P)": "Layout",
+            "Unnamed: 1": null,
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "접근토큰발급(P)": "구분",
+            "Unnamed: 1": "Element",
+            "Unnamed: 2": "한글명",
+            "Unnamed: 3": "Type",
+            "Unnamed: 4": "Required",
+            "Unnamed: 5": "Length",
+            "Unnamed: 6": "Description"
+        },
+        {
+            "접근토큰발급(P)": "Request Header",
+            "Unnamed: 1": null,
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "접근토큰발급(P)": "Request Body",
+            "Unnamed: 1": "grant_type",
+            "Unnamed: 2": "권한부여 Type",
+            "Unnamed: 3": "string",
+            "Unnamed: 4": "Y",
+            "Unnamed: 5": "18",
+            "Unnamed: 6": "client_credentials"
+        },
+        {
+            "접근토큰발급(P)": null,
+            "Unnamed: 1": "appkey",
+            "Unnamed: 2": "앱키",
+            "Unnamed: 3": "string",
+            "Unnamed: 4": "Y",
+            "Unnamed: 5": "36",
+            "Unnamed: 6": "한국투자증권 홈페이지에서 발급받은 appkey (절대 노출되지 않도록 주의해주세요.)"
+        },
+        {
+            "접근토큰발급(P)": null,
+            "Unnamed: 1": "appsecret",
+            "Unnamed: 2": "앱시크릿키",
+            "Unnamed: 3": "string",
+            "Unnamed: 4": "Y",
+            "Unnamed: 5": "180",
+            "Unnamed: 6": "한국투자증권 홈페이지에서 발급받은 appsecret (절대 노출되지 않도록 주의해주세요.)"
+        },
+        {
+            "접근토큰발급(P)": "Response Header",
+            "Unnamed: 1": null,
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "접근토큰발급(P)": "Response Body",
+            "Unnamed: 1": "access_token",
+            "Unnamed: 2": "접근토큰",
+            "Unnamed: 3": "string",
+            "Unnamed: 4": "Y",
+            "Unnamed: 5": "350",
+            "Unnamed: 6": "OAuth 토큰이 필요한 API 경우 발급한 Access token\r\nex) \"eyJ0eXUxMiJ9.eyJz…...................................\"\r\n\r\n - 일반개인고객/일반법인고객\r\n  . Access token 유효기간 1일\r\n  .. 일정시간(6시간) 이내에 재호출 시에는 직전 토큰값을 리턴\r\n  . OAuth 2.0의 Client Credentials Grant 절차를 준용\r\n\r\n - 제휴법인\r\n  . Access token 유효기간 3개월\r\n  . Refresh token 유효기간 1년\r\n  . OAuth 2.0의 Authorization Code Grant 절차를 준용"
+        },
+        {
+            "접근토큰발급(P)": null,
+            "Unnamed: 1": "token_type",
+            "Unnamed: 2": "접근토큰유형",
+            "Unnamed: 3": "string",
+            "Unnamed: 4": "Y",
+            "Unnamed: 5": "20",
+            "Unnamed: 6": "접근토큰유형 : \"Bearer\"\r\n※ API 호출 시, 접근토큰유형 \"Bearer\" 입력. ex) \"Bearer eyJ....\""
+        },
+        {
+            "접근토큰발급(P)": null,
+            "Unnamed: 1": "expires_in",
+            "Unnamed: 2": "접근토큰 유효기간",
+            "Unnamed: 3": "number",
+            "Unnamed: 4": "Y",
+            "Unnamed: 5": "10",
+            "Unnamed: 6": "유효기간(초)\r\nex) 7776000"
+        },
+        {
+            "접근토큰발급(P)": null,
+            "Unnamed: 1": "access_token_token_expired",
+            "Unnamed: 2": "접근토큰 유효기간(일시표시)",
+            "Unnamed: 3": "string",
+            "Unnamed: 4": "Y",
+            "Unnamed: 5": "50",
+            "Unnamed: 6": "유효기간(년:월:일 시:분:초)\r\nex) \"2022-08-30 08:10:10\""
+        },
+        {
+            "접근토큰발급(P)": "Example",
+            "Unnamed: 1": null,
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "접근토큰발급(P)": "Request Example (Python)",
+            "Unnamed: 1": "{\r\n  \"grant_type\": \"client_credentials\",\r\n  \"appkey\": \"[여기에_APP_KEY_입력]\",\r\n  \"appsecret\":  \"[여기에_APP_SECRET_입력]\"\r\n}",
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "접근토큰발급(P)": "Response Example",
+            "Unnamed: 1": "{\r\n\t\"access_token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6ImMwNzM1NTYzLTA1MjctNDNhZS05ODRiLTJiNWI1ZWZmOWYyMyIsImlzcyI6InVub2d3IiwiZXhwIjoxNjQ5NzUxMTAwLCJpYXQiOjE2NDE5NzUxMDAsImp0aSI6IkJTZlM0QUtSSnpRVGpmdHRtdXZlenVQUTlKajc3cHZGdjBZVyJ9.Oyt_C639yUjWmRhymlszgt6jDo8fvIKkkxH1mMngunV1T15SCC4I3Xe6MXxcY23DXunzBfR1uI0KXXXXXXXXXX\",\r\n\t\"access_token_token_expired\":\"2023-12-22 08:16:59\",\r\n\t\"token_type\":\"Bearer\",\r\n\t\"expires_in\":86400\r\n}",
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        }
+    ],
+    "접근토큰폐기(P)": [
+        {
+            "접근토큰폐기(P)": "API 통신방식",
+            "Unnamed: 1": "REST",
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "접근토큰폐기(P)": "메뉴 위치",
+            "Unnamed: 1": "OAuth인증",
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "접근토큰폐기(P)": "API 명",
+            "Unnamed: 1": "접근토큰폐기(P)",
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "접근토큰폐기(P)": "API ID",
+            "Unnamed: 1": "인증-002",
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "접근토큰폐기(P)": "실전 TR_ID",
+            "Unnamed: 1": null,
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "접근토큰폐기(P)": "모의 TR_ID",
+            "Unnamed: 1": null,
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "접근토큰폐기(P)": "기본정보",
+            "Unnamed: 1": null,
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "접근토큰폐기(P)": "HTTP Method",
+            "Unnamed: 1": "POST",
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "접근토큰폐기(P)": "실전 Domain",
+            "Unnamed: 1": "https://openapi.koreainvestment.com:9443",
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "접근토큰폐기(P)": "모의 Domain",
+            "Unnamed: 1": "https://openapivts.koreainvestment.com:29443",
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "접근토큰폐기(P)": "URL 명",
+            "Unnamed: 1": "/oauth2/revokeP",
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "접근토큰폐기(P)": "개요",
+            "Unnamed: 1": null,
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "접근토큰폐기(P)": "개요",
+            "Unnamed: 1": " 부여받은 접큰토큰을 더 이상 활용하지 않을 때 사용합니다.",
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "접근토큰폐기(P)": "Layout",
+            "Unnamed: 1": null,
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "접근토큰폐기(P)": "구분",
+            "Unnamed: 1": "Element",
+            "Unnamed: 2": "한글명",
+            "Unnamed: 3": "Type",
+            "Unnamed: 4": "Required",
+            "Unnamed: 5": "Length",
+            "Unnamed: 6": "Description"
+        },
+        {
+            "접근토큰폐기(P)": "Request Header",
+            "Unnamed: 1": null,
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "접근토큰폐기(P)": "Request Body",
+            "Unnamed: 1": "appkey",
+            "Unnamed: 2": "고객 앱Key",
+            "Unnamed: 3": "string",
+            "Unnamed: 4": "Y",
+            "Unnamed: 5": "36",
+            "Unnamed: 6": "한국투자증권 홈페이지에서 발급받은 appkey (절대 노출되지 않도록 주의해주세요.)"
+        },
+        {
+            "접근토큰폐기(P)": null,
+            "Unnamed: 1": "appsecret",
+            "Unnamed: 2": "고객 앱Secret",
+            "Unnamed: 3": "string",
+            "Unnamed: 4": "Y",
+            "Unnamed: 5": "180",
+            "Unnamed: 6": "한국투자증권 홈페이지에서 발급받은 appsecret (절대 노출되지 않도록 주의해주세요.)"
+        },
+        {
+            "접근토큰폐기(P)": null,
+            "Unnamed: 1": "token",
+            "Unnamed: 2": "접근토큰",
+            "Unnamed: 3": "string",
+            "Unnamed: 4": "Y",
+            "Unnamed: 5": "286",
+            "Unnamed: 6": "OAuth 토큰이 필요한 API 경우 발급한 Access token\r\n일반고객(Access token 유효기간 1일, OAuth 2.0의 Client Credentials Grant 절차를 준용)\r\n법인(Access token 유효기간 3개월, Refresh token 유효기간 1년, OAuth 2.0의 Authorization Code Grant 절차를 준용)"
+        },
+        {
+            "접근토큰폐기(P)": "Response Header",
+            "Unnamed: 1": null,
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "접근토큰폐기(P)": "Response Body",
+            "Unnamed: 1": "code",
+            "Unnamed: 2": "응답코드",
+            "Unnamed: 3": "string",
+            "Unnamed: 4": "N",
+            "Unnamed: 5": "8",
+            "Unnamed: 6": "HTTP 응답코드"
+        },
+        {
+            "접근토큰폐기(P)": null,
+            "Unnamed: 1": "message",
+            "Unnamed: 2": "응답메세지",
+            "Unnamed: 3": "string",
+            "Unnamed: 4": "N",
+            "Unnamed: 5": "450",
+            "Unnamed: 6": "응답메세지"
+        },
+        {
+            "접근토큰폐기(P)": "Example",
+            "Unnamed: 1": null,
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "접근토큰폐기(P)": "Request Example (Python)",
+            "Unnamed: 1": "{\r\n  \"appkey\" : \"[여기에_APP_KEY_입력]\",\r\n  \"appsecret\" : \"[여기에_APP_SECRET_입력]\",\r\n  \"token\" : \"[여기에_ACCESS_TOKEN_입력]\"\r\n}",
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "접근토큰폐기(P)": "Response Example",
+            "Unnamed: 1": "{\r\n  \"code\" : 200,\r\n  \"message\" : \"접근토큰 폐기에 성공하였습니다\"\r\n}",
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        }
+    ],
+    "Hashkey": [
+        {
+            "Hashkey": "API 통신방식",
+            "Unnamed: 1": "REST",
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "Hashkey": "메뉴 위치",
+            "Unnamed: 1": "OAuth인증",
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "Hashkey": "API 명",
+            "Unnamed: 1": "Hashkey",
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "Hashkey": "API ID",
+            "Unnamed: 1": "Hashkey",
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "Hashkey": "실전 TR_ID",
+            "Unnamed: 1": null,
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "Hashkey": "모의 TR_ID",
+            "Unnamed: 1": null,
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "Hashkey": "기본정보",
+            "Unnamed: 1": null,
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "Hashkey": "HTTP Method",
+            "Unnamed: 1": "POST",
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "Hashkey": "실전 Domain",
+            "Unnamed: 1": "https://openapi.koreainvestment.com:9443",
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "Hashkey": "모의 Domain",
+            "Unnamed: 1": "https://openapivts.koreainvestment.com:29443",
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "Hashkey": "URL 명",
+            "Unnamed: 1": "/uapi/hashkey",
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "Hashkey": "개요",
+            "Unnamed: 1": null,
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "Hashkey": "개요",
+            "Unnamed: 1": "해쉬키(Hashkey)는 보안을 위한 요소로 사용자가 보낸 요청 값을 중간에 탈취하여 변조하지 못하도록 하는데 사용됩니다.\r\n해쉬키를 사용하면 POST로 보내는 요청(주로 주문/정정/취소 API 해당)의 body 값을 사전에 암호화시킬 수 있습니다.\r\n해쉬키는 비필수값으로 사용하지 않아도 POST API 호출은 가능합니다.",
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "Hashkey": "Layout",
+            "Unnamed: 1": null,
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "Hashkey": "구분",
+            "Unnamed: 1": "Element",
+            "Unnamed: 2": "한글명",
+            "Unnamed: 3": "Type",
+            "Unnamed: 4": "Required",
+            "Unnamed: 5": "Length",
+            "Unnamed: 6": "Description"
+        },
+        {
+            "Hashkey": "Request Header",
+            "Unnamed: 1": "content-type",
+            "Unnamed: 2": "컨텐츠타입",
+            "Unnamed: 3": "string",
+            "Unnamed: 4": "N",
+            "Unnamed: 5": "40",
+            "Unnamed: 6": "application/json; charset=utf-8"
+        },
+        {
+            "Hashkey": null,
+            "Unnamed: 1": "appkey",
+            "Unnamed: 2": "앱키",
+            "Unnamed: 3": "string",
+            "Unnamed: 4": "Y",
+            "Unnamed: 5": "36",
+            "Unnamed: 6": "한국투자증권 홈페이지에서 발급받은 appkey (절대 노출되지 않도록 주의해주세요.)"
+        },
+        {
+            "Hashkey": null,
+            "Unnamed: 1": "appsecret",
+            "Unnamed: 2": "앱시크릿키",
+            "Unnamed: 3": "string",
+            "Unnamed: 4": "Y",
+            "Unnamed: 5": "180",
+            "Unnamed: 6": "한국투자증권 홈페이지에서 발급받은 appsecret (절대 노출되지 않도록 주의해주세요.)"
+        },
+        {
+            "Hashkey": "Request Body",
+            "Unnamed: 1": "JsonBody",
+            "Unnamed: 2": "요청값",
+            "Unnamed: 3": "object",
+            "Unnamed: 4": "Y",
+            "Unnamed: 5": null,
+            "Unnamed: 6": "POST로 보낼 body값\r\n\r\nex)\r\ndatas = {\r\n    \"CANO\": '00000000',\r\n    \"ACNT_PRDT_CD\": \"01\",\r\n    \"OVRS_EXCG_CD\": \"SHAA\"\r\n }"
+        },
+        {
+            "Hashkey": "Response Header",
+            "Unnamed: 1": null,
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "Hashkey": "Response Body",
+            "Unnamed: 1": "JsonBody",
+            "Unnamed: 2": "요청값",
+            "Unnamed: 3": "object",
+            "Unnamed: 4": "Y",
+            "Unnamed: 5": null,
+            "Unnamed: 6": "요청한 JsonBody"
+        },
+        {
+            "Hashkey": null,
+            "Unnamed: 1": "HASH",
+            "Unnamed: 2": "해쉬키",
+            "Unnamed: 3": "string",
+            "Unnamed: 4": "Y",
+            "Unnamed: 5": "256",
+            "Unnamed: 6": "[POST API 대상] Client가 요청하는 Request Body를 hashkey api로 생성한 Hash값\r\n* API문서 > hashkey 참조"
+        },
+        {
+            "Hashkey": "Example",
+            "Unnamed: 1": null,
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "Hashkey": "Request Example (Python)",
+            "Unnamed: 1": "{\r\n\t\"ORD_PRCS_DVSN_CD\": \"02\",\r\n\t\"CANO\": \"계좌번호\",\r\n\t\"ACNT_PRDT_CD\": \"03\",\r\n\t\"SLL_BUY_DVSN_CD\": \"02\",\r\n\t\"SHTN_PDNO\": \"101S06\",\r\n\t\"ORD_QTY\": \"1\",\r\n\t\"UNIT_PRICE\": \"370\",\r\n\t\"NMPR_TYPE_CD\": \"\",\r\n\t\"KRX_NMPR_CNDT_CD\": \"\",\r\n\t\"CTAC_TLNO\": \"\",\r\n\t\"FUOP_ITEM_DVSN_CD\": \"\",\r\n\t\"ORD_DVSN_CD\": \"02\"\r\n}",
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "Hashkey": "Response Example",
+            "Unnamed: 1": "{\r\n  \"BODY\": {\r\n    \"ORD_PRCS_DVSN_CD\": \"02\",\r\n    \"CANO\": \"계좌번호\",\r\n    \"ACNT_PRDT_CD\": \"03\",\r\n    \"SLL_BUY_DVSN_CD\": \"02\",\r\n    \"SHTN_PDNO\": \"101S06\",\r\n    \"ORD_QTY\": \"1\",\r\n    \"UNIT_PRICE\": \"370\",\r\n    \"NMPR_TYPE_CD\": \"\",\r\n    \"KRX_NMPR_CNDT_CD\": \"\",\r\n    \"CTAC_TLNO\": \"\",\r\n    \"FUOP_ITEM_DVSN_CD\": \"\",\r\n    \"ORD_DVSN_CD\": \"02\"\r\n  },\r\n  \"HASH\": \"8b84068222a49302f7ef58226d90403f62e216828f8103465f900de0e7be2f0f\"\r\n}",
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        }
+    ],
+    "실시간 (웹소켓) 접속키 발급": [
+        {
+            "실시간 (웹소켓) 접속키 발급": "API 통신방식",
+            "Unnamed: 1": "WEBSOCKET",
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "실시간 (웹소켓) 접속키 발급": "메뉴 위치",
+            "Unnamed: 1": "OAuth인증",
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "실시간 (웹소켓) 접속키 발급": "API 명",
+            "Unnamed: 1": "실시간 (웹소켓) 접속키 발급",
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "실시간 (웹소켓) 접속키 발급": "API ID",
+            "Unnamed: 1": "실시간-000",
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "실시간 (웹소켓) 접속키 발급": "실전 TR_ID",
+            "Unnamed: 1": null,
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "실시간 (웹소켓) 접속키 발급": "모의 TR_ID",
+            "Unnamed: 1": null,
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "실시간 (웹소켓) 접속키 발급": "기본정보",
+            "Unnamed: 1": null,
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "실시간 (웹소켓) 접속키 발급": "HTTP Method",
+            "Unnamed: 1": "POST",
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "실시간 (웹소켓) 접속키 발급": "실전 Domain",
+            "Unnamed: 1": "https://openapi.koreainvestment.com:9443",
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "실시간 (웹소켓) 접속키 발급": "모의 Domain",
+            "Unnamed: 1": "https://openapivts.koreainvestment.com:29443",
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "실시간 (웹소켓) 접속키 발급": "URL 명",
+            "Unnamed: 1": "/oauth2/Approval",
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "실시간 (웹소켓) 접속키 발급": "개요",
+            "Unnamed: 1": null,
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "실시간 (웹소켓) 접속키 발급": "개요",
+            "Unnamed: 1": "실시간 (웹소켓) 접속키 발급받으실 수 있는 API 입니다.\r\n웹소켓 이용 시 해당 키를 appkey와 appsecret 대신 헤더에 넣어 API를 호출합니다.\r\n\r\n접속키의 유효기간은 24시간이지만, 접속키는 세션 연결 시 초기 1회만 사용하기 때문에 접속키 인증 후에는 세션종료되지 않는 이상 접속키 신규 발급받지 않으셔도 365일 내내 웹소켓 데이터 수신하실 수 있습니다.\r\n",
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "실시간 (웹소켓) 접속키 발급": "Layout",
+            "Unnamed: 1": null,
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "실시간 (웹소켓) 접속키 발급": "구분",
+            "Unnamed: 1": "Element",
+            "Unnamed: 2": "한글명",
+            "Unnamed: 3": "Type",
+            "Unnamed: 4": "Required",
+            "Unnamed: 5": "Length",
+            "Unnamed: 6": "Description"
+        },
+        {
+            "실시간 (웹소켓) 접속키 발급": "Request Header",
+            "Unnamed: 1": "content-type",
+            "Unnamed: 2": "컨텐츠타입",
+            "Unnamed: 3": "string",
+            "Unnamed: 4": "N",
+            "Unnamed: 5": "20",
+            "Unnamed: 6": "application/json; utf-8"
+        },
+        {
+            "실시간 (웹소켓) 접속키 발급": "Request Body",
+            "Unnamed: 1": "grant_type",
+            "Unnamed: 2": "권한부여타입",
+            "Unnamed: 3": "string",
+            "Unnamed: 4": "Y",
+            "Unnamed: 5": "18",
+            "Unnamed: 6": "\"client_credentials\""
+        },
+        {
+            "실시간 (웹소켓) 접속키 발급": null,
+            "Unnamed: 1": "appkey",
+            "Unnamed: 2": "앱키",
+            "Unnamed: 3": "string",
+            "Unnamed: 4": "Y",
+            "Unnamed: 5": "36",
+            "Unnamed: 6": "한국투자증권 홈페이지에서 발급받은 appkey (절대 노출되지 않도록 주의해주세요.)"
+        },
+        {
+            "실시간 (웹소켓) 접속키 발급": null,
+            "Unnamed: 1": "secretkey",
+            "Unnamed: 2": "시크릿키",
+            "Unnamed: 3": "string",
+            "Unnamed: 4": "Y",
+            "Unnamed: 5": "180",
+            "Unnamed: 6": "한국투자증권 홈페이지에서 발급받은 appsecret (절대 노출되지 않도록 주의해주세요.)\r\n* 주의 : appsecret와 secretkey는 동일하오니 착오없으시기 바랍니다. (용어가 다른점 양해 부탁드립니다.) "
+        },
+        {
+            "실시간 (웹소켓) 접속키 발급": "Response Header",
+            "Unnamed: 1": null,
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "실시간 (웹소켓) 접속키 발급": "Response Body",
+            "Unnamed: 1": "approval_key",
+            "Unnamed: 2": "웹소켓 접속키",
+            "Unnamed: 3": "string",
+            "Unnamed: 4": "Y",
+            "Unnamed: 5": "286",
+            "Unnamed: 6": "웹소켓 이용 시 발급받은 웹소켓 접속키를 appkey와 appsecret 대신 헤더에 넣어 API 호출합니다."
+        },
+        {
+            "실시간 (웹소켓) 접속키 발급": "Example",
+            "Unnamed: 1": null,
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "실시간 (웹소켓) 접속키 발급": "Request Example (Python)",
+            "Unnamed: 1": "{\r\n\t\"grant_type\": \"client_credentials\",\r\n\t\"appkey\": \"[여기에_APP_KEY_입력]\",\r\n\t\"secretkey\": \"[여기에_APP_SECRET_입력]\"\r\n}",
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        },
+        {
+            "실시간 (웹소켓) 접속키 발급": "Response Example",
+            "Unnamed: 1": "{\r\n    \"approval_key\": \"a2585daf-8c09-4587-9fce-8ab893XXXXX\"\r\n}",
+            "Unnamed: 2": null,
+            "Unnamed: 3": null,
+            "Unnamed: 4": null,
+            "Unnamed: 5": null,
+            "Unnamed: 6": null
+        }
+    ]
+}

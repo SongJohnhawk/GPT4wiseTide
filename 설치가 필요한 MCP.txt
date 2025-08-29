@@ -1,0 +1,33 @@
+# 설치가 필요한 MCP 서버 목록
+# tideWise 시스템에서 사용 중인 MCP 서버
+
+## 현재 활성 MCP 서버
+1. memory-keeper
+   - 경로: C:/Users/songh/mcp-memory-keeper/dist/index.js
+   - 상태: ✓ Connected
+   - 기능: 컨텍스트 메모리 관리, 세션 저장, 검색 기능
+
+## MCP 설치 명령어
+### Claude Code에서 MCP 추가
+```
+claude mcp add memory-keeper
+```
+
+## 설치 방법
+1. Claude Code CLI가 설치되어 있어야 함
+2. 명령어: `claude mcp add memory-keeper`
+3. 설정 확인: `claude mcp list`
+
+## MCP 서버 기능 설명
+- **memory-keeper**: 세션 간 컨텍스트 유지, 작업 기록 관리, 지능형 검색
+
+## 설치 후 확인 방법
+```
+claude mcp list
+```
+위 명령어로 memory-keeper가 ✓ Connected 상태인지 확인
+
+## 주의사항
+- MCP 서버는 Claude Code 환경에서만 동작
+- Node.js 환경이 필요할 수 있음
+- 네트워크 연결 상태에 따라 설치가 지연될 수 있음

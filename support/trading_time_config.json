@@ -1,0 +1,8 @@
+{
+  "trading_start": "09:15",
+  "trading_end": "14:00",
+  "morning_interval": 480,
+  "afternoon_interval": 900,
+  "market_open": "09:05",
+  "market_close": "15:30"
+}

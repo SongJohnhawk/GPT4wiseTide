@@ -1,0 +1,29 @@
+# 완전 무료 데이터 수집 시스템 필수 패키지
+# API 키가 필요없는 패키지들만 포함
+
+# Core packages
+aiohttp>=3.8.0
+requests>=2.28.0
+beautifulsoup4>=4.11.0
+lxml>=4.9.0
+
+# Data processing
+pandas>=1.5.0
+numpy>=1.23.0
+
+# Stock data (Free)
+yfinance>=0.2.28  # Yahoo Finance data (no API key needed)
+feedparser>=6.0.0  # RSS feed parsing
+
+# Optional: Advanced scraping (install if needed)
+# playwright>=1.40.0  # For dynamic content (optional)
+# undetected-chromedriver>=3.5.0  # Anti-detection (optional)
+
+# Optional: Korean NLP (for sentiment analysis)
+# transformers>=4.30.0  # For KoBERT
+# torch>=2.0.0  # PyTorch for deep learning
+# konlpy>=0.6.0  # Korean NLP
+
+# Utilities
+python-dateutil>=2.8.0
+pytz>=2023.3

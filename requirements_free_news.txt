@@ -1,0 +1,79 @@
+# GPT-5 기반 지능형 단타매매 시스템 - 의존성 패키지
+# 이벤트 기반 아키텍처 + 무료 데이터 수집 시스템
+
+# 비동기 처리 및 HTTP 클라이언트
+aiohttp>=3.8.0
+asyncio-throttle>=1.0.0
+httpx>=0.24.0
+requests>=2.31.0
+
+# Redis 클라이언트 (이벤트 버스)
+redis[hiredis]>=4.5.0
+hiredis>=2.2.0
+
+# 데이터 처리
+pandas>=2.0.0
+numpy>=1.24.0
+numba>=0.57.0
+
+# 웹 크롤링 (무료 데이터 수집)
+beautifulsoup4>=4.12.0
+lxml>=4.9.0
+fake-useragent>=1.2.0
+feedparser>=6.0.8
+
+# 주식 데이터 라이브러리
+yfinance>=0.2.0
+
+# OpenAI GPT-5 API
+openai>=1.0.0
+
+# 자연어 처리 및 감성분석
+transformers>=4.30.0
+torch>=2.0.0
+sentencepiece>=0.1.99
+tokenizers>=0.13.0
+
+# 한국어 감성분석 (KoBERT)
+kobert-transformers>=0.4.0
+konlpy>=0.6.0
+
+# 암호화 및 보안
+cryptography>=41.0.0
+PyJWT>=2.8.0
+
+# 시스템 모니터링
+psutil>=5.9.0
+
+# 날짜/시간 처리
+python-dateutil>=2.8.0
+pytz>=2023.3
+
+# JSON 스키마 검증
+jsonschema>=4.17.0
+
+# 로깅 및 디버깅
+colorama>=0.4.6
+rich>=13.4.0
+structlog>=22.1.0
+
+# 설정 파일 처리
+pyyaml>=6.0
+toml>=0.10.2
+python-dotenv>=1.0.0
+
+# 네트워킹 및 통신
+websockets>=11.0.0
+
+# 캐싱 및 성능
+diskcache>=5.6.0
+joblib>=1.2.0
+
+# 선택적 고급 기능 (필요시 설치)
+# playwright>=1.35.0  # 동적 웹페이지 크롤링
+# undetected-chromedriver>=3.5.0  # 고급 안티탐지
+
+# 개발 및 테스트 도구
+pytest>=7.4.0
+pytest-asyncio>=0.21.0
+tqdm>=4.64.0

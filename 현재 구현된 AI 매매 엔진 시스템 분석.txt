@@ -1,0 +1,140 @@
+🤖 현재 구현된 AI 매매 엔진 시스템 분석
+
+  현재 GPT4wiseTide 프로젝트에서 사용하고 있는 AI 매매 판단 시스템을 분석한 결과, 하이브리드 AI 엔진
+  구조로 되어 있습니다.
+
+  🎯 핵심 AI 엔진: Claude + Gemini 하이브리드 시스템
+
+  1. 메인 엔진: ClaudeGeminiHybridEngine
+
+  파일: support/claude_gemini_hybrid_engine.py
+
+  역할: 두 개의 서로 다른 AI 모델을 결합하여 종합적인 매매 결정을 생성
+
+  🧠 Claude AI (정성적 분석)
+
+  - 전문 분야: 펀더멘털 분석
+  - 분석 항목:
+    - 뉴스 감정 분석
+    - 공시 정보 해석
+    - 시장 심리 분석
+    - 기업 가치 평가
+  - 출력: 펀더멘털 점수 + 매수/매도/관망 결정
+
+  🔍 Gemini AI (정량적 분석)
+
+  - 전문 분야: 기술적 분석
+  - 분석 항목:
+    - 차트 패턴 분석
+    - 기술적 지표 (RSI, MACD, 볼린저밴드 등)
+    - 거래량 분석
+    - 추세 및 모멘텀 분석
+  - 출력: 기술적 점수 + 매수/매도/관망 결정
+
+  2. 지원 시스템: AIAPIManager
+
+  파일: support/ai_api_manager.py
+
+  역할:
+  - 모든 AI API 키 중앙 관리
+  - Register_Key.md 파일 전용 설정 관리
+  - OpenAI, Claude, Gemini API 설정 통합
+
+  ⚖️ 하이브리드 결정 융합 로직
+
+  가중치 시스템
+
+  # 기본 가중치 (설정 가능)
+  claude_weight = 0.6   # 펀더멘털 분석 60%
+  gemini_weight = 0.4   # 기술적 분석 40%
+
+  # 최종 신뢰도 계산
+  weighted_confidence = (
+      claude_confidence * 0.6 +
+      gemini_confidence * 0.4
+  )
+
+  결정 융합 규칙
+
+  1. 일치하는 경우: 두 AI가 같은 결정 → 그대로 채택
+  2. 하나라도 HOLD: 보수적 접근으로 HOLD 선택
+  3. 상반된 결정: BUY vs SELL → 안전하게 HOLD 선택
+  4. 기타 경우: 높은 신뢰도를 가진 AI 결정 채택
+
+  🔄 실행 프로세스
+
+  1단계: 병렬 분석
+
+  # 두 AI 엔진 동시 실행
+  claude_task = self._analyze_with_claude(context)
+  gemini_task = self._analyze_with_gemini(context)
+
+  # 병렬 처리 (둘 다 성공해야 진행)
+  claude_result, gemini_result = await asyncio.gather(
+      claude_task, gemini_task,
+      return_exceptions=False
+  )
+
+  2단계: 결과 융합
+
+  - Claude 펀더멘털 분석 결과
+  - Gemini 기술적 분석 결과
+  - 가중 평균으로 최종 신뢰도 계산
+  - 결정 융합 규칙 적용
+
+  3단계: 최종 출력
+
+  DecisionResult(
+      symbol="005930",
+      decision="BUY|SELL|HOLD",
+      confidence=0.75,
+      reasoning="🤖 Claude 펀더멘털 + 🔍 Gemini 기술적 분석"
+  )
+
+  📊 출력 데이터 구조
+
+  Claude 분석 결과
+
+  {
+      "decision": "BUY|SELL|HOLD",
+      "confidence": 0.85,
+      "fundamental_score": 0.8,
+      "sustainability": "HIGH|MEDIUM|LOW",
+      "risk_factors": ["위험요인1", "위험요인2"],
+      "reasoning": "한국어 상세 분석"
+  }
+
+  Gemini 분석 결과
+
+  {
+      "decision": "BUY|SELL|HOLD",
+      "confidence": 0.75,
+      "technical_score": 0.7,
+      "trend": "BULLISH|BEARISH|NEUTRAL",
+      "momentum": "STRONG|WEAK|NEUTRAL",
+      "entry_timing": "EXCELLENT|GOOD|POOR",
+      "reasoning": "기술적 분석 내용"
+  }
+
+● 🚀 시스템 활용 방식
+
+  장점
+
+  ✅ 이중 검증: 펀더멘털 + 기술적 분석 결합✅ 리스크 분산: 한 AI 실패 시에도 안전한 결정✅ 보수적 접근:
+   불일치 시 HOLD로 리스크 최소화✅ 유연한 가중치: 시장 상황에 따라 조정 가능
+
+  설정 위치
+
+  - API 키 설정: Policy/Register_Key/Register_Key.md
+  - 가중치 조정: 하이브리드 설정에서 claude_weight, gemini_weight
+  - 모델 선택: Claude 3.5 Sonnet + Gemini 1.5 Pro (기본값)
+
+  실제 매매에서의 활용
+
+  1. 급등종목 분석: 수집된 급등종목을 하이브리드 AI로 분석
+  2. 매수 신호 생성: 두 AI 모두 BUY 신호 + 높은 신뢰도 시 매수
+  3. 매도 신호 생성: 보유종목 대상으로 손절/익절 판단
+  4. 안전 장치: 불확실할 때는 항상 HOLD 선택
+
+  이 하이브리드 AI 시스템은 단일 AI의 한계를 보완하고, 더 안정적이고 신뢰할 수 있는 매매 판단을
+  제공하는 것이 핵심 목표입니다.

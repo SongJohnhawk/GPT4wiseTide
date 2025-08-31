@@ -1,0 +1,41 @@
+# 보안 파일들 제외
+Policy/Register_Key/token.pickle
+Policy/Register_Key/credentials.json
+Policy/Register_Key/API_key.json
+
+# Python 캐시 파일들
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# 로그 파일들
+logs/
+*.log
+
+# 임시 파일들
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db
+
+# IDE 설정 파일들
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 백업 파일들
+*.bak
+*.backup
+
+# 민감한 데이터 파일들
+*token*
+*credential*
+*secret*
+drive_token.json
+
+# 테스트 관련 임시 파일들
+test_*.txt
+sample_*.txt

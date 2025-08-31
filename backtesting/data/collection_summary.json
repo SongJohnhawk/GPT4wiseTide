@@ -1,0 +1,922 @@
+{
+  "collection_timestamp": "2025-08-31T11:44:12.102364",
+  "total_stocks": 100,
+  "data_types": [
+    "daily",
+    "weekly",
+    "5min",
+    "10min",
+    "30min",
+    "investor_trading"
+  ],
+  "collection_results": {
+    "success": true,
+    "total_files": 299,
+    "elapsed_time": 536.2646675109863,
+    "results": {
+      "263750": {
+        "daily": false,
+        "5min": true,
+        "weekly": false,
+        "10min": true,
+        "30min": true,
+        "investor_trading": false
+      },
+      "042700": {
+        "daily": false,
+        "5min": true,
+        "30min": true,
+        "10min": true,
+        "weekly": false,
+        "investor_trading": false
+      },
+      "068270": {
+        "daily": false,
+        "weekly": false,
+        "10min": true,
+        "5min": true,
+        "30min": true,
+        "investor_trading": false
+      },
+      "001049": {
+        "weekly": false,
+        "5min": true,
+        "daily": false,
+        "30min": true,
+        "10min": true,
+        "investor_trading": false
+      },
+      "001028": {
+        "weekly": false,
+        "daily": false,
+        "5min": true,
+        "10min": true,
+        "investor_trading": false,
+        "30min": true
+      },
+      "035420": {
+        "daily": false,
+        "5min": true,
+        "weekly": false,
+        "30min": true,
+        "10min": true,
+        "investor_trading": false
+      },
+      "322000": {
+        "weekly": false,
+        "daily": false,
+        "5min": true,
+        "10min": true,
+        "30min": true,
+        "investor_trading": false
+      },
+      "003670": {
+        "daily": false,
+        "weekly": false,
+        "10min": true,
+        "5min": true,
+        "30min": true,
+        "investor_trading": false
+      },
+      "001020": {
+        "daily": false,
+        "weekly": false,
+        "5min": true,
+        "10min": true,
+        "30min": true,
+        "investor_trading": false
+      },
+      "001033": {
+        "daily": false,
+        "weekly": false,
+        "10min": true,
+        "5min": true,
+        "investor_trading": false,
+        "30min": true
+      },
+      "272210": {
+        "daily": false,
+        "weekly": false,
+        "5min": true,
+        "30min": true,
+        "10min": true,
+        "investor_trading": false
+      },
+      "001047": {
+        "daily": false,
+        "weekly": false,
+        "5min": true,
+        "30min": true,
+        "10min": true,
+        "investor_trading": false
+      },
+      "005930": {
+        "weekly": false,
+        "daily": false,
+        "5min": true,
+        "30min": true,
+        "10min": true,
+        "investor_trading": false
+      },
+      "001042": {
+        "weekly": false,
+        "daily": false,
+        "5min": true,
+        "30min": true,
+        "10min": true,
+        "investor_trading": false
+      },
+      "001056": {
+        "daily": false,
+        "weekly": false,
+        "5min": true,
+        "10min": true,
+        "30min": true,
+        "investor_trading": false
+      },
+      "001025": {
+        "weekly": false,
+        "daily": false,
+        "10min": true,
+        "30min": true,
+        "5min": true,
+        "investor_trading": false
+      },
+      "001034": {
+        "daily": false,
+        "weekly": false,
+        "10min": true,
+        "5min": true,
+        "30min": true,
+        "investor_trading": false
+      },
+      "001000": {
+        "daily": false,
+        "weekly": false,
+        "5min": true,
+        "30min": true,
+        "10min": true,
+        "investor_trading": false
+      },
+      "001035": {
+        "daily": false,
+        "weekly": false,
+        "5min": true,
+        "10min": true,
+        "30min": true,
+        "investor_trading": false
+      },
+      "001003": {
+        "weekly": false,
+        "daily": false,
+        "5min": true,
+        "10min": true,
+        "30min": true,
+        "investor_trading": false
+      },
+      "240810": {
+        "weekly": false,
+        "daily": false,
+        "5min": true,
+        "10min": true,
+        "investor_trading": false,
+        "30min": true
+      },
+      "012450": {
+        "daily": false,
+        "5min": true,
+        "10min": true,
+        "30min": true,
+        "investor_trading": false,
+        "weekly": false
+      },
+      "001044": {
+        "daily": false,
+        "weekly": false,
+        "5min": true,
+        "investor_trading": false,
+        "10min": true,
+        "30min": true
+      },
+      "302440": {
+        "weekly": false,
+        "daily": false,
+        "5min": true,
+        "10min": true,
+        "investor_trading": false,
+        "30min": true
+      },
+      "001057": {
+        "daily": false,
+        "weekly": false,
+        "30min": true,
+        "10min": true,
+        "investor_trading": false,
+        "5min": true
+      },
+      "001032": {
+        "daily": false,
+        "weekly": false,
+        "5min": true,
+        "investor_trading": false,
+        "30min": true,
+        "10min": true
+      },
+      "001016": {
+        "daily": false,
+        "weekly": false,
+        "5min": true,
+        "investor_trading": false,
+        "10min": true,
+        "30min": true
+      },
+      "259960": {
+        "5min": true,
+        "weekly": false,
+        "daily": false,
+        "10min": true,
+        "30min": true,
+        "investor_trading": false
+      },
+      "001009": {
+        "daily": false,
+        "weekly": false,
+        "5min": true,
+        "investor_trading": false,
+        "30min": true,
+        "10min": true
+      },
+      "001036": {
+        "weekly": false,
+        "daily": false,
+        "5min": true,
+        "investor_trading": false,
+        "30min": true,
+        "10min": false
+      },
+      "001059": {
+        "daily": false,
+        "weekly": false,
+        "5min": true,
+        "10min": true,
+        "investor_trading": false,
+        "30min": true
+      },
+      "001053": {
+        "daily": false,
+        "weekly": false,
+        "5min": true,
+        "10min": true,
+        "investor_trading": false,
+        "30min": true
+      },
+      "035720": {
+        "daily": false,
+        "weekly": false,
+        "5min": true,
+        "10min": true,
+        "30min": true,
+        "investor_trading": false
+      },
+      "001002": {
+        "daily": false,
+        "weekly": false,
+        "5min": true,
+        "10min": true,
+        "30min": true,
+        "investor_trading": false
+      },
+      "373220": {
+        "weekly": false,
+        "daily": false,
+        "5min": true,
+        "30min": true,
+        "10min": true,
+        "investor_trading": false
+      },
+      "001019": {
+        "daily": false,
+        "weekly": false,
+        "30min": true,
+        "10min": true,
+        "5min": true,
+        "investor_trading": false
+      },
+      "001004": {
+        "weekly": false,
+        "daily": false,
+        "30min": true,
+        "10min": true,
+        "investor_trading": false,
+        "5min": true
+      },
+      "108860": {
+        "daily": false,
+        "weekly": false,
+        "10min": true,
+        "5min": true,
+        "30min": true,
+        "investor_trading": false
+      },
+      "095340": {
+        "daily": false,
+        "weekly": false,
+        "10min": true,
+        "5min": true,
+        "30min": true,
+        "investor_trading": false
+      },
+      "018260": {
+        "daily": false,
+        "weekly": false,
+        "10min": true,
+        "5min": true,
+        "30min": true,
+        "investor_trading": false
+      },
+      "001024": {
+        "daily": false,
+        "weekly": false,
+        "5min": true,
+        "investor_trading": false,
+        "30min": true,
+        "10min": true
+      },
+      "001037": {
+        "weekly": false,
+        "daily": false,
+        "5min": true,
+        "investor_trading": false,
+        "30min": true,
+        "10min": true
+      },
+      "001046": {
+        "weekly": false,
+        "daily": false,
+        "10min": true,
+        "5min": true,
+        "investor_trading": false,
+        "30min": true
+      },
+      "326030": {
+        "daily": false,
+        "weekly": false,
+        "10min": true,
+        "30min": true,
+        "5min": true,
+        "investor_trading": false
+      },
+      "001043": {
+        "weekly": false,
+        "daily": false,
+        "5min": true,
+        "10min": true,
+        "investor_trading": false,
+        "30min": true
+      },
+      "018880": {
+        "daily": false,
+        "5min": true,
+        "weekly": false,
+        "10min": true,
+        "30min": true,
+        "investor_trading": false
+      },
+      "001040": {
+        "daily": false,
+        "weekly": false,
+        "5min": true,
+        "30min": true,
+        "10min": true,
+        "investor_trading": false
+      },
+      "001017": {
+        "daily": false,
+        "weekly": false,
+        "30min": true,
+        "10min": true,
+        "5min": true,
+        "investor_trading": false
+      },
+      "030200": {
+        "weekly": false,
+        "daily": false,
+        "5min": true,
+        "30min": true,
+        "10min": true,
+        "investor_trading": false
+      },
+      "006400": {
+        "daily": false,
+        "weekly": false,
+        "5min": true,
+        "10min": true,
+        "30min": true,
+        "investor_trading": false
+      },
+      "001010": {
+        "weekly": false,
+        "daily": false,
+        "10min": true,
+        "30min": true,
+        "5min": true,
+        "investor_trading": false
+      },
+      "001001": {
+        "weekly": false,
+        "daily": false,
+        "5min": true,
+        "10min": true,
+        "30min": true,
+        "investor_trading": false
+      },
+      "001015": {
+        "daily": false,
+        "weekly": false,
+        "10min": true,
+        "5min": true,
+        "30min": true,
+        "investor_trading": false
+      },
+      "001006": {
+        "daily": false,
+        "weekly": false,
+        "10min": true,
+        "5min": true,
+        "30min": true,
+        "investor_trading": false
+      },
+      "001038": {
+        "daily": false,
+        "weekly": false,
+        "5min": true,
+        "30min": true,
+        "10min": true,
+        "investor_trading": false
+      },
+      "001045": {
+        "weekly": false,
+        "daily": false,
+        "5min": true,
+        "10min": true,
+        "30min": true,
+        "investor_trading": false
+      },
+      "001055": {
+        "daily": false,
+        "weekly": false,
+        "10min": true,
+        "30min": true,
+        "5min": true,
+        "investor_trading": false
+      },
+      "001029": {
+        "weekly": false,
+        "daily": false,
+        "30min": true,
+        "10min": true,
+        "5min": true,
+        "investor_trading": false
+      },
+      "207940": {
+        "daily": false,
+        "weekly": false,
+        "5min": true,
+        "10min": true,
+        "30min": true,
+        "investor_trading": false
+      },
+      "001012": {
+        "weekly": false,
+        "daily": false,
+        "5min": true,
+        "30min": true,
+        "10min": true,
+        "investor_trading": false
+      },
+      "001013": {
+        "daily": false,
+        "weekly": false,
+        "10min": true,
+        "5min": true,
+        "30min": true,
+        "investor_trading": false
+      },
+      "005380": {
+        "weekly": false,
+        "daily": false,
+        "5min": true,
+        "10min": true,
+        "30min": true,
+        "investor_trading": false
+      },
+      "001051": {
+        "weekly": false,
+        "daily": false,
+        "5min": true,
+        "30min": true,
+        "10min": true,
+        "investor_trading": false
+      },
+      "096770": {
+        "weekly": false,
+        "5min": true,
+        "10min": true,
+        "30min": true,
+        "daily": false,
+        "investor_trading": false
+      },
+      "001058": {
+        "daily": false,
+        "weekly": false,
+        "5min": true,
+        "investor_trading": false,
+        "30min": true,
+        "10min": true
+      },
+      "001018": {
+        "weekly": false,
+        "daily": false,
+        "5min": true,
+        "investor_trading": false,
+        "30min": true,
+        "10min": true
+      },
+      "001052": {
+        "daily": false,
+        "weekly": false,
+        "5min": true,
+        "investor_trading": false,
+        "10min": true,
+        "30min": true
+      },
+      "001030": {
+        "5min": true,
+        "weekly": false,
+        "daily": false,
+        "10min": true,
+        "30min": true,
+        "investor_trading": false
+      },
+      "000660": {
+        "daily": false,
+        "weekly": false,
+        "10min": true,
+        "5min": true,
+        "30min": true,
+        "investor_trading": false
+      },
+      "001011": {
+        "daily": false,
+        "weekly": false,
+        "5min": true,
+        "30min": true,
+        "10min": true,
+        "investor_trading": false
+      },
+      "028260": {
+        "daily": false,
+        "5min": true,
+        "weekly": false,
+        "30min": true,
+        "10min": true,
+        "investor_trading": false
+      },
+      "001026": {
+        "daily": false,
+        "5min": true,
+        "weekly": false,
+        "10min": true,
+        "30min": true,
+        "investor_trading": false
+      },
+      "001039": {
+        "daily": false,
+        "weekly": false,
+        "10min": true,
+        "5min": true,
+        "30min": true,
+        "investor_trading": false
+      },
+      "247540": {
+        "daily": false,
+        "5min": true,
+        "10min": true,
+        "30min": true,
+        "weekly": false,
+        "investor_trading": false
+      },
+      "012330": {
+        "daily": false,
+        "weekly": false,
+        "10min": true,
+        "5min": true,
+        "30min": true,
+        "investor_trading": false
+      },
+      "001022": {
+        "daily": false,
+        "weekly": false,
+        "5min": true,
+        "investor_trading": false,
+        "30min": true,
+        "10min": true
+      },
+      "001008": {
+        "daily": false,
+        "weekly": false,
+        "5min": true,
+        "investor_trading": false,
+        "10min": true,
+        "30min": true
+      },
+      "047810": {
+        "5min": true,
+        "weekly": false,
+        "10min": true,
+        "30min": true,
+        "investor_trading": false,
+        "daily": false
+      },
+      "145720": {
+        "daily": false,
+        "5min": true,
+        "weekly": false,
+        "10min": true,
+        "30min": true,
+        "investor_trading": false
+      },
+      "001050": {
+        "weekly": false,
+        "daily": false,
+        "10min": true,
+        "5min": true,
+        "investor_trading": false,
+        "30min": true
+      },
+      "009540": {
+        "daily": false,
+        "5min": true,
+        "weekly": false,
+        "30min": true,
+        "10min": true,
+        "investor_trading": false
+      },
+      "066970": {
+        "weekly": false,
+        "daily": false,
+        "5min": true,
+        "10min": true,
+        "30min": true,
+        "investor_trading": false
+      },
+      "251270": {
+        "weekly": false,
+        "daily": false,
+        "5min": true,
+        "30min": true,
+        "10min": true,
+        "investor_trading": false
+      },
+      "001007": {
+        "weekly": false,
+        "daily": false,
+        "5min": true,
+        "30min": true,
+        "10min": true,
+        "investor_trading": false
+      },
+      "001027": {
+        "daily": false,
+        "weekly": false,
+        "10min": true,
+        "5min": true,
+        "30min": true,
+        "investor_trading": false
+      },
+      "051910": {
+        "daily": false,
+        "weekly": false,
+        "5min": true,
+        "10min": true,
+        "30min": true,
+        "investor_trading": false
+      },
+      "000270": {
+        "weekly": false,
+        "daily": false,
+        "5min": true,
+        "30min": true,
+        "investor_trading": false,
+        "10min": true
+      },
+      "001023": {
+        "daily": false,
+        "weekly": false,
+        "30min": true,
+        "10min": true,
+        "investor_trading": false,
+        "5min": true
+      },
+      "017670": {
+        "daily": false,
+        "5min": true,
+        "weekly": false,
+        "10min": true,
+        "30min": true,
+        "investor_trading": false
+      },
+      "036930": {
+        "daily": false,
+        "weekly": false,
+        "5min": true,
+        "10min": true,
+        "30min": true,
+        "investor_trading": false
+      },
+      "001041": {
+        "daily": false,
+        "weekly": false,
+        "5min": true,
+        "investor_trading": false,
+        "30min": true,
+        "10min": true
+      },
+      "001048": {
+        "daily": false,
+        "weekly": false,
+        "5min": true,
+        "investor_trading": false,
+        "30min": true,
+        "10min": true
+      },
+      "036570": {
+        "5min": true,
+        "daily": false,
+        "weekly": false,
+        "10min": true,
+        "30min": true,
+        "investor_trading": false
+      },
+      "278470": {
+        "daily": false,
+        "weekly": false,
+        "5min": true,
+        "10min": true,
+        "investor_trading": false,
+        "30min": true
+      },
+      "001014": {
+        "daily": false,
+        "weekly": false,
+        "5min": true,
+        "10min": true,
+        "investor_trading": false,
+        "30min": true
+      },
+      "196170": {
+        "5min": true,
+        "weekly": false,
+        "10min": true,
+        "daily": false,
+        "30min": true,
+        "investor_trading": false
+      },
+      "001054": {
+        "daily": false,
+        "weekly": false,
+        "30min": true,
+        "5min": true,
+        "investor_trading": false,
+        "10min": true
+      },
+      "001005": {
+        "daily": false,
+        "weekly": false,
+        "5min": true,
+        "investor_trading": false,
+        "30min": true,
+        "10min": true
+      },
+      "001021": {
+        "weekly": false,
+        "5min": true,
+        "30min": true,
+        "10min": true,
+        "investor_trading": false,
+        "daily": false
+      },
+      "001031": {
+        "weekly": false,
+        "5min": true,
+        "daily": false,
+        "30min": true,
+        "10min": true,
+        "investor_trading": false
+      }
+    },
+    "target_stocks": [
+      "263750",
+      "042700",
+      "068270",
+      "001049",
+      "001028",
+      "035420",
+      "322000",
+      "003670",
+      "001020",
+      "001033",
+      "272210",
+      "001047",
+      "005930",
+      "001042",
+      "001056",
+      "001025",
+      "001034",
+      "001000",
+      "001035",
+      "001003",
+      "240810",
+      "012450",
+      "001044",
+      "302440",
+      "001057",
+      "001032",
+      "001016",
+      "259960",
+      "001009",
+      "001036",
+      "001059",
+      "001053",
+      "035720",
+      "001002",
+      "373220",
+      "001019",
+      "001004",
+      "108860",
+      "095340",
+      "018260",
+      "001024",
+      "001037",
+      "001046",
+      "326030",
+      "001043",
+      "018880",
+      "001040",
+      "001017",
+      "030200",
+      "006400",
+      "001010",
+      "001001",
+      "001015",
+      "001006",
+      "001038",
+      "001045",
+      "001055",
+      "001029",
+      "207940",
+      "001012",
+      "001013",
+      "005380",
+      "001051",
+      "096770",
+      "001058",
+      "001018",
+      "001052",
+      "001030",
+      "000660",
+      "001011",
+      "028260",
+      "001026",
+      "001039",
+      "247540",
+      "012330",
+      "001022",
+      "001008",
+      "047810",
+      "145720",
+      "001050",
+      "009540",
+      "066970",
+      "251270",
+      "001007",
+      "001027",
+      "051910",
+      "000270",
+      "001023",
+      "017670",
+      "036930",
+      "001041",
+      "001048",
+      "036570",
+      "278470",
+      "001014",
+      "196170",
+      "001054",
+      "001005",
+      "001021",
+      "001031"
+    ]
+  },
+  "data_directory": "C:\\Claude_Works\\Projects\\GPT4wiseTide\\backtesting\\data"
+}
